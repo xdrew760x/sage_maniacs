@@ -2,9 +2,10 @@
 
 ## Requirements
 
-* PHP >= 5.6
+* PHP >= 7.1
 * Composer - [Install](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
-
+* Yarn
+* Node 15
 ## Installation
 
 1. Create a directory for your project and switch into it.
