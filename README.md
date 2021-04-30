@@ -4,15 +4,16 @@
 
 * PHP >= 7.1
 * Composer - [Install](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
-* Yarn
+* yarn
 * Node 15
+
 ## Installation
 
 1. Create a directory for your project and switch into it.
 `mkdir project-folder && cd project-folder`.
 
 2. Clone the repo into your project directory.
-`git clone git@github.com:xdrew760x/Sage9_Tailwind_2.0.git .`.
+`git clone git@github.com:https://github.com/xdrew760x/Sage9_Tailwind_2.0.git .`.
 
 3. Remove the existing git branch.
 `rm -rf .git`.

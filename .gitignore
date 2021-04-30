@@ -6,6 +6,7 @@
 !.gitignore
 !app/
 !data/
+!wp/
 !default.htm
 !composer.json
 !index.php
