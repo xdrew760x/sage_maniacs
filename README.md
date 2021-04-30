@@ -11,7 +11,7 @@
 `mkdir project-folder && cd project-folder`.
 
 2. Clone the repo into your project directory.
-`git clone git@github.com:ernstoarllano/starter.git .`.
+`git clone git@github.com:xdrew760x/Sage9_Tailwind_2.0.git .`.
 
 3. Remove the existing git branch.
 `rm -rf .git`.
