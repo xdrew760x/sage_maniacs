@@ -1,0 +1,44 @@
+.header-component-a {
+  .header__branding {
+    @apply mx-auto block;
+
+    max-width: var(--branding-max-w-m);
+
+    @media (min-width: 1024px) {
+      @apply ml-0;
+
+      max-width: var(--branding-max-w);
+    }
+  }
+
+  // Primary Navigation
+  .header_nav_a {
+    @apply flex justify-between items-center;
+
+    .menu-item {
+      @apply ml-5 py-3 relative;
+
+      a {
+        @apply uppercase;
+      }
+
+      // Sub-menu
+      .sub-menu {
+        @media (min-width: 1024px) {
+          @apply absolute bg-white hidden;
+
+          top: 100%;
+          left: -15px;
+          min-width: 350px;
+          z-index: 10;
+        }
+
+        &:hover {
+          .sub-menu {
+            @apply block;
+          }
+        }
+      }
+    }
+  }
+}

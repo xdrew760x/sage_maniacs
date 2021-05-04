@@ -118,9 +118,48 @@ function add_class_previous_post_link($html){
 }
 add_filter('previous_post_link','add_class_previous_post_link',10,1);
 
-///remove excerpt link to read more
-
+//
+///
+///remove excerpt link to read more on blog posts
 function custom_excerpt_more( $excerpt ) {
-    return '';
+  return '';
 }
 add_filter( 'excerpt_more', 'custom_excerpt_more' );
+
+//
+///
+///Include Exapnd button for guttenberg backend
+add_action('admin_head', 'gutenberg_menu_expand');
+
+function gutenberg_menu_expand() {
+	echo '
+	<a class="open-sidebar button button--primary" onclick="openWin()">Toggle Toolbar</a>';
+}
+//
+///
+//// Remove stock blocks / Add Custom Blocks
+add_filter( 'allowed_block_types', 'misha_allowed_block_types' );
+function misha_allowed_block_types( $allowed_blocks ) {
+	return array(
+		'acf/header-one',
+		'acf/centered-grid',
+		'acf/feature-grid-list',
+		'core/block' // add this for reusable block
+	);
+}
+//
+///
+//// Registers Block Category for Gutenberg
+function my_blocks_plugin_block_categories( $categories ) {
+	return array_merge(
+		$categories,
+		array(
+			array(
+				'slug' => 'general_blocks',
+				'title' => __( 'General Blocks', 'brm' ),
+				'icon'  => 'wordpress',
+			),
+		)
+	);
+}
+add_filter( 'block_categories', 'my_blocks_plugin_block_categories', 10, 2 );

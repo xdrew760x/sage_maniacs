@@ -1,5 +1,11 @@
-.btn {
-  @apply px-4 py-3 leading-none;
+.button {
+  @apply py-3 px-4 text-white uppercase;
+}
 
-  transition: 0.2s ease;
+.button--primary {
+  background-color: var(--secondary-color);
+
+  &:hover {
+    background-color: var(--tertiary-color);
+  }
 }

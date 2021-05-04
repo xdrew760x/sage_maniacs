@@ -26,34 +26,7 @@ const routes = new Router({
 // Load Events
 jQuery(document).ready(() => routes.loadEvents());
 
-var viewportWidth = $(window).width();
-
-
-// logo on scroll
-var header_a = $('.header-b');
-
-if (viewportWidth >= 50) {
-  $(window).scroll(function() {
-    var scrollX = $(this).scrollTop();
-
-    if (scrollX >= 10) {
-      $(header_a).addClass('scroll-head--b');
-    } else {
-      $(header_a).removeClass('scroll-head--b');
-    }
-  });
-}
-
-
-$(window).scroll(function() {
-  var hideme = $(this).scrollTop();
-
-  if (hideme >= 800) {
-    $('.button--sticky').addClass('scrolled');
-  } else {
-    $('.button--sticky').removeClass('scrolled');
-  }
-});
-
+// Detect and Remove Date Picker Autofill
 $('.gfield .datepicker').each(function () {
-  $(this).attr('autocomplete', 'off'); });
+  $(this).attr('autocomplete', 'off');
+});

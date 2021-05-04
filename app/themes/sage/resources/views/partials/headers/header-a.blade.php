@@ -1,75 +1,68 @@
 @php
-
-$address = get_field('address1', 'options');
-$city = get_field('city', 'options');
+//Variables
+$address = get_field('address_theme', 'options');
+$city = get_field('city_name', 'options');
 $state = get_field('state', 'options');
 $zip = get_field('zipcode', 'options');
-
-$header_booking = get_field('book_now_url', 'options');
-
 $phone = get_field('phone_number', 'options');
-$sec_phone = get_field('sec_number', 'options');
-
-$park_map = get_field('park_map', 'options');
-
-$covid = get_field('covid_message_link', 'options');
+$booking = get_field('reservation_url', 'options');
+$bg_color_top = get_field('top_bg_color', 'options');
 @endphp
 
-<div class="header-a">
-<div class="header__top bg-primary-5">
-  <div class="container md:flex md:flex-row md:items-center md:justify-end hidden md:inline-block">
+<div class="header-component-a">
+  <!-- Header Top Portion
+  Contains Address & Phone Number.
+  ACF - "/wp/wp-admin/post.php?post=137&action=edit" -->
 
+  <div class="header__top {!! $bg_color_top ?: 'bg-white' !!} @if($bg_color_top) text-white @endif">
+    <!-- Mobile Menu Toggle Control
+    JS - "/resources/assets/scripts/main.js" -->
 
-    @if($address)
-    <a href="https://www.google.com/maps/dir/?api=1&destination={{ $address }}+{{ $state }}+ {{ $zip }}" class="md:ml-30 text-primary-3"><i class="fas fa-map-marker-alt"></i> Get Directions</a>
-    @endif
+    <button class="nav-control lg:hidden" aria-label="Click here to toggle mobile navigation">
+      <span class="block relative w-full h-hamburger"></span>
+    </button>
 
-
-    @if( $phone )
-    <a class="text-primary-3 md:ml-30" href="tel:{{ preg_replace('/[^0-9]/', '', $sec_phone) }}"><i class="fas fa-phone"></i> {{ $sec_phone }}</a> <span class="md:mx-2 text-primary-3">or</span> <a class="text-primary-3 font-carlito-regular" href="tel:{{ preg_replace('/[^0-9]/', '', $phone) }}"> {{ $phone }}</a>
-    @endif
-
-    <a href="{!! get_permalink(262) !!}" class="button button--primary ml-0 md:ml-30">Book Now</a>
+    <div class="container flex justify-end items-center">
+      @if( $address )
+      <a href="https://www.google.com/maps/dir/?api=1&destination={{ $address }}+{{ $state }}+ {{ $zip }}"><i class="fas fa-map-marker-alt"></i> <span class="hidden md:inline-block">Get Directions</span></a>
+      @endif
+      @if( $phone )
+      <a href="tel:{{ preg_replace('/[^0-9]/', '', $phone) }}" class="ml-4"><i class="fas fa-map-marker-alt"></i>  <span class="hidden md:inline-block">{{ $phone }}</span></a>
+      @endif
+      @if( $booking )
+      <a href="{!! get_permalink(262) !!}" class="ml-4 button button--primary hidden md:inline-block">Book Now</a>
+      @endif
+    </div>
   </div>
-</div>
 
+  <!-- Header Bottom Portion
+  Contains Website Branding and Primary Navigtion.
+  ACF - "/wp/wp-admin/post.php?post=137&action=edit"
+  Branding - "/wp/wp-admin/admin.php?page=theme-options" -->
 
   <div class="header__bottom">
-    <div class="container pt-2 flex items-center justify-between md:justify-end relative">
-
-      <a class="header__branding w-full max-w-brand md:w-auto md:max-w-initial md:mx-0" href="{{ home_url('/') }}">
+    <div class="container flex justify-between items-center">
+      <a class="header__branding my-3" href="{{ home_url('/') }}">
         @if( $branding )
         <img src="{{ $branding }}" alt="{{ get_bloginfo('name', 'display') }}" />
         @else
         <img src="/app/themes/sage/resources/assets/images/bigrigxpress.svg" alt="{{ get_bloginfo('name', 'display') }}" />
         @endif
       </a>
-
-      <button class="w-hamburger h-hamburger md:hidden nav-toggle js-hamburger" aria-labelledby="toggle-navigation">
-        <span id="toggle-navigation" hidden>Toggle Navigation</span>
-        <span class="block relative w-full h-hamburger"></span>
-      </button>
-
-      <nav class="flex items-start md:items-center">
-
-        @if (has_nav_menu('primary_navigation'))
-        {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'primary-nav-a nav md:flex md:justify-end', 'container' => '']) !!}
+      <nav class="hidden lg:inline-block">
+        @if (has_nav_menu('header_nav_a'))
+        {!! wp_nav_menu(['theme_location' => 'header_nav_a', 'menu_class' => 'header_nav_a', 'container' => '']) !!}
         @endif
-
-        <div class="mobile__meta mt-15">
+        <div class="mobile__meta inline-block md:hidden">
           @if( $phone )
-          <a class="block md:hidden py-3" href="tel:{{ preg_replace('/[^0-9]/', '', $phone) }}"><i class="fas fa-phone"></i> {{ $phone }}</a>
+          <a href="tel:{{ preg_replace('/[^0-9]/', '', $phone) }}"><i class="fas fa-phone"></i> {{ $phone }}</a>
           @endif
-
           @if($address)
-          <a href="{!! $map_link !!}" class="block md:hidden py-3"><i class="fas fa-map-marker-alt"></i> Get Directions</a>
+          <a href="{!! $map_link !!}"><i class="fas fa-map-marker-alt"></i> Get Directions</a>
           @endif
-
-          @if( $park_map )
-          <a class="block md:hidden py-3" href="{!! $park_map !!}"><i class="fas fa-map"></i> Park Map</a>
+          @if( $booking )
+          <a href="{!! get_permalink(262) !!}" class="button button--primary mt-15 desktop-none">Book Now</a>
           @endif
-
-          <a href="{!! get_permalink(262) !!}" class="button button--secondary mt-15 desktop-none">Book Now</a>
         </div>
       </nav>
     </div>

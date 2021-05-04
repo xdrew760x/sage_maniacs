@@ -33,16 +33,21 @@
 */
 @tailwind components;
 
+// Common
 @import "common/global";
-@import "common/variables";
+
+//Components
 @import "components/buttons";
 @import "components/comments";
 @import "components/forms";
 @import "components/wp-classes";
-@import "wordpress/acf";
+@import "components/header/header-component-a";
+
+//Wordpress Default Styling
 @import "wordpress/blocks";
 @import "wordpress/default";
 @import "wordpress/gravityforms";
+@import "wordpress/acf";
 
 /**
 * This injects all of Tailwind's utility classes, generated based on your

@@ -1,0 +1,119 @@
+@media (min-width: 782px) {
+  .is-sidebar-opened .interface-interface-skeleton__sidebar {
+    width: 20%;
+    min-width: 20% !important;
+    transition: all ease 0.2s;
+    position: fixed !important;
+    right: 0;
+    left: auto;
+    margin-top: 95px;
+    z-index: 500;
+  }
+
+  .interface-interface-skeleton__left-sidebar {
+    position: absolute !important;
+    width: 100%;
+    max-width: 400px;
+    max-height: 500px;
+    top: 0;
+    left: 60px;
+    z-index: 1000;
+  }
+}
+
+.expand-me {
+  width: 40% !important;
+  z-index: 100 !important;
+}
+
+.components-notice-list,
+.edit-post-layout__metaboxes {
+  max-width: 75% !important;
+}
+
+.edit-post-layout__metaboxes {
+  z-index: 100 !important;
+}
+
+.block-editor-block-list__layout {
+  overflow: hidden !important;
+  position: relative;
+  width: 78% !important;
+}
+
+.block-editor-block-list__layout .block-editor-block-list__layout {
+  width: 100% !important;
+}
+
+.wp-editor-area {
+  height: 150px !important;
+}
+
+.interface-complementary-area {
+  width: 100% !important;
+}
+
+.block-list-appender {
+  z-index: 10;
+  position: relative;
+}
+
+.editor-styles-wrapper .block-editor-block-list__block {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.open-sidebar {
+  @apply absolute text-black px-4 py-2;
+
+  right: 0;
+  bottom: 0;
+  font-size: 30px;
+  transition: all ease  0.2s;
+  z-index: 1000;
+
+  &::before {
+    content: "\2190";
+    padding-right: 15px;
+  }
+
+  &:hover {
+    right: 0;
+  }
+}
+
+.block-editor-inserter__menu .preview-none {
+  display: none !important;
+}
+
+.block-editor-inserter__menu .block_preview {
+  display: block !important;
+}
+
+.editor-styles-wrapper *,
+.editor-styles-wrapper *::before,
+.editor-styles-wrapper *::after {
+  position: relative;
+}
+
+.hero__video {
+  z-index: 1 !important;
+}
+
+.edit-post-visual-editor {
+  padding-left: 0 !important;
+}
+
+.editor-post-title {
+  background-color: white;
+  margin-top: -30px !important;
+}
+
+.components-popover__content {
+  z-index: 5 !important;
+}
+
+.wp-block {
+  position: relatiive;
+  z-index: 2 !important;
+}

@@ -1,6 +1,7 @@
-<!doctype html>
+<!doctype html>  
 <html {!! get_language_attributes() !!}>
 @include('partials.head')
+@include('partials.head-controls')
 @php
 $header_fixed = get_field('fixed_position','options');
 

@@ -14,13 +14,6 @@ if ( class_exists('ACF') ) {
         'icon_url'   => 'dashicons-admin-site-alt3',
         'redirect'   => false
       ]);
-
-      acf_add_options_sub_page([
-        'page_title'  => __('Page Components'),
-        'menu_title'  => __('Page Components'),
-        'parent_slug' => 'theme-options'
-      ]);
-
     }
   }
 }

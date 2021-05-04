@@ -83,18 +83,14 @@ add_action('after_setup_theme', function () {
   */
 
   register_nav_menus([
-    'footer_navigation_c' => __('Footer', 'sage')
+    'header_nav_a' => __('Header Component A', 'sage')
   ]);
 
-
-  /// Header Type B
-  register_nav_menus([
-    'primary_type_b_left' => __('Left Navigation Type B', 'sage')
-  ]);
 
   register_nav_menus([
-    'primary_type_b_right' => __('Right Navigation Type B', 'sage')
+    'footer_nav' => __('Footer', 'sage')
   ]);
+
 
 
   /**
@@ -121,11 +117,16 @@ add_action('after_setup_theme', function () {
   */
   add_theme_support('editor-styles');
   add_editor_style(asset_path('styles/main.css'));
-  wp_enqueue_script('sage/shame.js', get_stylesheet_directory_uri() . '/assets/shame/shame.js', ['jquery'], null, true);
 }, 20);
 
 
+add_action('enqueue_block_editor_assets', function () {
+  wp_enqueue_style('sage/acf.css', asset_path('styles/acf.css'), false, null);
+});
 
+add_action('enqueue_block_editor_assets', function () {
+  wp_enqueue_script('sage/shame.js', get_stylesheet_directory_uri() . '/assets/shame/shame.js', ['jquery'], null, true);
+});
 
 
 /**
