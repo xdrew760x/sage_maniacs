@@ -7,6 +7,8 @@
 !app/
 !data/
 !wp/
+!vendor/
+!data/
 !default.htm
 !composer.json
 !index.php
