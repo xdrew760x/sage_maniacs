@@ -1,3 +1,4 @@
+// Main Container
 .container {
   @apply w-full mx-auto block px-2;
 
@@ -6,17 +7,17 @@
 
 // hamburger Icon
 .nav-control {
-  @apply bg-black relative ml-2;
+  @apply bg-white relative ml-2 -mt-1;
 
   width: 30px;
-  height: 3px;
+  height: 5px;
 
   .nav-is-open & {
-    @apply bg-white;
+    @apply bg-transparent;
   }
 
   span {
-    @apply bg-black;
+    @apply bg-white;
 
     transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
     transition-duration: 0.32s;
@@ -25,8 +26,9 @@
     &::after {
       content: "";
       transition-duration: 0.32s;
+      height: 5px;
 
-      @apply absolute bg-black left-0 right-0 w-full h-1;
+      @apply absolute bg-white left-0 right-0 w-full h-1;
     }
 
     &::before {
@@ -35,8 +37,7 @@
 
       // Navigation Open
       .nav-is-open & {
-        top: 0;
-        opacity: 0;
+        top: -5px;
         transition: top 0.2s ease-out, opacity 0.1s ease-out 0.12s;
       }
     }

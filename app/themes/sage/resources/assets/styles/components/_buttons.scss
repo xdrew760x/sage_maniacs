@@ -1,11 +1,25 @@
 .button {
   @apply py-3 px-4 text-white uppercase;
+
+  border-radius: var(--border-radius);
+  padding: var(--padding-y) var(--padding-x);
 }
 
 .button--primary {
-  background-color: var(--secondary-color);
+  border: var(--border-width) var(--border-type) var(--border-color);
+  background-color: var(--button-prime);
+  border-width: var(--border-width);
 
   &:hover {
-    background-color: var(--tertiary-color);
+    background-color: var(--button-sec);
+  }
+}
+
+.button--secondary {
+  border: var(--border-width-sec) var(--border-type-sec) var(--border-color-sec);
+  background-color: var(--button-sec);
+
+  &:hover {
+    background-color: var(--button-prime);
   }
 }

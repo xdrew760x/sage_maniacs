@@ -5,7 +5,7 @@ export default {
     // JavaScript to be fired on all pages
     const anchors = document.querySelectorAll('a')
     const paragraphs = document.querySelectorAll('p')
-    const hamburger = document.querySelector('.js-hamburger')
+    const hamburger = document.querySelector('.nav-control')
     const dropdowns = document.querySelectorAll('.menu-item-has-children')
     const galleryThumbs = document.querySelectorAll('.gallery-icon')
 

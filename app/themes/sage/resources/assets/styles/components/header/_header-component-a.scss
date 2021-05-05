@@ -1,39 +1,84 @@
 .header-component-a {
-  .header__branding {
-    @apply mx-auto block;
+  @apply relative;
 
-    max-width: var(--branding-max-w-m);
+  .header__bottom {
+    .nav-is-open & {
+      @apply w-full mt-12;
 
-    @media (min-width: 1024px) {
-      @apply ml-0;
+      position: absolute;
+      top: 0;
+      background-color: var(--mobile-menu);
+      height: 100vh;
+      overflow-y: scroll;
 
-      max-width: var(--branding-max-w);
+      a {
+        font-size: var(--mobile-menu-font);
+        color: var(--menu-font-color-mobile);
+      }
+    }
+
+    .header__branding {
+      @apply mx-auto block;
+
+      max-width: var(--branding-max-w-m);
+
+      @media (min-width: 1024px) {
+        @apply ml-0;
+
+        max-width: var(--branding-max-w);
+      }
+    }
+
+    nav {
+      .nav-is-open & {
+        @apply block w-full;
+      }
     }
   }
 
   // Primary Navigation
   .header_nav_a {
-    @apply flex justify-between items-center;
+    @media (min-width: 1024px) {
+      @apply flex justify-between items-center;
+    }
 
     .menu-item {
       @apply ml-5 py-3 relative;
 
-      a {
+      .nav-is-open & {
+        @apply ml-0 py-0 mb-4;
+      }
+
+      a,
+      i,
+      svg {
         @apply uppercase;
+
+        font-size: var(--mobile-menu-font);
+        color: var(--menu-font-color-mobile);
+
+        @media (min-width: 1024px) {
+          font-size: var(--menu-font);
+          color: var(--menu-font-color);
+        }
       }
 
       // Sub-menu
       .sub-menu {
+        @apply hidden;
+
         @media (min-width: 1024px) {
-          @apply absolute bg-white hidden;
+          @apply absolute bg-white;
 
           top: 100%;
           left: -15px;
           min-width: 350px;
           z-index: 10;
         }
+      }
 
-        &:hover {
+      &:hover {
+        @media (min-width: 1024px) {
           .sub-menu {
             @apply block;
           }
