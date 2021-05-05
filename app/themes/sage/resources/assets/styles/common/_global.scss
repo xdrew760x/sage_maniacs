@@ -6,16 +6,17 @@
 
 // hamburger Icon
 .nav-control {
-  @apply bg-white relative;
+  @apply bg-black relative ml-2;
 
   width: 30px;
+  height: 3px;
 
   .nav-is-open & {
     @apply bg-white;
   }
 
   span {
-    @apply bg-white;
+    @apply bg-black;
 
     transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
     transition-duration: 0.32s;

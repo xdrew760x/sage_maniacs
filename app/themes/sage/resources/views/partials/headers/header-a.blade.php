@@ -68,15 +68,3 @@ $bg_color_top = get_field('top_bg_color', 'options');
     </div>
   </div>
 </div>
-
-<<<<<<< HEAD
-testing  1 2 3 4 5 6  efewf
- efew
-modify local
-=======
-testing  1 2 3 4 5 6
-
-kevins update
-
-adrians update
->>>>>>> 76b17785c24b7138206cf9d21672e4ee53ae5c46
