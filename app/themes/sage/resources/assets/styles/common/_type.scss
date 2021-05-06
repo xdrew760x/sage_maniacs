@@ -16,6 +16,8 @@ h1 {
 
   // 1024
   @media (min-width: 1024px) {
+    font-size: var(--h1-desk);
+
     .section-brm--hero & {
       //
     }
