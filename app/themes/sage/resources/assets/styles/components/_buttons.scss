@@ -1,5 +1,5 @@
 .button {
-  @apply py-3 px-4 text-white uppercase;
+  @apply py-3 px-4 text-white uppercase font-button;
 
   border-radius: var(--border-radius);
   padding: var(--padding-y) var(--padding-x);

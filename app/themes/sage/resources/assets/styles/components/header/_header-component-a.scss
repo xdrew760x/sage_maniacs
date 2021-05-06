@@ -1,6 +1,14 @@
 .header-component-a {
   @apply relative;
 
+  .header__top {
+    background-color: var(--top-menu);
+
+    * {
+      color: var(--top-menu-font-color);
+    }
+  }
+
   .header__bottom {
     .nav-is-open & {
       @apply w-full mt-12;
@@ -71,7 +79,7 @@
           @apply absolute bg-white;
 
           top: 100%;
-          left: -15px;
+          left: -20px;
           min-width: 350px;
           z-index: 10;
         }

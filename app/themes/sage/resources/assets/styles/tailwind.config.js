@@ -1,6 +1,4 @@
 let colors = {
-  'primary': '#525ddc',
-
   'transparent': 'transparent',
 
   'black': '#22292f',
@@ -112,6 +110,10 @@ module.exports = {
       indigo: colors.indigo,
       purple: colors.violet,
       pink: colors.pink,
+      primary1: 'var(--primary-color)',
+      primary2: 'var(--secondary-color)',
+      primary3: 'var(--tertiary-color)',
+      primary4: 'var(--quaternary-color)',
     },
     spacing: {
       px: '1px',
@@ -346,6 +348,49 @@ module.exports = {
         '"Liberation Mono"',
         '"Courier New"',
         'monospace',
+      ],
+      // Header Font Family
+      'heading-one': [
+        'heading-one'
+      ],
+      'heading-two': [
+        'heading-two'
+      ],
+      'heading-three': [
+        'heading-three'
+      ],
+      'heading-four': [
+        'heading-four'
+      ],
+      'heading-five': [
+        'heading-five'
+      ],
+      'heading-six': [
+        'heading-six'
+      ],
+
+      // Body Font family
+      'body': [
+        'body'
+      ],
+      'anchor': [
+        'anchor'
+      ],
+      'strong': [
+        'strong'
+      ],
+      'span': [
+        'span'
+      ],
+      'small': [
+        'small'
+      ],
+      'button': [
+        'button'
+      ],
+
+      'awesome': [
+        'awesome'
       ],
     },
     fontSize: {
@@ -810,7 +855,7 @@ module.exports = {
       none: 'none',
       all: 'all',
       DEFAULT:
-        'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter',
+      'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter',
       colors: 'background-color, border-color, color, fill, stroke',
       opacity: 'opacity',
       shadow: 'box-shadow',

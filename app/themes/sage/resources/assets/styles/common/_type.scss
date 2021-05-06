@@ -1,0 +1,71 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  //
+}
+
+h1 {
+  @apply font-heading-one;
+
+  .section-brm--hero & {
+    //
+  }
+
+  // 1024
+  @media (min-width: 1024px) {
+    .section-brm--hero & {
+      //
+    }
+  }
+}
+
+h2 {
+  @apply font-heading-two;
+
+  .section-brm--hero & {
+    //
+  }
+}
+
+h3 {
+  @apply font-heading-three;
+}
+
+h4 {
+  @apply font-heading-four;
+}
+
+h5 {
+  @apply font-heading-five;
+}
+
+h6 {
+  @apply font-heading-six;
+}
+
+p,
+ul:not([class]),
+span,
+body {
+  @apply font-body;
+
+  @media (max-width: 1023px) {
+    //
+  }
+}
+
+b,
+strong {
+  @apply font-strong;
+}
+
+a {
+  @apply font-anchor;
+}
+
+small {
+  @apply font-small;
+}
