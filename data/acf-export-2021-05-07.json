@@ -146,6 +146,31 @@
                         "mime_types": "woff, woff2, otf, ttf"
                     },
                     {
+                        "key": "field_6095a875e5b29",
+                        "label": "Transform",
+                        "name": "transform_h1",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "uppercase": "uppercase",
+                            "capitalize": "capitalize"
+                        },
+                        "default_value": false,
+                        "allow_null": 1,
+                        "multiple": 0,
+                        "ui": 0,
+                        "return_format": "value",
+                        "ajax": 0,
+                        "placeholder": ""
+                    },
+                    {
                         "key": "field_60946a60652a6",
                         "label": "Font Size Desktop",
                         "name": "h1_size_desk",
@@ -199,6 +224,105 @@
                         "default_value": ""
                     },
                     {
+                        "key": "field_609595d5188cd",
+                        "label": "Hero",
+                        "name": "",
+                        "type": "message",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "100",
+                            "class": "",
+                            "id": ""
+                        },
+                        "message": "adjust the font style for H1 tags within the Hero Component",
+                        "new_lines": "wpautop",
+                        "esc_html": 0
+                    },
+                    {
+                        "key": "field_609591860d2f1",
+                        "label": "Hero Font Family",
+                        "name": "header_one_hero",
+                        "type": "file",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "library": "all",
+                        "min_size": "",
+                        "max_size": "",
+                        "mime_types": "woff, woff2, otf, ttf"
+                    },
+                    {
+                        "key": "field_6095a8e27777f",
+                        "label": "Transform",
+                        "name": "transform_h1_hero",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "uppercase": "uppercase",
+                            "capitalize": "capitalize"
+                        },
+                        "default_value": false,
+                        "allow_null": 1,
+                        "multiple": 0,
+                        "ui": 0,
+                        "return_format": "value",
+                        "ajax": 0,
+                        "placeholder": ""
+                    },
+                    {
+                        "key": "field_609591b00d2f2",
+                        "label": "Font Size Desktop",
+                        "name": "h1_size_desk_hero",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_609591b40d2f3",
+                        "label": "Font Size Mobile",
+                        "name": "h1_size_mob_hero",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
                         "key": "field_6094569607a63",
                         "label": "H2",
                         "name": "",
@@ -219,11 +343,11 @@
                         "label": "Font Family",
                         "name": "header_two",
                         "type": "file",
-                        "instructions": "Theme font",
+                        "instructions": "",
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
-                            "width": "33",
+                            "width": "25",
                             "class": "",
                             "id": ""
                         },
@@ -232,6 +356,84 @@
                         "min_size": "",
                         "max_size": "",
                         "mime_types": "woff, woff2, otf, ttf"
+                    },
+                    {
+                        "key": "field_6095a8f377780",
+                        "label": "Transform",
+                        "name": "transform_h2",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "uppercase": "uppercase",
+                            "capitalize": "capitalize"
+                        },
+                        "default_value": false,
+                        "allow_null": 1,
+                        "multiple": 0,
+                        "ui": 0,
+                        "return_format": "value",
+                        "ajax": 0,
+                        "placeholder": ""
+                    },
+                    {
+                        "key": "field_6095924154827",
+                        "label": "Font Size Desktop",
+                        "name": "h2_size_desk",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_6095924354828",
+                        "label": "Font Size Mobile",
+                        "name": "h2_size_mob",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_6095926654829",
+                        "label": "Color",
+                        "name": "h2_color",
+                        "type": "color_picker",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": ""
                     },
                     {
                         "key": "field_6094630ce3f1c",
@@ -254,11 +456,11 @@
                         "label": "Font Family",
                         "name": "header_three",
                         "type": "file",
-                        "instructions": "Theme font",
+                        "instructions": "",
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
-                            "width": "33",
+                            "width": "25",
                             "class": "",
                             "id": ""
                         },
@@ -267,6 +469,84 @@
                         "min_size": "",
                         "max_size": "",
                         "mime_types": "woff, woff2, otf, ttf"
+                    },
+                    {
+                        "key": "field_6095a90777781",
+                        "label": "Transform",
+                        "name": "transform_h3",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "uppercase": "uppercase",
+                            "capitalize": "capitalize"
+                        },
+                        "default_value": false,
+                        "allow_null": 1,
+                        "multiple": 0,
+                        "ui": 0,
+                        "return_format": "value",
+                        "ajax": 0,
+                        "placeholder": ""
+                    },
+                    {
+                        "key": "field_6095930dd7767",
+                        "label": "Font Size Desktop",
+                        "name": "h3_size_desk",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_60959310d7768",
+                        "label": "Font Size Mobile",
+                        "name": "h3_size_mob",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_60959312d7769",
+                        "label": "Color",
+                        "name": "h3_color",
+                        "type": "color_picker",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": ""
                     },
                     {
                         "key": "field_60946318e3f1d",
@@ -289,11 +569,11 @@
                         "label": "Font Family",
                         "name": "header_four",
                         "type": "file",
-                        "instructions": "Theme font",
+                        "instructions": "",
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
-                            "width": "33",
+                            "width": "25",
                             "class": "",
                             "id": ""
                         },
@@ -302,6 +582,84 @@
                         "min_size": "",
                         "max_size": "",
                         "mime_types": "woff, woff2, otf, ttf"
+                    },
+                    {
+                        "key": "field_6095a96177782",
+                        "label": "Transform",
+                        "name": "transform_h4",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "uppercase": "uppercase",
+                            "capitalize": "capitalize"
+                        },
+                        "default_value": false,
+                        "allow_null": 1,
+                        "multiple": 0,
+                        "ui": 0,
+                        "return_format": "value",
+                        "ajax": 0,
+                        "placeholder": ""
+                    },
+                    {
+                        "key": "field_60959335d776a",
+                        "label": "Font Size Desktop",
+                        "name": "h4_size_desk",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_60959338d776b",
+                        "label": "Font Size Mobile",
+                        "name": "h4_size_mob",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_6095933bd776c",
+                        "label": "Color",
+                        "name": "h4_color",
+                        "type": "color_picker",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": ""
                     },
                     {
                         "key": "field_60946324e3f1e",
@@ -324,11 +682,11 @@
                         "label": "Font Family",
                         "name": "header_five",
                         "type": "file",
-                        "instructions": "Theme font",
+                        "instructions": "",
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
-                            "width": "33",
+                            "width": "25",
                             "class": "",
                             "id": ""
                         },
@@ -337,6 +695,84 @@
                         "min_size": "",
                         "max_size": "",
                         "mime_types": "woff, woff2, otf, ttf"
+                    },
+                    {
+                        "key": "field_6095a96e77783",
+                        "label": "Transform",
+                        "name": "transform_h5",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "uppercase": "uppercase",
+                            "capitalize": "capitalize"
+                        },
+                        "default_value": false,
+                        "allow_null": 1,
+                        "multiple": 0,
+                        "ui": 0,
+                        "return_format": "value",
+                        "ajax": 0,
+                        "placeholder": ""
+                    },
+                    {
+                        "key": "field_60959366d776d",
+                        "label": "Font Size Desktop",
+                        "name": "h5_size_desk",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_60959369d776e",
+                        "label": "Font Size Mobile",
+                        "name": "h5_size_mob",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_6095936bd776f",
+                        "label": "Color",
+                        "name": "h5_color",
+                        "type": "color_picker",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": ""
                     },
                     {
                         "key": "field_60946331e3f1f",
@@ -359,11 +795,11 @@
                         "label": "Font Family",
                         "name": "header_six",
                         "type": "file",
-                        "instructions": "Theme font",
+                        "instructions": "",
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
-                            "width": "33",
+                            "width": "25",
                             "class": "",
                             "id": ""
                         },
@@ -372,6 +808,84 @@
                         "min_size": "",
                         "max_size": "",
                         "mime_types": "woff, woff2, otf, ttf"
+                    },
+                    {
+                        "key": "field_6095a97a77784",
+                        "label": "Transform",
+                        "name": "transform_h6",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "uppercase": "uppercase",
+                            "capitalize": "capitalize"
+                        },
+                        "default_value": false,
+                        "allow_null": 1,
+                        "multiple": 0,
+                        "ui": 0,
+                        "return_format": "value",
+                        "ajax": 0,
+                        "placeholder": ""
+                    },
+                    {
+                        "key": "field_60959397d7770",
+                        "label": "Font Size Desktop",
+                        "name": "h6_size_desk",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_6095939bd7771",
+                        "label": "Font Size Mobile",
+                        "name": "h6_size_mob",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_6095939dd7772",
+                        "label": "Color",
+                        "name": "h6_color",
+                        "type": "color_picker",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": ""
                     },
                     {
                         "key": "field_6094571307a69",
@@ -394,11 +908,11 @@
                         "label": "Base Font",
                         "name": "base_font",
                         "type": "file",
-                        "instructions": "Theme font",
+                        "instructions": "",
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
-                            "width": "33",
+                            "width": "25",
                             "class": "",
                             "id": ""
                         },
@@ -407,6 +921,84 @@
                         "min_size": "",
                         "max_size": "",
                         "mime_types": "woff, woff2, otf, ttf"
+                    },
+                    {
+                        "key": "field_6095a98777785",
+                        "label": "Transform",
+                        "name": "transform_p",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "uppercase": "uppercase",
+                            "capitalize": "capitalize"
+                        },
+                        "default_value": false,
+                        "allow_null": 1,
+                        "multiple": 0,
+                        "ui": 0,
+                        "return_format": "value",
+                        "ajax": 0,
+                        "placeholder": ""
+                    },
+                    {
+                        "key": "field_609593c7d7773",
+                        "label": "Font Size Desktop",
+                        "name": "p_size_desk",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_609593cad7774",
+                        "label": "Font Size Mobile",
+                        "name": "p_size_mob",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_609593ccd7775",
+                        "label": "Color",
+                        "name": "p_color",
+                        "type": "color_picker",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": ""
                     },
                     {
                         "key": "field_60946376af0da",
@@ -429,11 +1021,11 @@
                         "label": "Font Family",
                         "name": "anchor_links",
                         "type": "file",
-                        "instructions": "Theme font",
+                        "instructions": "",
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
-                            "width": "33",
+                            "width": "25",
                             "class": "",
                             "id": ""
                         },
@@ -442,6 +1034,99 @@
                         "min_size": "",
                         "max_size": "",
                         "mime_types": "woff, woff2, otf, ttf"
+                    },
+                    {
+                        "key": "field_6095a99677786",
+                        "label": "Transform",
+                        "name": "transform_a",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "uppercase": "uppercase",
+                            "capitalize": "capitalize"
+                        },
+                        "default_value": false,
+                        "allow_null": 1,
+                        "multiple": 0,
+                        "ui": 0,
+                        "return_format": "value",
+                        "ajax": 0,
+                        "placeholder": ""
+                    },
+                    {
+                        "key": "field_609593f8d7776",
+                        "label": "Font Size Desktop",
+                        "name": "a_size_desk",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_609593fbd7777",
+                        "label": "Font Size Mobile",
+                        "name": "a_size_mob",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_609593fed7778",
+                        "label": "Color",
+                        "name": "a_color",
+                        "type": "color_picker",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": ""
+                    },
+                    {
+                        "key": "field_6095a20418f80",
+                        "label": "Color (Hovered)",
+                        "name": "a_color_hover",
+                        "type": "color_picker",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": ""
                     },
                     {
                         "key": "field_6094639baf0db",
@@ -464,46 +1149,11 @@
                         "label": "Font Family",
                         "name": "strong_element",
                         "type": "file",
-                        "instructions": "Theme font",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "33",
-                            "class": "",
-                            "id": ""
-                        },
-                        "return_format": "array",
-                        "library": "all",
-                        "min_size": "",
-                        "max_size": "",
-                        "mime_types": "woff, woff2, otf, ttf"
-                    },
-                    {
-                        "key": "field_609463b0af0dc",
-                        "label": "Span",
-                        "name": "",
-                        "type": "tab",
                         "instructions": "",
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "placement": "top",
-                        "endpoint": 0
-                    },
-                    {
-                        "key": "field_6094576e07a6e",
-                        "label": "Font Family",
-                        "name": "span_element",
-                        "type": "file",
-                        "instructions": "Theme font",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "33",
+                            "width": "25",
                             "class": "",
                             "id": ""
                         },
@@ -512,6 +1162,84 @@
                         "min_size": "",
                         "max_size": "",
                         "mime_types": "woff, woff2, otf, ttf"
+                    },
+                    {
+                        "key": "field_6095a9a277787",
+                        "label": "Transform",
+                        "name": "transform_strong",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "uppercase": "uppercase",
+                            "capitalize": "capitalize"
+                        },
+                        "default_value": false,
+                        "allow_null": 1,
+                        "multiple": 0,
+                        "ui": 0,
+                        "return_format": "value",
+                        "ajax": 0,
+                        "placeholder": ""
+                    },
+                    {
+                        "key": "field_6095942c3c12f",
+                        "label": "Font Size Desktop",
+                        "name": "s_size_desk",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_609594343c130",
+                        "label": "Font Size Mobile",
+                        "name": "s_size_mob",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_6095943b3c132",
+                        "label": "Color",
+                        "name": "s_color",
+                        "type": "color_picker",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": ""
                     },
                     {
                         "key": "field_609463bbaf0dd",
@@ -534,11 +1262,11 @@
                         "label": "Font Family",
                         "name": "small_element",
                         "type": "file",
-                        "instructions": "Theme font",
+                        "instructions": "",
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
-                            "width": "33",
+                            "width": "25",
                             "class": "",
                             "id": ""
                         },
@@ -547,6 +1275,84 @@
                         "min_size": "",
                         "max_size": "",
                         "mime_types": "woff, woff2, otf, ttf"
+                    },
+                    {
+                        "key": "field_6095a9b077788",
+                        "label": "Transform",
+                        "name": "transform_small",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "uppercase": "uppercase",
+                            "capitalize": "capitalize"
+                        },
+                        "default_value": false,
+                        "allow_null": 1,
+                        "multiple": 0,
+                        "ui": 0,
+                        "return_format": "value",
+                        "ajax": 0,
+                        "placeholder": ""
+                    },
+                    {
+                        "key": "field_6095954c3c136",
+                        "label": "Font Size Desktop",
+                        "name": "small_size_desk",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_6095954e3c137",
+                        "label": "Font Size Mobile",
+                        "name": "small_size_mob",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_609595503c138",
+                        "label": "Color",
+                        "name": "small_color",
+                        "type": "color_picker",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": ""
                     },
                     {
                         "key": "field_609463cfaf0de",
@@ -569,11 +1375,11 @@
                         "label": "Font Family",
                         "name": "button_element",
                         "type": "file",
-                        "instructions": "Theme font",
+                        "instructions": "",
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
-                            "width": "33",
+                            "width": "25",
                             "class": "",
                             "id": ""
                         },
@@ -582,6 +1388,59 @@
                         "min_size": "",
                         "max_size": "",
                         "mime_types": "woff, woff2, otf, ttf"
+                    },
+                    {
+                        "key": "field_609595783c139",
+                        "label": "Font Size Desktop",
+                        "name": "button_size_desk",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_6095957a3c13a",
+                        "label": "Font Size Mobile",
+                        "name": "button_size_mob",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_6095957c3c13b",
+                        "label": "Color",
+                        "name": "button_color",
+                        "type": "color_picker",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "25",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": ""
                     }
                 ]
             },
