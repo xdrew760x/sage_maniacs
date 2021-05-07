@@ -16,6 +16,12 @@ $font_options = get_field('font_options', 'options');
 $heading_one = get_field('header_one', 'options');
 $heading_oneformat = pathinfo( $heading_one['filename'], PATHINFO_EXTENSION);
 $heading_oneurl = $heading_one['url'];
+$h1_size_desk = get_field('h1_size_desk', 'options');
+$h1_size_mob = get_field('h1_size_mob', 'options');
+$h1_color = get_field('h1_color', 'options');
+
+// Hero
+$header_one_hero = get_field('header_one_hero', 'options');
 
 // Heading Two
 $heading_two = get_field('header_two', 'options');
@@ -101,6 +107,7 @@ $header = get_field('component_type', 'options');
     --mobile-menu-font: {{ $header['primary_menu_mobile'] }}px;
     --menu-font-color: {{ $header['primary_menu_color'] }};
     --menu-font-color-mobile: {{ $header['primary_menu_color_mobile'] }};
+
     /* Buttons */
     --padding-y: {{ $pad_y }}px;
     --padding-x: {{ $pad_x }}px;
@@ -110,22 +117,97 @@ $header = get_field('component_type', 'options');
     --border-width: {{ $button['border_width_prime'] }}px;
     --border-type: {{ $button['border_type_prime'] }};
     --border-color: {{ $button['border_color_prime'] }};
+
     /* Secondary button */
-    --button-secondary: {{ $button['button_bg_sec'] }};
+    --button-sec: {{ $button['button_bg_sec'] }};
     --border-width-sec: {{ $button['border_width_sec'] }}px;
     --border-type-sec: {{ $button['boarder_type_sec'] }};
     --border-color-sec: {{ $button['boarder_color_sec'] }};
 
     /* Header One */
-    --h1-desk: {{ $font_options['h1_size_desk'] }};
-    --h1-mobile: {{ $font_options['h1_size_mobile'] }};
+    --h1-desk: {{ $font_options['h1_size_desk'] }}px;
+    --h1-mobile: {{ $font_options['h1_size_mobile'] }}px;
     --h1-color: {{ $font_options['h1_color'] }};
+    --h1-transform: {{ $font_options['transform_h1'] }};
+
+    /* Header One Hero */
+    --h1-hero-desk: {{ $font_options['h1_size_desk_hero'] }}px;
+    --h1-hero-mobile: {{ $font_options['h1_size_mob_hero'] }}px;
+    --h1-hero-transform: {{ $font_options['transform_h1_hero'] }};
+
+    /* Header two */
+    --h2-desk: {{ $font_options['h2_size_desk'] }}px;
+    --h2-mobile: {{ $font_options['h2_size_mob'] }}px;
+    --h2-color: {{ $font_options['h2_color'] }};
+    --h2-transform: {{ $font_options['transform_h2'] }};
+
+    /* Header three */
+    --h3-desk: {{ $font_options['h3_size_desk'] }}px;
+    --h3-mobile: {{ $font_options['h3_size_mob'] }}px;
+    --h3-color: {{ $font_options['h3_color'] }};
+    --h3-transform: {{ $font_options['transform_h3'] }};
+
+    /* Header four */
+    --h4-desk: {{ $font_options['h4_size_desk'] }}px;
+    --h4-mobile: {{ $font_options['h4_size_mob'] }}px;
+    --h4-color: {{ $font_options['h4_color'] }};
+    --h4-transform: {{ $font_options['transform_h4'] }};
+
+    /* Header five */
+    --h5-desk: {{ $font_options['h5_size_desk'] }}px;
+    --h5-mobile: {{ $font_options['h5_size_mob'] }}px;
+    --h5-color: {{ $font_options['h5_color'] }};
+    --h5-transform: {{ $font_options['transform_h5'] }};
+
+    /* Header six */
+    --h6-desk: {{ $font_options['h6_size_desk'] }}px;
+    --h6-mobile: {{ $font_options['h6_size_mob'] }}px;
+    --h6-color: {{ $font_options['h6_color'] }};
+    --h6-transform: {{ $font_options['transform_h6'] }};
+
+    /* P */
+    --p-desk: {{ $font_options['p_size_desk'] }}px;
+    --p-mobile: {{ $font_options['p_size_mob'] }}px;
+    --p-color: {{ $font_options['p_color'] }};
+    --p-transform: {{ $font_options['transform_p'] }};
+
+    /* a */
+    --a-desk: {{ $font_options['a_size_desk'] }}px;
+    --a-mobile: {{ $font_options['a_size_mob'] }}px;
+    --a-color: {{ $font_options['a_color'] }};
+    --a-hover-color: {{ $font_options['a_color_hover'] }};
+    --a-transform: {{ $font_options['transform_a'] }};
+
+    /* strong */
+    --s-desk: {{ $font_options['s_size_desk'] }}px;
+    --s-mobile: {{ $font_options['s_size_mob'] }}px;
+    --s-color: {{ $font_options['s_color'] }};
+    --s-transform: {{ $font_options['transform_strong'] }};
+
+    /* small */
+    --small-desk: {{ $font_options['small_size_desk'] }}px;
+    --small-mobile: {{ $font_options['small_size_mob'] }}px;
+    --small-color: {{ $font_options['small_color'] }};
+    --small-transform: {{ $font_options['transform_small'] }};
+
+    /* small */
+    --button-desk: {{ $font_options['button_size_desk'] }}px;
+    --button-mobile: {{ $font_options['button_size_mob'] }}px;
+    --button-color: {{ $font_options['button_color'] }};
   }
 
   /* Font family definitions just need to have a corresponding name in Tailwind config */
   @font-face {
     font-family: 'heading-one';
     src: url("{!! $heading_oneurl !!}") format("{{ $heading_oneformat }}");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'heading-hero';
+    src: url("{!! $header_one_herourl !!}") format("{{ $header_one_heroformat }}");
     font-weight: normal;
     font-style: normal;
     font-display: swap;

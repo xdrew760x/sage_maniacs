@@ -68,6 +68,10 @@
         @media (min-width: 1024px) {
           font-size: var(--menu-font);
           color: var(--menu-font-color);
+
+          &:hover {
+            color: var(--a-hover-color);
+          }
         }
       }
 

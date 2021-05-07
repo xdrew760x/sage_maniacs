@@ -1,8 +1,22 @@
 .button {
-  @apply py-3 px-4 text-white uppercase font-button;
+  @apply py-3 px-4 text-white uppercase font-button inline-block mb-6;
 
   border-radius: var(--border-radius);
   padding: var(--padding-y) var(--padding-x);
+  font-size: var(--button-mobile);
+  color: var(--button-color);
+
+  &:hover {
+    @apply text-white;
+  }
+
+  &:nth-last-child(1) {
+    @apply mb-0;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: var(--button-desk);
+  }
 }
 
 .button--primary {

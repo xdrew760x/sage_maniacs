@@ -4,22 +4,29 @@ h3,
 h4,
 h5,
 h6 {
-  //
+  @apply mb-2 leading-tight;
 }
 
 h1 {
   @apply font-heading-one;
 
+  font-size: var(--h1-mobile);
+  color: var(--h1-color);
+  text-transform: var(--h1-transform);
+
   .section-brm--hero & {
-    //
+    @apply font-heading-hero text-white;
+
+    font-size: var(--h1-hero-mobile);
+    text-shadow: 2px 2px 2px black;
+    text-transform: var(--h1-hero-transform);
   }
 
-  // 1024
   @media (min-width: 1024px) {
     font-size: var(--h1-desk);
 
     .section-brm--hero & {
-      //
+      font-size: var(--h1-hero-desk);
     }
   }
 }
@@ -27,47 +34,121 @@ h1 {
 h2 {
   @apply font-heading-two;
 
-  .section-brm--hero & {
-    //
+  font-size: var(--h2-mobile);
+  color: var(--h2-color);
+  text-transform: var(--h2-transform);
+
+  @media (min-width: 1024px) {
+    font-size: var(--h2-desk);
   }
 }
 
 h3 {
   @apply font-heading-three;
+
+  font-size: var(--h3-mobile);
+  color: var(--h3-color);
+  text-transform: var(--h3-transform);
+
+  @media (min-width: 1024px) {
+    font-size: var(--h3-desk);
+  }
 }
 
 h4 {
   @apply font-heading-four;
+
+  font-size: var(--h4-mobile);
+  color: var(--h4-color);
+  text-transform: var(--h4-transform);
+
+  @media (min-width: 1024px) {
+    font-size: var(--h4-desk);
+  }
 }
 
 h5 {
   @apply font-heading-five;
+
+  font-size: var(--h5-mobile);
+  color: var(--h5-color);
+  text-transform: var(--h5-transform);
+
+  @media (min-width: 1024px) {
+    font-size: var(--h5-desk);
+  }
 }
 
 h6 {
   @apply font-heading-six;
+
+  font-size: var(--h6-mobile);
+  color: var(--h6-color);
+  text-transform: var(--h6-transform);
+
+  @media (min-width: 1024px) {
+    font-size: var(--h6-desk);
+  }
 }
 
 p,
 ul:not([class]),
 span,
 body {
-  @apply font-body;
+  @apply font-body leading-tight mb-2;
 
-  @media (max-width: 1023px) {
-    //
+  font-size: var(--p-mobile);
+  color: var(--p-color);
+  text-transform: var(--p-transform);
+
+  @media (min-width: 1024px) {
+    font-size: var(--p-desk);
+  }
+
+  &:nth-last-child(1) {
+    @apply mb-0;
   }
 }
 
 b,
 strong {
-  @apply font-strong;
+  @apply font-strong leading-none mb-2;
+
+  font-size: var(--s-mobile);
+  color: var(--s-color);
+  text-transform: var(--s-transform);
+
+  @media (min-width: 1024px) {
+    font-size: var(--s-desk);
+  }
 }
 
 a {
-  @apply font-anchor;
+  @apply font-anchor leading-none;
+
+  font-size: var(--a-mobile);
+  color: var(--a-color);
+  text-transform: var(--a-transform);
+  transition: all ease 0.5s;
+  opacity: 1;
+
+  &:hover {
+    color: var(--a-hover-color);
+  }
+
+  @media (min-width: 1024px) {
+    font-size: var(--a-desk);
+  }
 }
 
 small {
-  @apply font-small;
+  @apply font-small leading-none;
+
+  font-size: var(--small-mobile);
+  color: var(--small-color);
+  text-transform: var(--small-transform);
+
+  @media (min-width: 1024px) {
+    font-size: var(--small-desk);
+  }
 }

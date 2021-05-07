@@ -102,7 +102,7 @@ module.exports = {
 
       black: colors.black,
       white: colors.white,
-      gray: colors.coolGray,
+      gray: '#dae1e7',
       red: colors.red,
       yellow: colors.amber,
       green: colors.emerald,
@@ -353,6 +353,11 @@ module.exports = {
       'heading-one': [
         'heading-one'
       ],
+
+      'heading-hero': [
+        'heading-hero'
+      ],
+
       'heading-two': [
         'heading-two'
       ],
