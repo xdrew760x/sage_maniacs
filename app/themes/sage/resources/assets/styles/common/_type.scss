@@ -91,6 +91,29 @@ h6 {
   }
 }
 
+ul:not([class]) {
+  @apply mb-3;
+
+  padding-left: var(--ul-pad);
+
+  li {
+    @apply relative mb-3;
+
+    &::before {
+      @apply absolute;
+
+      content: '';
+      left: -30px;
+      top: 4px;
+      width: 20px;
+      height: 20px;
+      border-radius: 100%;
+      background: var(--ul-img);
+      background-size: cover;
+    }
+  }
+}
+
 p,
 ul:not([class]),
 span,

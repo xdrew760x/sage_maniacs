@@ -62,3 +62,37 @@
     }
   }
 }
+
+/// Sub-menu Control Arrow
+.drop-menu {
+  @apply ml-2;
+
+  transition: all ease 1s;
+  transform: rotate(0deg);
+
+  @media (max-width: 1023px) {
+    @apply absolute;
+
+    right: 15px;
+
+    i {
+      font-size: 24px !important;
+    }
+  }
+
+  &:hover {
+    color: var(--a-hover-color);
+    cursor: pointer;
+  }
+}
+
+.activated {
+  transform: rotate(180deg);
+}
+
+// Removal of Home meny item on Desktop
+.menu-item-153 {
+  @media (min-width: 1024px) {
+    @apply hidden;
+  }
+}

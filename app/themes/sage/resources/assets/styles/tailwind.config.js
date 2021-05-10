@@ -351,47 +351,99 @@ module.exports = {
       ],
       // Header Font Family
       'heading-one': [
-        'heading-one'
+        'heading-one',
+        'Helvetica Neue',
+        'Helvetica',
+        'Arial',
+        'serif',
       ],
 
       'heading-hero': [
-        'heading-hero'
+        'heading-hero',
+        'Helvetica Neue',
+        'Helvetica',
+        'Arial',
+        'serif',
       ],
 
       'heading-two': [
-        'heading-two'
+        'heading-two',
+        'Helvetica Neue',
+        'Helvetica',
+        'Arial',
+        'serif',
       ],
       'heading-three': [
-        'heading-three'
+        'heading-three',
+        'Helvetica Neue',
+        'Helvetica',
+        'Arial',
+        'serif',
       ],
       'heading-four': [
-        'heading-four'
+        'heading-four',
+        'Helvetica Neue',
+        'Helvetica',
+        'Arial',
+        'serif',
       ],
       'heading-five': [
-        'heading-five'
+        'heading-five',
+        'Helvetica Neue',
+        'Helvetica',
+        'Arial',
+        'serif',
       ],
       'heading-six': [
-        'heading-six'
+        'heading-six',
+        'Helvetica Neue',
+        'Helvetica',
+        'Arial',
+        'serif',
       ],
 
       // Body Font family
       'body': [
-        'body'
+        'body',
+        'Helvetica Neue',
+        'Helvetica',
+        'Arial',
+        'serif',
       ],
       'anchor': [
-        'anchor'
+        'anchor',
+        'Helvetica Neue',
+        'Helvetica',
+        'Arial',
+        'serif',
       ],
       'strong': [
-        'strong'
+        'strong',
+        'Helvetica Neue',
+        'Helvetica',
+        'Arial',
+        'serif',
       ],
       'span': [
-        'span'
+        'span',
+        'Helvetica Neue',
+        'Helvetica',
+        'Arial',
+        'serif',
       ],
       'small': [
-        'small'
+        'small',
+        'Helvetica Neue',
+        'Helvetica',
+        'Arial',
+        'serif',
       ],
       'button': [
-        'button'
+        'button',
+        'Helvetica Neue',
+        'Helvetica',
+        'Arial',
+        'serif',
       ],
 
       'awesome': [

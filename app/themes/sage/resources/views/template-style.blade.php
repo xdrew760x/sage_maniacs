@@ -77,18 +77,16 @@
       <!-- List -->
       <div class="inner w-full lg:w-1/4 mb-4">
         <p>List:</p>
-        <ul class="mb-6">
+        <ul>
+          <li>wake up neo</li>
+          <li>wake up neo</li>
+          <li>wake up neo</li>
+          <li>wake up neo</li>
           <li>wake up neo</li>
           <li>wake up neo</li>
           <li>wake up neo</li>
           <li>wake up neo</li>
         </ul>
-
-        <ol>
-          <li>The ONE</li>
-          <li>The ONE</li>
-          <li>The ONE</li>
-        </ol>
       </div>
     </div>
   </div>

@@ -1,4 +1,4 @@
-import { isExternal, isEmpty, dropdownState } from '../util/helpers'
+import { isExternal, isEmpty } from '../util/helpers'
 
 export default {
   init() {
@@ -6,7 +6,6 @@ export default {
     const anchors = document.querySelectorAll('a')
     const paragraphs = document.querySelectorAll('p')
     const hamburger = document.querySelector('.nav-control')
-    const dropdowns = document.querySelectorAll('.menu-item-has-children')
     const galleryThumbs = document.querySelectorAll('.gallery-icon')
 
     // Handle external urls
@@ -43,13 +42,16 @@ export default {
     }
 
     // Handle dropdowns visibility state
-    if (window.matchMedia('(max-width: 1023px)').matches) {
-      dropdowns.forEach(dropdown => {
-        dropdown.setAttribute('data-state', 'closed')
+    $(function () {
+      var children = $('.header_nav_a > li > a').filter(function () { return $(this).nextAll().length > 0 ;});
+      $('<span class="drop-menu"><i class="fas fa-angle-down"></i></span>').insertAfter(children);
+      $('.header_nav_a .drop-menu').click(function () {
+        $(this).toggleClass('activated');
+        $(this).next().slideToggle(300);
+        return false;
+      });
+    });
 
-        dropdown.addEventListener('click', dropdownState)
-      })
-    }
 
     // Handle gallery lightbox
     if (galleryThumbs) {

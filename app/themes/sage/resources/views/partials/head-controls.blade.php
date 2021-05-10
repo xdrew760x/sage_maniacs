@@ -190,6 +190,10 @@ $header = get_field('component_type', 'options');
     --small-color: {{ $font_options['small_color'] }};
     --small-transform: {{ $font_options['transform_small'] }};
 
+    /* ul */
+    --ul-pad: {{ $font_options['padding_left'] }}px;
+    --ul-img: url("{{ $font_options['list_graphic'] }}");
+
     /* small */
     --button-desk: {{ $font_options['button_size_desk'] }}px;
     --button-mobile: {{ $font_options['button_size_mob'] }}px;
