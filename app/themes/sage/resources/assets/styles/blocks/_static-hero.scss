@@ -1,0 +1,14 @@
+.hero-static {
+  background: var(--hero-bg);
+  min-height: var(--hero-height-mob);
+
+  @media (min-width: 1024px) {
+    min-height: var(--hero-height-desk);
+  }
+
+  .container {
+    .hero_content {
+      //
+    }
+  }
+}

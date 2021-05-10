@@ -5,6 +5,25 @@
   max-width: 1500px;
 }
 
+// Force Text White
+.text-white {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  body,
+  span,
+  strong,
+  a,
+  small {
+    color: white;
+  }
+}
+
 // hamburger Icon
 .nav-control {
   @apply bg-white relative ml-2 -mt-1;

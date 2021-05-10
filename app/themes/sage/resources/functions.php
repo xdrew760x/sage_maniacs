@@ -132,34 +132,39 @@ add_filter( 'excerpt_more', 'custom_excerpt_more' );
 add_action('admin_head', 'gutenberg_menu_expand');
 
 function gutenberg_menu_expand() {
-	echo '
-	<a class="open-sidebar button button--primary" onclick="openWin()">Toggle Toolbar</a>';
+  echo '
+  <a class="open-sidebar button button--primary" onclick="openWin()">Toggle Toolbar</a>';
 }
+
+
 //
 ///
 //// Remove stock blocks / Add Custom Blocks
 add_filter( 'allowed_block_types', 'misha_allowed_block_types' );
 function misha_allowed_block_types( $allowed_blocks ) {
-	return array(
-		'acf/header-one',
-		'acf/centered-grid',
-		'acf/feature-grid-list',
-		'core/block' // add this for reusable block
-	);
+  return array(
+    'acf/hero-static',
+    'core/block' // add this for reusable block
+  );
 }
 //
 ///
 //// Registers Block Category for Gutenberg
 function my_blocks_plugin_block_categories( $categories ) {
-	return array_merge(
-		$categories,
-		array(
-			array(
-				'slug' => 'general_blocks',
-				'title' => __( 'General Blocks', 'brm' ),
-				'icon'  => 'wordpress',
-			),
-		)
-	);
+  return array_merge(
+    $categories,
+    array(
+      array(
+        'slug' => 'general_blocks',
+        'title' => __( 'General Blocks', 'brm' ),
+        'icon'  => 'wordpress',
+      ),
+      array(
+        'slug' => 'hero_blocks',
+        'title' => __( 'Hero Blocks', 'brm' ),
+        'icon'  => 'wordpress',
+      ),
+    )
+  );
 }
 add_filter( 'block_categories', 'my_blocks_plugin_block_categories', 10, 2 );

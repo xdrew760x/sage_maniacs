@@ -109,3 +109,8 @@ add_action('login_head', function() {
         wp_enqueue_style('sage/admin.css', get_stylesheet_directory_uri() . '/assets/styles/admin.css', false, null);
     }
 });
+
+/* Include Head Control Variables */
+add_action('admin_head', function() {
+  echo \App\template('partials/head-controls');
+});
