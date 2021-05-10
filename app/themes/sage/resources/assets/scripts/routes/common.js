@@ -43,9 +43,9 @@ export default {
 
     // Handle dropdowns visibility state
     $(function () {
-      var children = $('.header_nav_a > li > a').filter(function () { return $(this).nextAll().length > 0 ;});
+      var children = $('nav > ul > li > a').filter(function () { return $(this).nextAll().length > 0 ;});
       $('<span class="drop-menu"><i class="fas fa-angle-down"></i></span>').insertAfter(children);
-      $('.header_nav_a .drop-menu').click(function () {
+      $('nav ul .drop-menu').click(function () {
         $(this).toggleClass('activated');
         $(this).next().slideToggle(300);
         return false;

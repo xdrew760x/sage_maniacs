@@ -1,6 +1,4 @@
-.header-component-a {
-  @apply relative;
-
+.header-component-b {
   .header__top {
     background-color: var(--top-menu);
 
@@ -10,8 +8,10 @@
   }
 
   .header__bottom {
+    @apply py-8;
+
     .nav-is-open & {
-      @apply w-full mt-12;
+      @apply w-full mt-12 pt-32;
 
       position: absolute;
       top: 0;
@@ -26,13 +26,17 @@
     }
 
     .header__branding {
-      @apply mx-auto block;
+      @apply mx-auto block absolute;
 
+      left: 0;
+      right: 0;
       max-width: var(--branding-max-w-m);
 
-      @media (min-width: 1024px) {
-        @apply ml-0;
+      .nav-is-open & {
+        top: 5px;
+      }
 
+      @media (min-width: 1024px) {
         max-width: var(--branding-max-w);
       }
     }
@@ -45,13 +49,13 @@
   }
 
   // Primary Navigation
-  .header_nav_a {
+  .header_nav_b {
     @media (min-width: 1024px) {
-      @apply flex justify-between items-center;
+      @apply flex items-center;
     }
 
     .menu-item {
-      @apply ml-5 py-3 relative;
+      @apply py-3 relative;
 
       .nav-is-open & {
         @apply ml-0 py-0 py-2 border-t-2 border-black;
@@ -84,7 +88,7 @@
         }
 
         @media (min-width: 1024px) {
-          @apply absolute bg-white;
+          @apply absolute bg-white px-4;
 
           top: 100%;
           left: -20px;
@@ -99,6 +103,26 @@
             @apply block;
           }
         }
+      }
+    }
+  }
+
+  .nav_left {
+    @media (min-width: 1024px) {
+      @apply justify-start;
+
+      .menu-item {
+        @apply mr-3;
+      }
+    }
+  }
+
+  .nav_right {
+    @media (min-width: 1024px) {
+      @apply justify-end;
+
+      .menu-item {
+        @apply ml-3;
       }
     }
   }

@@ -82,10 +82,23 @@ add_action('after_setup_theme', function () {
   * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
   */
 
+  /*
+  Header A
+  */
   register_nav_menus([
     'header_nav_a' => __('Header Component A', 'sage')
   ]);
 
+  /*
+  Header A
+  */
+  register_nav_menus([
+    'header_nav_b_l' => __('Header Component B Left', 'sage')
+  ]);
+
+  register_nav_menus([
+    'header_nav_b_r' => __('Header Component B Right', 'sage')
+  ]);
 
   register_nav_menus([
     'footer_nav' => __('Footer', 'sage')

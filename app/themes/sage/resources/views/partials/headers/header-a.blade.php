@@ -1,3 +1,6 @@
+<!---
+Header A
+----->
 @php
 //Variables
 $meta = get_field('meta_fields', 'options');
@@ -5,7 +8,7 @@ $header = get_field('component_type', 'options');
 @endphp
 
 <div class="header-component-a">
-  <!-- Header Top Portion 
+  <!-- Header Top Portion
   Contains Address & Phone Number.
   ACF - "/wp/wp-admin/post.php?post=137&action=edit" -->
 
@@ -13,7 +16,7 @@ $header = get_field('component_type', 'options');
     <!-- Mobile Menu Toggle Control
     JS - "/resources/assets/scripts/main.js" -->
 
-    <div class="container flex justify-between lg:justify-end items-center py-3 lg:py-0">
+    <div class="container flex justify-between lg:justify-end items-center py-4 lg:py-0">
       <button class="nav-control lg:hidden" aria-label="Click here to toggle mobile navigation">
         <span class="block relative w-full h-hamburger"></span>
       </button>
@@ -50,12 +53,12 @@ $header = get_field('component_type', 'options');
         @if (has_nav_menu('header_nav_a'))
         {!! wp_nav_menu(['theme_location' => 'header_nav_a', 'menu_class' => 'header_nav_a', 'container' => '']) !!}
         @endif
-        <div class="flex flex-col justify-start lg:hidden">
+        <div class="flex flex-col justify-start lg:hidden mt-3">
           @if( $meta['phone_number'] )
           <a href="tel:{{ preg_replace('/[^0-9]/', '', $meta['phone_number']) }}" class="text-white mt-1"><i class="fas fa-phone mr-2"></i> {{ $meta['phone_number'] }}</a>
           @endif
           @if($meta['street_address'])
-          <a href="https://www.google.com/maps/dir/?api=1&destination={{ $meta['street_address'] }}+{{ $meta['city_name'] }}+{{ $meta['state'] }}+{{ $meta['zipcode'] }}" class="text-white mt-3 uppercase"><i class="fas fa-map-marker-alt mr-2"></i> Get Directions</a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination={{ $meta['street_address'] }}+{{ $meta['city_name'] }}+{{ $meta['state'] }}+{{ $meta['zipcode'] }}" class="text-white mt-5 uppercase"><i class="fas fa-map-marker-alt mr-2"></i> Get Directions</a>
           @endif
           @if( $meta['reservation_url'] )
           <a href="{!! $meta['reservation_url'] !!}" class="button button--secondary mt-4 desktop-none">Book Now</a>

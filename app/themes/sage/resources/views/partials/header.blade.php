@@ -1,8 +1,12 @@
 <!-- Conditional dependent on ACF field value
 Header Contorls - "/wp/wp-admin/admin.php?page=theme-options"-->
 
+@php
+$type = get_field('component_type', 'options')
+@endphp
+
 @if( class_exists('ACF') )
-@switch( get_field('header_component', 'options') )
+@switch( $type['header_component'] )
 @case('header-a')
 @include('partials.headers.header-a')
 @break
