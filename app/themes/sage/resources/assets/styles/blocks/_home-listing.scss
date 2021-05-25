@@ -1,0 +1,91 @@
+.section-home-listing {
+  .home-listing {
+    .home-item {
+      .home-meta {
+        background-color: var(--card-bg-clr);
+
+        .home-image {
+          @apply w-full bg-cover bg-center;
+
+          height: 270px;
+        }
+
+        .listing-meta {
+          @media (max-width: 1200px) {
+            font-size: 20px;
+          }
+
+          @media (max-width: 1023px) {
+            font-size: 22px;
+          }
+        }
+      }
+    }
+  }
+
+  .pagination {
+    * {
+      font-size: 16px;
+    }
+  }
+}
+
+// Singular
+.single-homes-for-sale {
+  /// Galery
+  .property__gallery {
+    .property__gallery--image {
+      .img {
+        @apply w-full;
+
+        min-height: 300px;
+
+        @media (min-width: 1024px) {
+          min-height: 500px;
+        }
+      }
+    }
+
+    .property__gallery--nav {
+      .img {
+        min-height: 200px;
+      }
+
+      .prev {
+        left: 0;
+      }
+
+      .next {
+        right: 0;
+      }
+
+      .prev,
+      .next {
+        @apply flex justify-center items-center bg-white border-1 border-black;
+
+        border-radius: 100%;
+        height: 30px;
+        width: 30px;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        i {
+          color: black;
+          font-size: 16px;
+          line-height: 0;
+        }
+      }
+    }
+  }
+
+  //Meta
+  .property__meta {
+    @apply w-full mt-4 flex justify-center;
+
+    li {
+      @apply border-b-2 border-black py-2;
+    }
+  }
+}

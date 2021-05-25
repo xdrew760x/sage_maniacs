@@ -40,19 +40,29 @@
 //Components
 @import "components/buttons";
 @import "components/comments";
+@import "components/blog";
 @import "components/forms";
 @import "components/wp-classes";
 @import "components/header/header-component-a";
 @import "components/header/header-component-b";
+@import "components/header/header-component-c";
+@import "components/footer/footer-component-a";
 
 //Blocks
-@import "blocks/static-hero";
+@import "blocks/hero";
+@import "blocks/columns";
+@import "blocks/home-listing";
+@import "blocks/testimonials";
+@import "blocks/newsletter-social";
+@import "blocks/contact";
 
 //Wordpress Default Styling
 @import "wordpress/blocks";
 @import "wordpress/default";
-@import "wordpress/gravityforms";
+@import "wordpress/forms";
+@import "wordpress/o-col";
 @import "wordpress/acf";
+@import "wordpress/slick";
 
 /**
 * This injects all of Tailwind's utility classes, generated based on your

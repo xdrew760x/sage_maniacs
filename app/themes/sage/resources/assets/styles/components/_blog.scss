@@ -1,0 +1,10 @@
+.blog,
+.archive {
+  article {
+    @apply mb-12;
+
+    .blog-img {
+      min-height: 250px;
+    }
+  }
+}

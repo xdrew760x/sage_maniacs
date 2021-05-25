@@ -5,9 +5,35 @@ Header A
 //Variables
 $meta = get_field('meta_fields', 'options');
 $header = get_field('component_type', 'options');
+//fonts
+$nav_font = get_field('primary_menu_fam', 'options');
+$nav_fontformat = pathinfo( $nav_font['filename'], PATHINFO_EXTENSION);
+$nav_fonturl = $nav_font['url'];
+
+$meta_font = get_field('meta_font_fam', 'options');
+$meta_fontformat = pathinfo( $meta_font['filename'], PATHINFO_EXTENSION);
+$meta_fonturl = $meta_font['url'];
 @endphp
 
-<div class="header-component-a">
+<style>
+@font-face {
+  font-family: 'nav-font';
+  src: url("{!! $nav_fonturl !!}") format("{{ $nav_fontformat }}");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'meta-font';
+  src: url("{!! $meta_fonturl !!}") format("{{ $meta_fontformat }}");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+</style>
+
+<div class="header header-component-a @if($header['fixed_position']) header-fixed-a @endif">
   <!-- Header Top Portion
   Contains Address & Phone Number.
   ACF - "/wp/wp-admin/post.php?post=137&action=edit" -->
@@ -40,7 +66,7 @@ $header = get_field('component_type', 'options');
   ACF - "/wp/wp-admin/post.php?post=137&action=edit"
   Branding - "/wp/wp-admin/admin.php?page=theme-options" -->
 
-  <div class="header__bottom">
+  <div class="header__bottom -mt-4 lg:mt-0">
     <div class="container lg:flex lg:justify-between lg:items-center">
       <a class="header__branding my-3" href="{{ home_url('/') }}">
         @if( $header['branding_logo'] )

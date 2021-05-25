@@ -1,0 +1,54 @@
+.section-brm--hero {
+  .hero-item,
+  .container {
+    min-height: var(--hero-height-mob);
+
+    @media (min-width: 1024px) {
+      min-height: var(--hero-height-desk);
+    }
+  }
+
+  .hero_content {
+    background-color: var(--hero-clr);
+  }
+}
+
+// Hero Video Element
+.hero__video {
+  @apply w-full h-full;
+
+  object-fit: cover;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+// Rv Hero Block
+.rv-hero {
+  .container {
+    min-height: var(--rv-height-mob);
+
+    @media (min-width: 1024px) {
+      min-height: var(--rv-height-desk);
+    }
+
+    .rv-graphic {
+      @apply mx-auto block mt-4;
+
+      max-width: 450px;
+
+      @media (min-width: 1024px) {
+        @apply absolute;
+
+        right: 0;
+        bottom: 0;
+      }
+    }
+
+    .hero_content {
+      background-color: var(--rv-color);
+    }
+  }
+}

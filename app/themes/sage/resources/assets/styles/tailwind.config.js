@@ -239,6 +239,7 @@ module.exports = {
     borderWidth: {
       DEFAULT: '1px',
       0: '0px',
+      1: '1px',
       2: '2px',
       4: '4px',
       8: '8px',
@@ -440,6 +441,38 @@ module.exports = {
       ],
       'button': [
         'button',
+        'Helvetica Neue',
+        'Helvetica',
+        'Arial',
+        'serif',
+      ],
+
+      'contact-font': [
+        'contact-font',
+        'Helvetica Neue',
+        'Helvetica',
+        'Arial',
+        'serif',
+      ],
+
+      'meta-font': [
+        'meta-font',
+        'Helvetica Neue',
+        'Helvetica',
+        'Arial',
+        'serif',
+      ],
+
+      'nav-font': [
+        'nav-font',
+        'Helvetica Neue',
+        'Helvetica',
+        'Arial',
+        'serif',
+      ],
+
+      'footer-font': [
+        'footer-font',
         'Helvetica Neue',
         'Helvetica',
         'Arial',

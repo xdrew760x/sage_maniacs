@@ -13,13 +13,16 @@ h1 {
   font-size: var(--h1-mobile);
   color: var(--h1-color);
   text-transform: var(--h1-transform);
+  line-height: var(--h1-line-height);
+  letter-spacing: var(--h1-letter-spacing);
 
   .section-brm--hero & {
-    @apply font-heading-hero text-white;
+    @apply font-heading-hero;
 
     font-size: var(--h1-hero-mobile);
-    text-shadow: 2px 2px 2px black;
     text-transform: var(--h1-hero-transform);
+    color: var(--h1-hero-color);
+    text-shadow: var(--h1-text-shadow);
   }
 
   @media (min-width: 1024px) {
@@ -37,6 +40,8 @@ h2 {
   font-size: var(--h2-mobile);
   color: var(--h2-color);
   text-transform: var(--h2-transform);
+  line-height: var(--h2-line-height);
+  letter-spacing: var(--h2-letter-spacing);
 
   @media (min-width: 1024px) {
     font-size: var(--h2-desk);
@@ -49,6 +54,8 @@ h3 {
   font-size: var(--h3-mobile);
   color: var(--h3-color);
   text-transform: var(--h3-transform);
+  line-height: var(--h3-line-height);
+  letter-spacing: var(--h3-letter-spacing);
 
   @media (min-width: 1024px) {
     font-size: var(--h3-desk);
@@ -61,6 +68,8 @@ h4 {
   font-size: var(--h4-mobile);
   color: var(--h4-color);
   text-transform: var(--h4-transform);
+  line-height: var(--h4-line-height);
+  letter-spacing: var(--h4-letter-spacing);
 
   @media (min-width: 1024px) {
     font-size: var(--h4-desk);
@@ -73,6 +82,8 @@ h5 {
   font-size: var(--h5-mobile);
   color: var(--h5-color);
   text-transform: var(--h5-transform);
+  line-height: var(--h5-line-height);
+  letter-spacing: var(--h5-letter-spacing);
 
   @media (min-width: 1024px) {
     font-size: var(--h5-desk);
@@ -85,32 +96,11 @@ h6 {
   font-size: var(--h6-mobile);
   color: var(--h6-color);
   text-transform: var(--h6-transform);
+  line-height: var(--h6-line-height);
+  letter-spacing: var(--h6-letter-spacing);
 
   @media (min-width: 1024px) {
     font-size: var(--h6-desk);
-  }
-}
-
-ul:not([class]) {
-  @apply mb-3;
-
-  padding-left: var(--ul-pad);
-
-  li {
-    @apply relative mb-3;
-
-    &::before {
-      @apply absolute;
-
-      content: '';
-      left: -30px;
-      top: 4px;
-      width: 20px;
-      height: 20px;
-      border-radius: 100%;
-      background: var(--ul-img);
-      background-size: cover;
-    }
   }
 }
 

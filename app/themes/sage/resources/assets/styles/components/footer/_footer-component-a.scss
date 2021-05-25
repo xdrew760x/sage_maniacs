@@ -1,0 +1,27 @@
+.footer-a {
+  .meta {
+    a,
+    p {
+      @apply font-footer-font;
+
+      font-size: var(--footer-font-size);
+      color: var(--footer-font-color);
+    }
+  }
+
+  .copyright {
+    * {
+      @apply font-footer-font;
+
+      font-size: 12px;
+    }
+  }
+
+  .footer-nav-a {
+    @apply mb-4;
+
+    li {
+      @apply mx-4;
+    }
+  }
+}

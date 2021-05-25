@@ -90,7 +90,7 @@ add_action('after_setup_theme', function () {
   ]);
 
   /*
-  Header A
+  Header B
   */
   register_nav_menus([
     'header_nav_b_l' => __('Header Component B Left', 'sage')
@@ -100,8 +100,22 @@ add_action('after_setup_theme', function () {
     'header_nav_b_r' => __('Header Component B Right', 'sage')
   ]);
 
+  /*
+  Header C
+  */
   register_nav_menus([
-    'footer_nav' => __('Footer', 'sage')
+    'header_nav_c_l' => __('Header Component C Left', 'sage')
+  ]);
+
+  register_nav_menus([
+    'header_nav_c_r' => __('Header Component C Right', 'sage')
+  ]);
+
+  /*
+  Footer A
+  */
+  register_nav_menus([
+    'footer_nav_a' => __('Footer A', 'sage')
   ]);
 
 

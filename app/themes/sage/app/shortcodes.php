@@ -24,7 +24,7 @@ add_shortcode('testimonials', function( $atts ) {
 // rows & columns
 
 add_shortcode('row', function( $atts, $content = null ) {
-  return '<div class="row flex -mx-buffer">'.do_shortcode($content).'</div>';
+  return '<div class="row flex flex-wrap -mx-buffer">'.do_shortcode($content).'</div>';
 });
 
 add_shortcode('column', function( $atts, $content = null ) {

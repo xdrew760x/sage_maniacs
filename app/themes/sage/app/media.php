@@ -16,7 +16,6 @@ add_filter('upload_mimes', function( $mimes ) {
     $mimes['svg'] = 'image/svg+xml';
     $mimes['woff'] = 'application/x-font-woff';
     $mimes['woff2'] = 'application/x-font-woff2';
-    $mimes['ttf'] = 'application/x-font-ttf';
     return $mimes;
 });
 

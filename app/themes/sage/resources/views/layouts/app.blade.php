@@ -1,10 +1,8 @@
-<!doctype html>  
+<!doctype html>
 <html {!! get_language_attributes() !!}>
 @include('partials.head')
-@include('partials.head-controls')
 @php
 $header_fixed = get_field('fixed_position','options');
-
 function is_blog() {
 	global  $post;
 	$posttype = get_post_type($post );
@@ -25,29 +23,29 @@ function is_blog() {
 	<main role="document" aria-label="Content">
 		@if(App\display_layout())
 
-		@if(is_blog())
-		@include('partials.blog')
-		@endif
-
+		@if(is_blog() || is_archive())
+		@include('partials.blog.hero')
+		<section class="section--blog py-12" role="region" aria-label="Default Content">
+			<div class="container">
+				@yield('content')
+			</div>
+		</section>
+		@else
 		<section class="section--main" role="region" aria-label="Default Content">
 			<div class="w-full mx-auto">
 				@yield('content')
 			</div>
 		</section>
-
-
+		@endif
 		@else
 		@yield('content')
 		@endif
 	</main>
-
-
-
-
-
+	@include('partials.newsletter-social')
+	@include('partials.contact')
 	@php do_action('get_footer') @endphp
 	@include('partials.footer')
 	@php wp_footer() @endphp
-
+	@include('partials.head-controls')
 </body>
 </html>

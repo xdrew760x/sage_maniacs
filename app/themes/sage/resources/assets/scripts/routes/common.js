@@ -63,6 +63,140 @@ export default {
 
       $('[data-fancybox]').fancybox()
     }
+
+    // Handle Scroll Class for Header
+    $(window).scroll(function() {
+      var scrolled = $(this).scrollTop();
+
+      if (scrolled >= 100) {
+        $('body').addClass('scrolled');
+      } else {
+        $('body').removeClass('scrolled');
+      }
+    });
+
+
+    // Slick Homes for sale gallery
+    if ($('.js-carousel-gallery').length) {
+      $('.js-carousel-gallery').slick({
+        arrows: false,
+        dots: false,
+        fade: false,
+        rows: 0,
+        autoplay: true,
+        autoplaySpeed: 15000,
+        speed: 1000,
+        slidesToShow: 1,
+        slidesToScroll: 3,
+      });
+    }
+
+    if ($('.js-carousel-nav').length) {
+      $('.js-carousel-nav').slick({
+        arrows: true,
+        asNavFor: '.js-carousel-gallery',
+        dots: false,
+        focusOnSelect: true,
+        rows: 0,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        speed: 1000,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        centerPadding: '60px',
+        nextArrow: '<div class="next mr-15"><i class="fas fa-chevron-right text-white"></i></div>',
+        prevArrow: '<div class="prev ml-15"><i class="fas fa-chevron-left text-white"></i></div>',
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              centerMode: true,
+              slidesToShow: 1,
+              centerPadding: '60px',
+            },
+          },
+        ],
+      });
+    }
+
+    /// Column
+    if ($('.col-slider').length) {
+      $('.col-slider').slick({
+        accessibility: true,
+        autoplay: true,
+        autoplaySpeed: 15000,
+        fade: false,
+        speed: 1000,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: false,
+        arrows: true,
+        nextArrow: '<div class="next"><i class="fal fa-chevron-right"></i></div>',
+        prevArrow: '<div class="prev"><i class="fal fa-chevron-left"></i></div>',
+
+        responsive: [
+          {
+            breakpoint: 1023,
+            settings: {
+              dots: true,
+              arrows: false,
+            },
+          },
+        ],
+      });
+    }
+
+    if ($('.col-slider-two').length) {
+      $('.col-slider-two').slick({
+        accessibility: true,
+        autoplay: true,
+        autoplaySpeed: 15000,
+        fade: false,
+        speed: 1000,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: false,
+        arrows: true,
+        nextArrow: '<div class="next"><i class="fal fa-chevron-right"></i></div>',
+        prevArrow: '<div class="prev"><i class="fal fa-chevron-left"></i></div>',
+
+        responsive: [
+          {
+            breakpoint: 1023,
+            settings: {
+              dots: true,
+              arrows: false,
+            },
+          },
+        ],
+      });
+    }
+
+    if ($('.col-slider-three').length) {
+      $('.col-slider-three').slick({
+        accessibility: true,
+        autoplay: true,
+        autoplaySpeed: 15000,
+        fade: false,
+        speed: 1000,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: false,
+        arrows: true,
+        nextArrow: '<div class="next"><i class="fal fa-chevron-right"></i></div>',
+        prevArrow: '<div class="prev"><i class="fal fa-chevron-left"></i></div>',
+
+        responsive: [
+          {
+            breakpoint: 1023,
+            settings: {
+              dots: true,
+              arrows: false,
+            },
+          },
+        ],
+      });
+    }
   },
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired

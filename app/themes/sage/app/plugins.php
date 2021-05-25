@@ -3,56 +3,28 @@
 namespace App;
 
 /**
- * Register the required plugins for Xpress.
- */
+* Register the required plugins for Xpress.
+*/
 add_action('tgmpa_register', function() {
-    $plugins =  [
-        [
-            'name'      => 'Autoptimize',
-            'slug'      => 'autoptimize',
-            'required'  => true
-        ],
-        [
-            'name'      => 'Classic Editor',
-            'slug'      => 'classic-editor',
-            'required'  => true
-        ],
-        [
-            'name'      => 'Google Analytics Dashboard Plugin for WordPress by MonsterInsights',
-            'slug'      => 'google-analytics-for-wordpress',
-            'required'  => false
-        ],
-        [
-            'name'      => 'Imsanity',
-            'slug'      => 'imsanity',
-            'required'  => true
-        ],
-        [
-            'name'      => 'Stream',
-            'slug'      => 'stream',
-            'required'  => true
-        ],
-        [
-            'name'      => 'Wordfence',
-            'slug'      => 'wordfence',
-            'required'  => true
-        ],
-        [
-            'name'      => 'The SEO Framework',
-            'slug'      => 'autodescription',
-            'required'  => false
-        ],
-        [
-            'name'      => 'WP Optimize',
-            'slug'      => 'wp-optimize',
-            'required'  => true
-        ],
-        [
-            'name'      => 'WPS Hide',
-            'slug'      => 'wps-hide-login',
-            'required'  => true
-        ]
-    ];
+  $plugins =  [
+    [
+      'name' => 'Advanced Custom Fields Pro',
+      'slug' => 'advanced-custom-fields-pro',
+      'source' => dirname( __DIR__ ) . '/app/plugins/advanced-custom-fields-pro.zip',
+      'required' => true,
+    ],
+    [
+      'name' => 'Advanced Custom Fields RGBA Color Picker',
+      'slug' => 'acf-rgba-color-picker',
+      'source' => dirname( __DIR__ ) . '/app/plugins/acf-rgba-color-picker.zip',
+      'required' => true,
+    ],
+  ];
 
-    tgmpa( $plugins );
+  $config = [
+    'plugin_activated' => __( 'Plugin activated successfully.', 'tgmpa' ),
+    'complete' => __( 'All plugins installed and activated successfully. %s', 'tgmpa' ), // %s = dashboard link.
+  ];
+
+  tgmpa( $plugins );
 });

@@ -1,7 +1,7 @@
 :root {
   --white: #ffffff;
-  --primary-2: #402D21;
-  --primary-1: #A18537;
+  --primary-2: #C84C23;
+  --primary-1: #ffffff;
 }
 
 body {
@@ -14,7 +14,7 @@ body {
   max-width: 200px;
   height: 125px;
   margin-bottom: 0px;
-  background-image: url("/app/uploads/2021/04/logo-branding.svg");
+  background-image: url("/app/uploads/2021/05/logo.svg");
   background-size: 100%;
 }
 
@@ -32,7 +32,7 @@ body {
 .login #backtoblog a,
 .privacy-policy-link {
   font-size: 14px;
-  color: white;
+  color: var(--primary-2);
 }
 
 .login #nav a:hover,

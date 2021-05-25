@@ -126,6 +126,16 @@ function custom_excerpt_more( $excerpt ) {
 }
 add_filter( 'excerpt_more', 'custom_excerpt_more' );
 
+/// Ensures all plugins
+add_filter('wp_php_error_message',function( $message, $error ) {return
+  '<h1>Something is wrong:</h1><br>
+  Please contact your Web Admin for assistance: <br>Telephone: (000) 000-0000 <br> Website: BigRigMedia.com/support
+  <br>
+  <h1>If this is a Initial Theme Activation Error</h1> Please ensure all Required Plugins are installed. <ul><li>Advanced Custom Fields</li><li>Advanced Custom Fields RGBA Color Picker</li></ul>
+  Please refere to your <a href="/wp/wp-admin/index.php">Dashboard</a> for more information.'
+
+  ; }, 10,2);
+
 //
 ///
 ///Include Exapnd button for guttenberg backend
@@ -133,7 +143,7 @@ add_action('admin_head', 'gutenberg_menu_expand');
 
 function gutenberg_menu_expand() {
   echo '
-  <a class="open-sidebar button button--primary" onclick="openWin()">Toggle Toolbar</a>';
+  <a class="open-sidebar button button--primary" onclick="openWin()">Expand Toolbar</a>';
 }
 
 
@@ -143,7 +153,14 @@ function gutenberg_menu_expand() {
 add_filter( 'allowed_block_types', 'misha_allowed_block_types' );
 function misha_allowed_block_types( $allowed_blocks ) {
   return array(
-    'acf/hero-static',
+    'acf/hero',
+    'acf/rv-hero',
+    'acf/full-col',
+    'acf/two-col',
+    'acf/col-builder',
+    'acf/testimonials',
+    'acf/home-sale',
+    'acf/rates-a',
     'core/block' // add this for reusable block
   );
 }
@@ -161,10 +178,65 @@ function my_blocks_plugin_block_categories( $categories ) {
       ),
       array(
         'slug' => 'hero_blocks',
-        'title' => __( 'Hero Blocks', 'brm' ),
+        'title' => __( 'Hero', 'brm' ),
+        'icon'  => 'wordpress',
+      ),
+      array(
+        'slug' => 'column_blocks',
+        'title' => __( 'Columns', 'brm' ),
+        'icon'  => 'wordpress',
+      ),
+      array(
+        'slug' => 'sale_blocks',
+        'title' => __( 'Home For Sale', 'brm' ),
+        'icon'  => 'wordpress',
+      ),
+      array(
+        'slug' => 'test_blocks',
+        'title' => __( 'Testimonials', 'brm' ),
+        'icon'  => 'wordpress',
+      ),
+      array(
+        'slug' => 'news_social_blocks',
+        'title' => __( 'Newsletter Social', 'brm' ),
+        'icon'  => 'wordpress',
+      ),
+      array(
+        'slug' => 'contact_blocks',
+        'title' => __( 'Footer Contact Component', 'brm' ),
         'icon'  => 'wordpress',
       ),
     )
   );
 }
 add_filter( 'block_categories', 'my_blocks_plugin_block_categories', 10, 2 );
+
+
+//// Includes and moves Property Number on WP Properry listing
+
+add_filter('manage_homes-for-sale_posts_columns' , 'add_properties_columns');
+
+function add_properties_columns($columns) {
+  array_merge ( $columns, array (
+    'listing_number' => __ ( 'Listing Number' )
+  ) );
+  $new = array();
+  foreach($columns as $key => $title) {
+    if ($key=='taxonomy-status') // Put the Thumbnail column before the Author column
+    $new['listing_number'] = 'Listing Number';
+    $new[$key] = $title;
+  }
+  return $new;
+}
+
+/*
+* Add columns to Property post list
+*/
+function properties_custom_column ( $column, $post_id ) {
+  switch ( $column ) {
+    case 'listing_number':
+    echo get_post_meta ( $post_id, 'listing_number', true );
+    break;
+  }
+}
+add_action ( 'manage_homes-for-sale_posts_custom_column', 'properties_custom_column', 10, 2 );

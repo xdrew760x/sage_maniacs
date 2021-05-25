@@ -5,6 +5,20 @@
   max-width: 1500px;
 }
 
+// Social media
+.social-icons {
+  @apply flex justify-center items-center flex-wrap;
+
+  a {
+    @apply mx-2;
+
+    svg {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+
 // Force Text White
 .text-white {
   h1,
@@ -18,7 +32,7 @@
   body,
   span,
   strong,
-  a,
+  a:not([class]),
   small {
     color: white;
   }
@@ -110,8 +124,29 @@
 }
 
 // Removal of Home meny item on Desktop
-.menu-item-153 {
+.menu-item-190 {
   @media (min-width: 1024px) {
     @apply hidden;
   }
+}
+
+//Slick Arrows
+//Slick Arrows
+.slick-arrow {
+  @apply absolute;
+
+  top: 48%;
+  z-index: 10;
+
+  i {
+    @apply text-white text-5xl;
+  }
+}
+
+.prev {
+  left: 6%;
+}
+
+.next {
+  right: 6%;
 }

@@ -6,7 +6,7 @@
 
   @section('content')
   <div class="section--banner bg-primary1 section-brm--hero">
-    <div class="container lg:flex lg:items-center">
+    <div class="container lg:flex lg:items-center py-6">
       <h1 class="mb-0 inline-block">Style Guide</h1> <span class="inline-block lg:ml-6"> = (Hero H1)</span>
     </div>
   </div>
@@ -47,12 +47,12 @@
       <!-- Headers -->
       <div class="inner w-full lg:w-1/4 mb-4">
         <p>Headers:</p>
-        <h1>heading 1</h1>
-        <h2>heading 2</h2>
-        <h3>heading 3</h3>
-        <h4>heading 4</h4>
-        <h5>heading 5</h5>
-        <h6>heading 6</h6>
+        <h1>Header 1</h1>
+        <h2>Header 2</h2>
+        <h3>Header 3</h3>
+        <h4>Header 4</h4>
+        <h5>Header 5</h5>
+        <h6>Header 6</h6>
       </div>
       <!-- Links / Body -->
       <div class="inner w-full lg:w-1/4 mb-4">
@@ -72,6 +72,8 @@
         <p>Buttons:</p>
         <a href="#" class="button button--primary">book now</a>
         <a href="#" class="button button--secondary">book now</a>
+        <a href="#" class="button button--third">book now</a>
+        <a href="#" class="button button--fourth">book now</a>
       </div>
 
       <!-- List -->

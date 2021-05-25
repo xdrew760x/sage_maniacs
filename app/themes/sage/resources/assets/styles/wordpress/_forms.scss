@@ -1,0 +1,15 @@
+input,
+select,
+textarea {
+  @apply border-1 border-primary4 w-full;
+
+  height: 50px;
+}
+
+textarea {
+  min-height: 200px;
+}
+
+form {
+  //
+}

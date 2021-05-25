@@ -5,8 +5,35 @@ Header B
 //Variables
 $meta = get_field('meta_fields', 'options');
 $header = get_field('component_type', 'options');
+//fonts
+$nav_font = get_field('primary_menu_fam', 'options');
+$nav_fontformat = pathinfo( $nav_font['filename'], PATHINFO_EXTENSION);
+$nav_fonturl = $nav_font['url'];
+
+$meta_font = get_field('meta_font_fam', 'options');
+$meta_fontformat = pathinfo( $meta_font['filename'], PATHINFO_EXTENSION);
+$meta_fonturl = $meta_font['url'];
 @endphp
-<div class="header-component-b">
+
+<style>
+@font-face {
+  font-family: 'nav-font';
+  src: url("{!! $nav_fonturl !!}") format("{{ $nav_fontformat }}");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'meta-font';
+  src: url("{!! $meta_fonturl !!}") format("{{ $meta_fontformat }}");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+</style>
+
+<div class="header header-component-b @if($header['fixed_position']) header-fixed-b @endif">
   <div class="header__top">
     <div class="container flex justify-between items-center py-3 lg:py-0">
       <!-- Mobile Menu Toggle Control

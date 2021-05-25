@@ -1,0 +1,25 @@
+.slick-list,
+.slick-track {
+  @apply h-full;
+}
+
+.slick-dots {
+  @apply flex flex-row items-start justify-center mt-4;
+
+  li {
+    @apply mx-2;
+  }
+
+  button {
+    @apply bg-white w-6 h-6;
+
+    font-size: 0;
+    border-radius: 100%;
+  }
+
+  .slick-active {
+    button {
+      @apply bg-primary2;
+    }
+  }
+}

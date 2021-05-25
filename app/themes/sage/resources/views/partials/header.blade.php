@@ -13,5 +13,8 @@ $type = get_field('component_type', 'options')
 @case('header-b')
 @include('partials.headers.header-b')
 @break
+@case('header-c')
+@include('partials.headers.header-c')
+@break
 @endswitch
 @endif

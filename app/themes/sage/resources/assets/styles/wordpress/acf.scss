@@ -7,7 +7,7 @@
     right: 0;
     left: auto;
     margin-top: 95px;
-    z-index: 500;
+    z-index: 1001 !important;
   }
 
   .interface-interface-skeleton__left-sidebar {
@@ -96,10 +96,6 @@
   position: relative;
 }
 
-.hero__video {
-  z-index: 1 !important;
-}
-
 .edit-post-visual-editor {
   padding-left: 0 !important;
 }
@@ -109,11 +105,17 @@
   margin-top: -30px !important;
 }
 
-.components-popover__content {
-  z-index: 5 !important;
+.components-popover__content,
+.components-popover {
+  z-index: 10002 !important;
 }
 
 .wp-block {
   position: relatiive;
   z-index: 2 !important;
+}
+
+.edit-post-visual-editor__post-title-wrapper {
+  position: relative;
+  z-index: 10 !important;
 }

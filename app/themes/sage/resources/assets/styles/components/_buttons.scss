@@ -1,21 +1,22 @@
 .button {
-  @apply py-3 px-4 text-white uppercase font-button inline-block mb-6 text-center;
+  @apply text-white uppercase font-button text-center block mb-6 text-center;
 
   border-radius: var(--border-radius);
   padding: var(--padding-y) var(--padding-x);
   font-size: var(--button-mobile);
-  color: var(--button-color);
 
   &:hover {
     @apply text-white;
   }
 
-  &:nth-last-child(1) {
-    @apply mb-0;
-  }
-
   @media (min-width: 1024px) {
+    @apply inline-block;
+
     font-size: var(--button-desk);
+
+    &:nth-last-child(1) {
+      @apply mb-0;
+    }
   }
 }
 
@@ -23,6 +24,7 @@
   border: var(--border-width) var(--border-type) var(--border-color);
   background-color: var(--button-prime);
   border-width: var(--border-width);
+  color: var(--font-color);
 
   &:hover {
     background-color: var(--button-sec);
@@ -32,6 +34,27 @@
 .button--secondary {
   border: var(--border-width-sec) var(--border-type-sec) var(--border-color-sec);
   background-color: var(--button-sec);
+  color: var(--font-color-sec);
+
+  &:hover {
+    background-color: var(--button-prime);
+  }
+}
+
+.button--third {
+  border: var(--border-width-ter) var(--border-type-ter) var(--border-color-ter);
+  background-color: var(--button-ter);
+  color: var(--font-color-ter);
+
+  &:hover {
+    background-color: var(--button-sec);
+  }
+}
+
+.button--fourth {
+  border: var(--border-width-qua) var(--border-type-qua) var(--border-color-qua);
+  background-color: var(--button-qua);
+  color: var(--font-color-qua);
 
   &:hover {
     background-color: var(--button-prime);

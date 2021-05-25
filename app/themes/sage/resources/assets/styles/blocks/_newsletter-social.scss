@@ -1,0 +1,51 @@
+.section-newsletter-social {
+  .column {
+    .social-icons {
+      svg {
+        fill: var(--icon-clr);
+      }
+    }
+
+    // Open Leads "Clean" Newsletrer Form (must remove bulk code)
+    .openleads-form {
+      @apply flex justify-center flex-wrap;
+
+      .email_input {
+        @apply w-1/2;
+      }
+
+      .button {
+        @apply w-1/4 ml-1;
+      }
+
+      .g-recaptcha {
+        //
+      }
+    }
+  }
+
+  .column-two {
+    @apply relative;
+
+    &::before {
+      @apply absolute bg-primary4 mx-auto block;
+
+      content: "";
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 2px;
+      width: 50%;
+      opacity: 0.1;
+
+      @media (min-width: 1024px) {
+        @apply ml-0;
+
+        left: 0;
+        top: 24%;
+        height: 50%;
+        width: 2px;
+      }
+    }
+  }
+}
