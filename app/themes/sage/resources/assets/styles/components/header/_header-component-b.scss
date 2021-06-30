@@ -6,10 +6,13 @@
   .header__top {
     background-color: var(--top-menu);
 
-    * {
-      color: var(--top-menu-font-color);
+    .meta-contact {
+      a,
+      span {
+        color: var(--top-menu-font-color);
 
-      @apply font-meta-font;
+        @apply font-meta-font;
+      }
     }
   }
 
@@ -39,12 +42,16 @@
       left: 0;
       right: 0;
       max-width: var(--branding-max-w-m);
+      margin-top: -15px;
+      transition: all ease 1s;
+      z-index: 10;
 
       .nav-is-open & {
-        top: 5px;
+        top: 30px;
       }
 
       @media (min-width: 1024px) {
+        margin-top: var(--logo-margin-top);
         max-width: var(--branding-max-w);
       }
     }
@@ -99,6 +106,8 @@
           background-color: var(--sub-bg-color-mobile);
 
           * {
+            @apply font-meta-font;
+
             color: var(--sub-font-color-mobile);
           }
         }

@@ -120,6 +120,11 @@ add_filter('previous_post_link','add_class_previous_post_link',10,1);
 
 //
 ///
+//// Woocommerce Rules
+
+
+//
+///
 ///remove excerpt link to read more on blog posts
 function custom_excerpt_more( $excerpt ) {
   return '';
@@ -155,8 +160,10 @@ function misha_allowed_block_types( $allowed_blocks ) {
   return array(
     'acf/hero',
     'acf/rv-hero',
+    'acf/rv-hero-two-col',
     'acf/full-col',
     'acf/two-col',
+    'acf/two-col-openlead',
     'acf/col-builder',
     'acf/testimonials',
     'acf/home-sale',
@@ -203,7 +210,7 @@ function my_blocks_plugin_block_categories( $categories ) {
       ),
       array(
         'slug' => 'contact_blocks',
-        'title' => __( 'Footer Contact Component', 'brm' ),
+        'title' => __( 'Openlead Forms', 'brm' ),
         'icon'  => 'wordpress',
       ),
     )

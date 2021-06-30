@@ -1,7 +1,9 @@
 .section-contact-a {
   .contact-info {
     p,
-    span {
+    span,
+    .tel-num,
+    .email-add {
       @apply font-contact-font;
     }
   }

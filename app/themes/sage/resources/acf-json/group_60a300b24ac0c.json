@@ -22,7 +22,7 @@
             "key": "field_60a300ea0e8ff",
             "label": "Form Type",
             "name": "input_form_here",
-            "type": "wysiwyg",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -32,10 +32,10 @@
                 "id": ""
             },
             "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
         }
     ],
     "location": [
@@ -55,5 +55,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1621979962
+    "modified": 1625089164
 }

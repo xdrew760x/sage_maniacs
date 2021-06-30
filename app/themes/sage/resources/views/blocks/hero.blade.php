@@ -49,15 +49,18 @@
   $c_width = get_field('width_content');
   $c_pos = get_field('position_content');
   $video = get_field('video_file_mp4');
-  $video = get_field('video_file_mp4');
+  $video_mp4 = get_field('video_file_mp4');
+  $video_webm = get_field('video_file_webm');
   $video_position = get_field('video_position');
+
   @endphp
 
 
-  <section class="preview-none section-brm--hero">
+  <section class="preview-none section-brm--hero relative">
     @if($video)
     <video class="hero__video {!! $video_position ?: 'absolute' !!}" preload="auto" autoplay loop muted playsinline>
-      <source src="{!! $video !!}" type="video/mp4"/>
+      <source src="{!! $video_mp4 !!}" type="video/mp4"/>
+      <source src="{!! $video_webm !!}" type="video/webm"/>
     </video>
     @endif
     <div class="hero-slider relative z-40">
@@ -66,8 +69,13 @@
       @php
       $content = get_sub_field('content_hero');
       $hero_bg = get_sub_field('image_hero');
+
+      // Set hero background
+      $hero_mobile = get_sub_field('image_hero')['sizes']['w960x800'];
+      $hero_desktop = get_sub_field('image_hero')['sizes']['w1920x800'];
+
       @endphp
-      <div class="hero-item bg-cover bg-center @if(!$video) bg-gray @endif text-white" @if($hero_bg) style="background-image: url('{!! $hero_bg !!}')" @endif>
+      <div class="hero-item bg-cover bg-top @if(!$video) bg-gray @endif text-white" style="background: -webkit-image-set( url({!! $hero_desktop !!}) 1x, url({!! $hero_mobile !!}) 2x );">
         <div class="container flex justify-center items-center">
           <div class="hero_content mx-auto block {!! $c_width !!} {!! $c_pos !!} p-12">
             {!! $content !!}

@@ -176,29 +176,31 @@ div.gallery-columns-7 {
 ///
 .col-2,
 ul:not([class]) {
-  @apply mb-3;
+  @apply my-4;
 
   padding-left: var(--ul-pad);
 
   li {
-    @apply relative mb-3;
+    @apply relative mb-5;
 
     &::before {
-      @apply absolute;
+      @apply absolute bg-black;
 
       content: '';
       left: -30px;
-      top: 4px;
-      width: 20px;
-      height: 20px;
+      top: 10px;
+      width: 10px;
+      height: 10px;
       border-radius: 100%;
-      background: var(--ul-img);
+      background-image: var(--ul-img);
       background-size: cover;
     }
   }
 }
 
 .col-2 {
-  columns: 2;
-  column-gap: 45px;
+  @media (min-width: 1024px) {
+    columns: 2;
+    column-gap: 45px;
+  }
 }

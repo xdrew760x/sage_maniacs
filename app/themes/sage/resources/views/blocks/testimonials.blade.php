@@ -22,8 +22,8 @@
       speed: 1000,
       slidesToShow: 1,
       slidesToScroll: 1,
-      dots: false,
-      arrows: true,
+      dots: true,
+      arrows: false,
       nextArrow: '<div class="next"><i class="fal fa-chevron-right"></i></div>',
       prevArrow: '<div class="prev"><i class="fal fa-chevron-left"></i></div>',
 
@@ -92,7 +92,8 @@
         <div class="testimonial-card">
           <p>{!! the_content() !!}</p>
 
-          <strong class="mt-4">{!! the_title() !!} &#124; {!! $source !!}</strong>
+          <strong class="mt-12 block">{!! the_title() !!}</strong>
+          <p>{!! $source !!}</p>
         </div>
         @endwhile
         @php wp_reset_postdata() @endphp

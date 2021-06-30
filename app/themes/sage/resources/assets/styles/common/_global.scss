@@ -1,3 +1,7 @@
+body {
+  overflow-x: hidden;
+}
+
 // Main Container
 .container {
   @apply w-full mx-auto block px-2;
@@ -6,6 +10,10 @@
 }
 
 // Social media
+.section--social {
+  background-color: var(--social-bg-clr);
+}
+
 .social-icons {
   @apply flex justify-center items-center flex-wrap;
 
@@ -15,6 +23,7 @@
     svg {
       width: 40px;
       height: 40px;
+      fill: var(--social-icon-clr);
     }
   }
 }

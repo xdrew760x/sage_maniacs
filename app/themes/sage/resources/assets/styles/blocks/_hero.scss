@@ -25,6 +25,69 @@
   z-index: -1;
 }
 
+// Two Col Hero
+.rv-hero--col {
+  @apply relative;
+
+  .hero_content {
+    @apply absolute w-full;
+
+    background-color: var(--rv-color--hero);
+    max-width: 500px;
+    z-index: 100;
+    left: 0;
+    height: 100%;
+
+    @media (max-width: 1023px) {
+      @apply relative;
+
+      order: 2;
+      max-width: 100%;
+    }
+
+    .child-slide {
+      //
+    }
+  }
+
+  .hero_image_field {
+    width: 80%;
+
+    @media (max-width: 1023px) {
+      @apply w-full;
+
+      order: 1;
+    }
+
+    .parent-slide {
+      .hero_image {
+        min-height: var(--rv-hero-col-mob);
+
+        @media (min-width: 1024px) {
+          min-height: var(--rv-hero-col-desk);
+        }
+      }
+    }
+  }
+
+  .slick-arrow {
+    top: 100%;
+
+    @media (max-width: 1023px) {
+      top: 85%;
+    }
+
+    i {
+      font-size: 34px;
+    }
+  }
+
+  .prev {
+    right: 100px;
+    left: auto;
+  }
+}
+
 // Rv Hero Block
 .rv-hero {
   .container {

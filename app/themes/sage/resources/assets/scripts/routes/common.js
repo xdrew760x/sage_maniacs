@@ -8,6 +8,7 @@ export default {
     const hamburger = document.querySelector('.nav-control')
     const galleryThumbs = document.querySelectorAll('.gallery-icon')
 
+
     // Handle external urls
     anchors.forEach(anchor => {
       if (isExternal(anchor)) {
@@ -87,7 +88,7 @@ export default {
         autoplaySpeed: 15000,
         speed: 1000,
         slidesToShow: 1,
-        slidesToScroll: 3,
+        slidesToScroll: 1,
       });
     }
 
@@ -136,10 +137,11 @@ export default {
 
         responsive: [
           {
-            breakpoint: 1023,
+            breakpoint: 768,
             settings: {
-              dots: true,
-              arrows: false,
+              centerMode: true,
+              slidesToShow: 1,
+              centerPadding: '15px',
             },
           },
         ],
@@ -162,10 +164,11 @@ export default {
 
         responsive: [
           {
-            breakpoint: 1023,
+            breakpoint: 768,
             settings: {
-              dots: true,
-              arrows: false,
+              centerMode: true,
+              slidesToShow: 1,
+              centerPadding: '15px',
             },
           },
         ],
@@ -188,10 +191,11 @@ export default {
 
         responsive: [
           {
-            breakpoint: 1023,
+            breakpoint: 768,
             settings: {
-              dots: true,
-              arrows: false,
+              centerMode: true,
+              slidesToShow: 1,
+              centerPadding: '15px',
             },
           },
         ],

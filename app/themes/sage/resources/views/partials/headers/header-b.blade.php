@@ -2,17 +2,18 @@
 Header B
 ----->
 @php
-//Variables
 $meta = get_field('meta_fields', 'options');
 $header = get_field('component_type', 'options');
+
 //fonts
-$nav_font = get_field('primary_menu_fam', 'options');
+$nav_font = $header['primary_menu_fam'];
 $nav_fontformat = pathinfo( $nav_font['filename'], PATHINFO_EXTENSION);
 $nav_fonturl = $nav_font['url'];
 
-$meta_font = get_field('meta_font_fam', 'options');
+$meta_font = $header['meta_font_fam'];
 $meta_fontformat = pathinfo( $meta_font['filename'], PATHINFO_EXTENSION);
 $meta_fonturl = $meta_font['url'];
+
 @endphp
 
 <style>
@@ -43,7 +44,7 @@ $meta_fonturl = $meta_font['url'];
         <span class="block relative w-full h-hamburger"></span>
       </button>
 
-      <div class="inline-block">
+      <div class="inline-block meta-contact">
         @if( $meta['phone_number'] )
         <a href="tel:{{ preg_replace('/[^0-9]/', '', $meta['phone_number']) }}" class="mr-4"><i class="fas fa-phone mr-2"></i>  <span class="hidden lg:inline-block">{{ $meta['phone_number'] }}</span></a>
         @endif
@@ -53,8 +54,8 @@ $meta_fonturl = $meta_font['url'];
         @endif
       </div>
       <div class="inline-block hidden lg:inline-block">
-        @if( $meta['reservation_url'] )
-        <a href="{!! $meta['reservation_url'] !!}" class="ml-4 button button--primary hidden lg:inline-block">Book Now</a>
+        @if( $meta['resident_url'] )
+        <a href="{!! $meta['resident_url'] !!}" class="ml-4 button button--primary hidden lg:inline-block">Book Now</a>
         @endif
       </div>
     </div>

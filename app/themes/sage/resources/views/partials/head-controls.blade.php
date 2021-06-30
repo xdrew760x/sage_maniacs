@@ -79,19 +79,23 @@ $buttonurl = $button['url'];
 //Button Globals
 $pad_y = get_field('padding_y', 'options');
 $pad_x = get_field('padding_x', 'options');
-$boarder_radius = get_field('boarder_radius', 'options');
+$boarder_radius = get_field('border_radius', 'options');
 
 // Buttons Group
 $button = get_field('button_styles', 'options');
 
 // Header Group
 $header = get_field('component_type', 'options');
+$meta = get_field('meta_fields', 'options');
 @endphp
 <style>
   :root {
     /* Branding Size */
     --branding-max-w: {{ $header['max_width'] }}px;
     --branding-max-w-m: {{ $header['max_width_mobile'] }}px;
+    --logo-margin-top: {{ $header['margin_top_branding'] }}px;
+
+
     /* Tailwind will map its color variables to these variables which are then set by ACF */
     --primary-color: {{ $color1 }};
     --secondary-color: {{ $color2 }};
@@ -113,7 +117,7 @@ $header = get_field('component_type', 'options');
     /* Buttons */
     --padding-y: {{ $pad_y }}px;
     --padding-x: {{ $pad_x }}px;
-    --border-radius: {{ $boarder_radius }}%;
+    --border-radius: {{ $boarder_radius }}px;
     /* Prime button */
     --button-prime: {{ $button['button_bg'] }};
     --border-width: {{ $button['border_width_prime'] }}px;
@@ -144,7 +148,7 @@ $header = get_field('component_type', 'options');
 
     /* Header One */
     --h1-desk: {{ $font_options['h1_size_desk'] }}px;
-    --h1-mobile: {{ $font_options['h1_size_mobile'] }}px;
+    --h1-mobile: {{ $font_options['h1_size_mob'] }}px;
     --h1-color: {{ $font_options['h1_color'] }};
     --h1-transform: {{ $font_options['transform_h1'] }};
     --h1-line-height: {{ $font_options['line_height_h1'] }};
@@ -230,6 +234,8 @@ $header = get_field('component_type', 'options');
     --button-desk: {{ $font_options['button_size_desk'] }}px;
     --button-mobile: {{ $font_options['button_size_mob'] }}px;
     --button-color: {{ $font_options['button_color'] }};
+    --social-bg-clr: {{ $meta['social_bg_color'] }};
+    --social-icon-clr: {{ $meta['icon_color'] }};
   }
 
   /* Font family definitions just need to have a corresponding name in Tailwind config */

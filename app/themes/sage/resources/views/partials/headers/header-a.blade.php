@@ -2,15 +2,15 @@
 Header A
 ----->
 @php
-//Variables
 $meta = get_field('meta_fields', 'options');
 $header = get_field('component_type', 'options');
+
 //fonts
-$nav_font = get_field('primary_menu_fam', 'options');
+$nav_font = $header['primary_menu_fam'];
 $nav_fontformat = pathinfo( $nav_font['filename'], PATHINFO_EXTENSION);
 $nav_fonturl = $nav_font['url'];
 
-$meta_font = get_field('meta_font_fam', 'options');
+$meta_font = $header['meta_font_fam'];
 $meta_fontformat = pathinfo( $meta_font['filename'], PATHINFO_EXTENSION);
 $meta_fonturl = $meta_font['url'];
 @endphp

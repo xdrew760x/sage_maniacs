@@ -12,12 +12,16 @@ add_action('tgmpa_register', function() {
       'slug' => 'advanced-custom-fields-pro',
       'source' => dirname( __DIR__ ) . '/app/plugins/advanced-custom-fields-pro.zip',
       'required' => true,
+      'force_activation'   => true,
+      'force_deactivation' => true,
     ],
     [
       'name' => 'Advanced Custom Fields RGBA Color Picker',
       'slug' => 'acf-rgba-color-picker',
       'source' => dirname( __DIR__ ) . '/app/plugins/acf-rgba-color-picker.zip',
       'required' => true,
+      'force_activation'   => true,
+      'force_deactivation' => true,
     ],
   ];
 

@@ -2,6 +2,7 @@
 $meta = get_field('meta_fields', 'options');
 $contact_bg = get_field('background_color_contact', 'options');
 $font_white = get_field('font_white_contact', 'options');
+$meta = get_field('meta_fields', 'options');
 
 // contact
 $contact_font = get_field('font_control', 'options');
@@ -18,10 +19,10 @@ $contact_fonturl = $contact_font['url'];
     <div itemscope itemtype="http://schema.org/LocalBusiness" class="contact--inner">
       <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
         <span itemprop="name" class=" mb-0 bold">{!! get_bloginfo() !!}</span><br>
-        <span itemprop="streetAddress" class="font-hkgrotesk-regular ">{!! $meta['street_address'] !!}</span><br>
-        <span itemprop="addressLocality" class="font-hkgrotesk-regular ">{!! $meta['city_name'] !!},</span>
-        <span itemprop="addressRegion" class="font-hkgrotesk-regular ">{!! $meta['state'] !!}</span>
-        <span itemprop="postalCode" class="font-hkgrotesk-regular ">{!! $meta['zipcode'] !!}</span>
+        <span itemprop="streetAddress">{!! $meta['street_address'] !!}</span><br>
+        <span itemprop="addressLocality">{!! $meta['city_name'] !!},</span>
+        <span itemprop="addressRegion">{!! $meta['state'] !!}</span>
+        <span itemprop="postalCode">{!! $meta['zipcode'] !!}</span>
       </address>
       <p class="contact-info--tel my-12">
         @if($meta['phone_number'])
@@ -30,6 +31,12 @@ $contact_fonturl = $contact_font['url'];
 
         @if($meta['phone_number_sec'])
         <a itemprop="telephone" href="tel:{{ preg_replace('/[^0-9]/', '', $meta['phone_number']) }}" aria-label="Call us today at {!! $meta['phone_number_sec'] !!}">Sales: {!! $meta['phone_number_sec'] !!}</a><br>
+        @endif
+      </p>
+
+      <p class="contact-info--tel my-12">
+        @if($meta['email_address'])
+        <a href="mailto:{!! $meta['email_address']!!}" itemprop="email"  aria-label="Email us by clicking here">Email: {!! $meta['email_address']!!}</a>
         @endif
       </p>
     </div>

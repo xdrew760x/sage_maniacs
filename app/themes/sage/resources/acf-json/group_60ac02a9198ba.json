@@ -152,7 +152,7 @@
                             "key": "field_60ac04c067487",
                             "label": "Meta Value",
                             "name": "meta_value_rate",
-                            "type": "text",
+                            "type": "wysiwyg",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -162,10 +162,10 @@
                                 "id": ""
                             },
                             "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
                         }
                     ]
                 },
@@ -298,5 +298,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1621979921
+    "modified": 1625089186
 }

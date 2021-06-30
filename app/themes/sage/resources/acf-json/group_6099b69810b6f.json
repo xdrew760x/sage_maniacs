@@ -71,6 +71,33 @@
             "mime_types": "mp4"
         },
         {
+            "key": "field_60dcd26528b2d",
+            "label": "Video File WEBM",
+            "name": "video_file_webm",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_609ac85f7fd1a",
+                        "operator": "==",
+                        "value": "Video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": "webm"
+        },
+        {
             "key": "field_609ad2684270e",
             "label": "Video Position",
             "name": "video_position",
@@ -134,7 +161,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "url",
+                    "return_format": "array",
                     "preview_size": "medium",
                     "library": "all",
                     "min_width": "",
@@ -323,5 +350,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1621979888
+    "modified": 1625089176
 }

@@ -4,6 +4,7 @@
   border-radius: var(--border-radius);
   padding: var(--padding-y) var(--padding-x);
   font-size: var(--button-mobile);
+  line-height: 1;
 
   &:hover {
     @apply text-white;
@@ -18,6 +19,10 @@
       @apply mb-0;
     }
   }
+
+  .header & {
+    border-radius: 0;
+  }
 }
 
 .button--primary {
@@ -25,6 +30,7 @@
   background-color: var(--button-prime);
   border-width: var(--border-width);
   color: var(--font-color);
+  height: 55px;
 
   &:hover {
     background-color: var(--button-sec);

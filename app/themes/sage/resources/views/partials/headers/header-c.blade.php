@@ -2,6 +2,7 @@
 Header C
 ----->
 @php
+
 //Variables
 $meta = get_field('meta_fields', 'options');
 $header = get_field('component_type', 'options');
@@ -42,6 +43,11 @@ $meta_fonturl = $meta_font['url'];
         @if( $meta['phone_number'] )
         <a href="tel:{{ preg_replace('/[^0-9]/', '', $meta['phone_number']) }}" class="text-white mr-2"><i class="fas fa-phone"></i></a>
         @endif
+
+        @if( $meta['resident_url'] )
+        <a href="{!! $meta['resident_url'] !!}" class="brm-btn brm-btn--primary"><i class="fas fa-users text-white"></i></a>
+        @endif
+
       </div>
 
       <!-- Mobile Menu Toggle Control
@@ -88,8 +94,8 @@ $meta_fonturl = $meta_font['url'];
 
       </div>
       <div class="hidden lg:inline-block">
-        @if( $meta['reservation_url'] )
-        <a href="{!! $meta['reservation_url'] !!}" class="ml-4 button button--primary hidden lg:inline-block text-white">Homes for sale</a>
+        @if( $meta['resident_url'] )
+        <a href="{!! $meta['resident_url'] !!}" class="button button--primary hidden lg:inline-block">Resident Login</a>
         @endif
       </div>
     </div>

@@ -35,8 +35,9 @@
         $rate_length = get_sub_field('rate_length');
         $rate_meta = get_sub_field('rate_meta');
         $card_bg_clr = get_sub_field('card_bg_color');
+        $booking = get_sub_field('booking_link');
         @endphp
-        <div class="p-2 w-full md:w-1/2 lg:w-1/3 card-{!! $i++ !!} @if($i == 3 ) lg:-mt-12 @endif">
+        <div class="p-2 w-full md:w-1/2 lg:w-1/3 card-{!! $i++ !!}">
           <div class="bg-white rounded-lg shadow-lg">
             <div class="px-4 py-8 text-center">
               @if($rate_title)
@@ -51,11 +52,11 @@
                   @php
                   $meta_value = get_sub_field('meta_value_rate');
                   @endphp
-                  <li>{!! $meta_value !!}</li>
+                  {!! $meta_value !!}
                   @endwhile
                 </ul>
                 @endif
-                <a href="#" class="button button--primary mt-4 block mx-auto">Book Now</a>
+                <a href="{!! $booking !!}" class="button button--primary mt-4 block mx-auto">Book Now</a>
               </div>
             </div>
           </div>

@@ -16,42 +16,42 @@ $contact_fonturl = $contact_font['url'];
         <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
 
           <div class="flex justify-start">
-            <i class="far fa-map-marker-alt text-white"></i>
+            <i class="fas fa-map-marker-alt text-white"></i>
             <div class="pl-4">
               <span itemprop="name" class=" mb-0 bold">{!! get_bloginfo() !!}</span><br>
-              <span itemprop="streetAddress" class="font-hkgrotesk-regular ">{!! $meta['street_address'] !!}</span><br>
-              <span itemprop="addressLocality" class="font-hkgrotesk-regular ">{!! $meta['city_name'] !!},</span>
-              <span itemprop="addressRegion" class="font-hkgrotesk-regular ">{!! $meta['state'] !!}</span>
-              <span itemprop="postalCode" class="font-hkgrotesk-regular ">{!! $meta['zipcode'] !!}</span>
+              <span itemprop="streetAddress" >{!! $meta['street_address'] !!}</span><br>
+              <span itemprop="addressLocality" >{!! $meta['city_name'] !!},</span>
+              <span itemprop="addressRegion" >{!! $meta['state'] !!}</span>
+              <span itemprop="postalCode" >{!! $meta['zipcode'] !!}</span>
             </div>
           </div>
         </address>
         <p class="contact-info--tel my-6">
 
           <div class="flex justify-start">
-            <i class="fad fa-phone-rotary"></i>
+            <i class="fas fa-phone"></i>
             <div class="pl-4">
               @if($meta['phone_number'])
-              <a itemprop="telephone" class="mb-2 inline-block text-white" href="tel:{{ preg_replace('/[^0-9]/', '', $meta['phone_number']) }}" aria-label="Call us today at {!! $phone !!}">Office: {!! $meta['phone_number'] !!}</a><br>
+              <a itemprop="telephone" class="mb-2 inline-block text-white tel-num" href="tel:{{ preg_replace('/[^0-9]/', '', $meta['phone_number']) }}" aria-label="Call us today at {!! $phone !!}">{!! $meta['phone_number'] !!}</a><br>
               @endif
 
               @if($meta['phone_number_sec'])
-              <a itemprop="telephone" href="tel:{{ preg_replace('/[^0-9]/', '', $meta['phone_number']) }}" aria-label="Call us today at {!! $meta['phone_number_sec'] !!}">Sales: {!! $meta['phone_number_sec'] !!}</a><br>
+              <a itemprop="telephone" href="tel:{{ preg_replace('/[^0-9]/', '', $meta['phone_number']) }}" aria-label="Call us today at {!! $meta['phone_number_sec'] !!}" class="tel-num text-white">Sales: {!! $meta['phone_number_sec'] !!}</a><br>
               @endif
             </div>
           </div>
 
           <div class="mt-6 flex justify-start">
-            <i class="far fa-envelope"></i>
+            <i class="fas fa-envelope"></i>
             <div class="pl-4">
               @if($meta['email_address'])
-              <a itemprop="telephone" href="mailto:{{ $meta['email_address'] }}" aria-label="Email us today at {!! $meta['email_address'] !!}">Email: {!! $meta['email_address'] !!}</a><br>
+              <a itemprop="telephone" href="mailto:{{ $meta['email_address'] }}" aria-label="Email us today at {!! $meta['email_address'] !!}" class="email-add text-white">{!! $meta['email_address'] !!}</a><br>
               @endif
             </div>
           </div>
 
-          @if($meta['reservation_url'])
-          <a itemprop="email" href="tel:{{ $meta['reservation_url'] }}" aria-label="book with us today" class="button button--primary mt-6">Book Now</a><br>
+          @if($meta['resident_url'])
+          <a itemprop="email" href="tel:{{ $meta['resident_url'] }}" aria-label="book with us today" class="button button--primary mt-12 woo-button">Book Now</a><br>
           @endif
 
         </p>

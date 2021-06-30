@@ -11,7 +11,7 @@
 
   .copyright {
     * {
-      @apply font-footer-font;
+      @apply font-body uppercase;
 
       font-size: 12px;
     }
@@ -22,6 +22,10 @@
 
     li {
       @apply mx-4;
+
+      a {
+        @apply uppercase;
+      }
     }
   }
 }

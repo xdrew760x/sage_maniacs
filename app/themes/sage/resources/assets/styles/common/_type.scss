@@ -62,17 +62,18 @@ h3 {
   }
 }
 
-h4 {
+h4,
+.woocommerce-loop-product__title {
   @apply font-heading-four;
 
-  font-size: var(--h4-mobile);
-  color: var(--h4-color);
-  text-transform: var(--h4-transform);
-  line-height: var(--h4-line-height);
-  letter-spacing: var(--h4-letter-spacing);
+  font-size: var(--h4-mobile) !important;
+  color: var(--h4-color) !important;
+  text-transform: var(--h4-transform) !important;
+  line-height: var(--h4-line-height) !important;
+  letter-spacing: var(--h4-letter-spacing) !important;
 
   @media (min-width: 1024px) {
-    font-size: var(--h4-desk);
+    font-size: var(--h4-desk) !important;
   }
 }
 
@@ -164,4 +165,8 @@ small {
   @media (min-width: 1024px) {
     font-size: var(--small-desk);
   }
+}
+
+address {
+  font-style: normal;
 }

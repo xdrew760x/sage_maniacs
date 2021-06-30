@@ -1,7 +1,7 @@
 :root {
   --white: #ffffff;
-  --primary-2: #C84C23;
-  --primary-1: #ffffff;
+  --primary-1: #333;
+  --primary-2: #f6921e;
 }
 
 body {
@@ -11,10 +11,10 @@ body {
 
 .login h1 a {
   width: 100%;
-  max-width: 200px;
-  height: 125px;
+  max-width: 250px;
+  height: 100px;
   margin-bottom: 0px;
-  background-image: url("/app/uploads/2021/05/logo.svg");
+  background-image: url("/app/themes/sage/resources/assets/images/bigrigxpress.svg");
   background-size: 100%;
 }
 

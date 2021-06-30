@@ -64,7 +64,7 @@ switch(WP_ENV){
 	// Development
 	case 'development':
 	/** The name of the local database for WordPress */
-	define('DB_NAME', 'brmtech_db');
+	define('DB_NAME', 'warthen_db');
 
 	/** MySQL local database username */
 	define('DB_USER', 'root');
@@ -75,13 +75,13 @@ switch(WP_ENV){
 	// Production
 	case 'production':
 	/** The name of the live database for WordPress */
-	define('DB_NAME', '');
+	define('DB_NAME', 'warthen_rv_park_db');
 
 	/** MySQL live database username */
-	define('DB_USER', '');
+	define('DB_USER', 'warthen_rv_park_us');
 
 	/** MySQL live database password */
-	define('DB_PASSWORD', '');
+	define('DB_PASSWORD', 'dnDl_0JrEXsdgbGV0mm2X');
 	break;
 }
 
@@ -151,9 +151,7 @@ define('SECURE_AUTH_KEY',  'R(fNYA;yMt+,(; 6->hEKfnL7K zh.>yLLw!lhgo9:Ue7{@Mn2us
 
 
 				define('WP_DEBUG', false);
-
 				define('FORCE_SSL', false);
-
 				define('FORCE_SSL_ADMIN', false);
 				/* That's all, stop editing! Happy blogging. */
 

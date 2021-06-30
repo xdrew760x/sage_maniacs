@@ -1,9 +1,21 @@
 input,
+optgroup,
 select,
 textarea {
-  @apply border-1 border-primary4 w-full;
+  @apply border-1 border-primary4 w-full px-2;
 
-  height: 50px;
+  height: 50px !important;
+  font-size: var(--p-mobile) !important;
+
+  ::placeholder {
+    font-size: var(--p-mobile) !important;
+  }
+}
+
+label {
+  @apply font-body uppercase;
+
+  font-size: var(--p-mobile);
 }
 
 textarea {
@@ -11,5 +23,13 @@ textarea {
 }
 
 form {
-  //
+  .button {
+    @apply w-auto bg-primary1 border-2 border-white px-12 py-6;
+
+    line-height: 0 !important;
+  }
+}
+
+.ginput_counter {
+  @apply hidden;
 }

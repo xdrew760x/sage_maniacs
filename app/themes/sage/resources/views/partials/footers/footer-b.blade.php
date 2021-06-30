@@ -31,7 +31,7 @@ $footer_fonturl = $footer_font['url'];
 <footer class="footer-a py-6 text-center" style="background-color: {!! $background_clr !!};">
   <div class="container">
     <div class="meta">
-      <a class="footer__branding" href="{{ home_url('/') }}">
+      <a class="footer__branding" href="{{ home_url('/') }}" aria-label="footer branding click here to go home">
         @if( $footer_logo )
         <img src="{{ $footer_logo['url'] }}" alt="{{ get_bloginfo('name', 'display') }}" class="mx-auto block mb-6" />
         @else
@@ -45,11 +45,11 @@ $footer_fonturl = $footer_font['url'];
     </div>
 
     <div class="copyright">
-      <p class="mb-0 uppercase">
+      <p class="mb-0">
         <span class="mb-0">&copy; Copyright {{ date('Y') }} {{ App::siteName() }} </span> &#124;
         <a href="/ada-compliance/" aria-label="Review our ADA Compliance statement by clicking here">ADA Compliance</a> &#124;
         <a href="/privacy-policy/" aria-label="Review our Privacy Policy by clicking here">Privacy Policy</a>
-        &#124;   <a href="https://www.bigrigmedia.com/outdoor-hospitality-website-development/" aria-label="WEBSITE BY BIG RIG Media Click here to View this Company Website">WEBSITE BY BIG RIG Media &reg;</a></span>
+        &#124;   <a href="https://www.bigrigmedia.com/outdoor-hospitality-website-development/" aria-label="WEBSITE BY BIG RIG Media Click here to View this Company Website">Website by Big Rig Xpress™</a></span>
       </p>
     </div>
   </div>

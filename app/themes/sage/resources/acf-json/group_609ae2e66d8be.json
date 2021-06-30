@@ -209,6 +209,73 @@
             "placeholder": ""
         },
         {
+            "key": "field_60c7e62d37654",
+            "label": "add column overlay?",
+            "name": "bleed_left",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_609ae2e6735ae",
+                        "operator": "==",
+                        "value": "Color"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "bleed-left": "Yes"
+            },
+            "default_value": false,
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_60c7eac668f38",
+            "label": "Overlay Color",
+            "name": "bleed_color_left",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60c7e62d37654",
+                        "operator": "==",
+                        "value": "bleed-left"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "bl-prime": "Primary-1",
+                "bl-second": "Primary-2",
+                "bl-third": "Primary-3",
+                "bl-fourth": "Primary-4"
+            },
+            "default_value": false,
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_609ae34932607",
             "label": "Font White",
             "name": "font_white",
@@ -457,6 +524,73 @@
             "placeholder": ""
         },
         {
+            "key": "field_60c7e66737655",
+            "label": "add column overlay?",
+            "name": "bleed_right",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_609ae36b32608",
+                        "operator": "==",
+                        "value": "Color"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "bleed-right": "Yes"
+            },
+            "default_value": false,
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_60c7ebf868f39",
+            "label": "Overlay Color",
+            "name": "bleed_color_right",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60c7e66737655",
+                        "operator": "==",
+                        "value": "bleed-right"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "br-prime": "Primary-1",
+                "br-second": "Primary-2",
+                "br-third": "Primary-3",
+                "br-fourth": "Primary-4"
+            },
+            "default_value": false,
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_609ae3e76f40e",
             "label": "Font White",
             "name": "font_white_two",
@@ -642,5 +776,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1621979956
+    "modified": 1625089194
 }
