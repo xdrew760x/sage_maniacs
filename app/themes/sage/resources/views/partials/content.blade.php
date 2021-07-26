@@ -1,8 +1,12 @@
+@php
+  $header = get_field('component_type', 'options');
+@endphp
+
 @if(is_archive())
 <article class="flex flex-row flex-wrap justify-start">
   <div class="column column-one w-full lg:w-1/3">
     <a class="block mb-5" href="{{ get_permalink($post->ID) }}">
-      <div class="blog-img bg-cover bg-center" style="background-image: url('{{ get_the_post_thumbnail_url() ?: '/app/uploads/2021/05/logo.svg' }}')"></div>
+      <div class="blog-img bg-cover bg-center" style="background-image: url('{{ get_the_post_thumbnail_url() ?: $header['branding_logo'] }}')"></div>
     </a>
   </div>
   <div class="column colunn-two w-full lg:w-2/3 lg:pl-4">
@@ -17,7 +21,7 @@
 <article class="flex flex-row flex-wrap justify-start">
   <div class="column column-one w-full lg:w-1/3">
     <a class="block mb-5" href="{{ get_permalink($post->ID) }}">
-      <div class="blog-img bg-cover bg-center" style="background-image: url('{{ get_the_post_thumbnail_url() ?: '/app/uploads/2021/05/logo.svg' }}')"></div>
+      <div class="blog-img bg-cover bg-center" style="background-image: url('{!! get_the_post_thumbnail_url() ?: $header['branding_logo']['url'] !!}')"></div>
     </a>
   </div>
   <div class="column colunn-two w-full lg:w-2/3 lg:pl-4">

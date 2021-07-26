@@ -33,3 +33,13 @@ form {
 .ginput_counter {
   @apply hidden;
 }
+
+.gform_wrapper.gravity-theme .ginput_container_date input {
+  @apply w-full;
+}
+
+.gform_wrapper .top_label li.gfield.gf_left_half,
+.gform_wrapper .top_label li.gfield.gf_right_half {
+  vertical-align: baseline !important;
+  color: rgb(153, 153, 153);
+}

@@ -13,14 +13,16 @@
   </div>
 
   @php
-  $pad_y = get_field('padding_y');
+  $padding_top_full = get_field('padding_top_full');
+  $padding_bottom_full = get_field('padding_bottom_full');
   $background_image = get_field('background_image');
   $color_bg = get_field('color_back');
   $content_full = get_field('content_full');
   $text_white = get_field('font_white');
+  $section_has_bg = $background_image ? 'section-has-bg' : '';
   @endphp
 
-  <section class="preview-none section-col-full {!! $text_white !!} relative z-40 {!! $color_bg !!}" style="padding: {!! $pad_y !!}px 0; background-image: url('{!! $background_image !!}')">
+  <section id="{!! wp_unique_id('full-col-') !!}" class="preview-none section-col-full {!! $text_white !!} relative z-40 {!! $color_bg !!} {!! $section_has_bg !!}" style="padding: {!! $padding_top_full !!}px 0 {!! $padding_bottom_full !!}px 0; background-image: url('{!! $background_image !!}')">
     <div class="container">
       {!! $content_full !!}
     </div>

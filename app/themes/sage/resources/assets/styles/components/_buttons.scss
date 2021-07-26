@@ -1,5 +1,5 @@
 .button {
-  @apply text-white uppercase font-button text-center block mb-6 text-center;
+  @apply text-white uppercase font-button text-center inline-block text-center;
 
   border-radius: var(--border-radius);
   padding: var(--padding-y) var(--padding-x);
@@ -30,10 +30,9 @@
   background-color: var(--button-prime);
   border-width: var(--border-width);
   color: var(--font-color);
-  height: 55px;
 
   &:hover {
-    background-color: var(--button-sec);
+    background-color: var(--button-hover-prim);
   }
 }
 
@@ -43,7 +42,7 @@
   color: var(--font-color-sec);
 
   &:hover {
-    background-color: var(--button-prime);
+    background-color: var(--button-hover-sec);
   }
 }
 
@@ -53,7 +52,7 @@
   color: var(--font-color-ter);
 
   &:hover {
-    background-color: var(--button-sec);
+    background-color: var(--button-hover-ter);
   }
 }
 
@@ -63,6 +62,6 @@
   color: var(--font-color-qua);
 
   &:hover {
-    background-color: var(--button-prime);
+    background-color: var(--button-hover-quat);
   }
 }

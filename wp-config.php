@@ -64,7 +64,7 @@ switch(WP_ENV){
 	// Development
 	case 'development':
 	/** The name of the local database for WordPress */
-	define('DB_NAME', 'warthen_db');
+	define('DB_NAME', 'winonabeachresort_db');
 
 	/** MySQL local database username */
 	define('DB_USER', 'root');
@@ -150,7 +150,7 @@ define('SECURE_AUTH_KEY',  'R(fNYA;yMt+,(; 6->hEKfnL7K zh.>yLLw!lhgo9:Ue7{@Mn2us
 				define('ALLOW_UNFILTERED_UPLOADS', false);
 
 
-				define('WP_DEBUG', false);
+				define('WP_DEBUG', true);
 				define('FORCE_SSL', false);
 				define('FORCE_SSL_ADMIN', false);
 				/* That's all, stop editing! Happy blogging. */

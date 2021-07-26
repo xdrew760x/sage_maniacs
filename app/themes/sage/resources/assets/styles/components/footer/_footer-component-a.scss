@@ -9,12 +9,11 @@
     }
   }
 
-  .copyright {
-    * {
-      @apply font-body uppercase;
+  .copyright * {
+    @apply font-copyright-font uppercase;
 
-      font-size: 12px;
-    }
+    color: var(--copyright-font-color);
+    font-size: var(--copyright-font-size);
   }
 
   .footer-nav-a {
@@ -24,7 +23,7 @@
       @apply mx-4;
 
       a {
-        @apply uppercase;
+        text-transform: var(--footer_nav_text_transform);
       }
     }
   }

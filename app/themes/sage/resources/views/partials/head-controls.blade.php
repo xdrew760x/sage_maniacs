@@ -87,6 +87,15 @@ $button = get_field('button_styles', 'options');
 // Header Group
 $header = get_field('component_type', 'options');
 $meta = get_field('meta_fields', 'options');
+
+//Contact
+$meta_info_text_transform = get_field('meta_info_text_transform', 'options');
+
+//Contact
+$social_media_svg_colors = get_field('social_media_svg_colors', 'options');
+$social_media_svg_background_color = get_field('social_media_svg_background_color', 'options');
+
+$footer_nav_text_transform = get_field('footer_nav_text_transform', 'options');
 @endphp
 <style>
   :root {
@@ -104,7 +113,8 @@ $meta = get_field('meta_fields', 'options');
     /* Header Nav */
     --top-menu: {{ $header['top_bg_color'] }};
     --top-menu-font-color: {{ $header['top_nav_color'] }};
-    --top-meta: {{ $header['meta_font_size'] }}px;
+    --meta_font_size: {{ $header['meta_font_size'] }}px;
+    --meta-text-transform: {{$header['meta-text-transform']}};
     --mobile-menu: {{ $header['m_menu_color'] }};
     --menu-font: {{ $header['primary_menu'] }}px;
     --mobile-menu-font: {{ $header['primary_menu_mobile'] }}px;
@@ -112,7 +122,11 @@ $meta = get_field('meta_fields', 'options');
     --menu-font-color-mobile: {{ $header['primary_menu_color_mobile'] }};
     --sub-font-color-mobile: {{ $header['sub_nav_color'] }};
     --sub-bg-color-mobile: {{ $header['sub_menu_bg_color'] }};
+    --nav-text-transform: {{ $header['header_text_transform']}};
 
+    /* Footer */
+
+    --footer_nav_text_transform: {{ $footer_nav_text_transform }};
 
     /* Buttons */
     --padding-y: {{ $pad_y }}px;
@@ -120,10 +134,12 @@ $meta = get_field('meta_fields', 'options');
     --border-radius: {{ $boarder_radius }}px;
     /* Prime button */
     --button-prime: {{ $button['button_bg'] }};
+    --button-prime-: {{ $button['button_bg'] }};
     --border-width: {{ $button['border_width_prime'] }}px;
     --border-type: {{ $button['border_type_prime'] }};
     --border-color: {{ $button['border_color_prime'] }};
     --font-color: {{ $button['font_color_prime'] }};
+    --button-hover-prim: {{ $button['hover_color_prim'] }};
 
     /* Secondary button */
     --button-sec: {{ $button['button_bg_sec'] }};
@@ -131,6 +147,7 @@ $meta = get_field('meta_fields', 'options');
     --border-type-sec: {{ $button['boarder_type_sec'] }};
     --border-color-sec: {{ $button['boarder_color_sec'] }};
     --font-color-sec: {{ $button['font_color_sec'] }};
+    --button-hover-sec: {{ $button['hover_color_sec'] }};
 
     /* Tertiary button */
     --button-ter: {{ $button['button_bg_ter'] }};
@@ -138,6 +155,7 @@ $meta = get_field('meta_fields', 'options');
     --border-type-ter: {{ $button['boarder_type_ter'] }};
     --border-color-ter: {{ $button['boarder_color_ter'] }};
     --font-color-ter: {{ $button['font_color_ter'] }};
+    --button-hover-tri: {{ $button['hover_color_tri'] }};
 
     /* Quaternary button */
     --button-qua: {{ $button['button_bg_qua'] }};
@@ -145,6 +163,7 @@ $meta = get_field('meta_fields', 'options');
     --border-type-qua: {{ $button['boarder_type_qua'] }};
     --border-color-qua: {{ $button['boarder_color_qua'] }};
     --font-color-qua: {{ $button['font_color_qua'] }};
+    --button-hover-quat: {{ $button['hover_color_quat'] }};
 
     /* Header One */
     --h1-desk: {{ $font_options['h1_size_desk'] }}px;
@@ -236,6 +255,12 @@ $meta = get_field('meta_fields', 'options');
     --button-color: {{ $font_options['button_color'] }};
     --social-bg-clr: {{ $meta['social_bg_color'] }};
     --social-icon-clr: {{ $meta['icon_color'] }};
+
+    /*Contact*/
+    --social_media_svg_colors: {{$social_media_svg_colors}};
+    --social_media_svg_background_color: {{$social_media_svg_background_color}};
+    --meta_info_text_transform : {{$meta_info_text_transform}};
+    --font_size_contact : {{ get_field('font_size_contact', 'options') }}
   }
 
   /* Font family definitions just need to have a corresponding name in Tailwind config */

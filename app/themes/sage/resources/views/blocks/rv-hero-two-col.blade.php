@@ -45,8 +45,8 @@
   });
   </script>
 
-  <section class="preview-none section-brm--hero rv-hero--col bg-gray flex flex-row flex-wrap justify-end">
-    <div class="hero_content p-4 flex justify-center items-center">
+  <section id="{!! wp_unique_id('hero-two-col-') !!}" class="preview-none section-brm--hero rv-hero--col bg-gray flex flex-row flex-wrap justify-end">
+    <div class="hero_content h-full p-4 flex justify-center items-center" style="background-color: {{get_field('content_clr_col')}}">
       <div class="child-slide w-full py-12">
         @while( have_rows('hero_column') )  @php the_row() @endphp
         <div class="content-slide">
@@ -64,9 +64,18 @@
         @while( have_rows('hero_column') )  @php the_row() @endphp
         @php
         $image_col = get_sub_field('image_col');
+        $video_mp4 = get_sub_field('two_col_video');
+        $video_webm = get_sub_field('two_col_webm');
         @endphp
 
         <div class="hero_image bg-cover bg-top"  @if($image_col) style="background-image: url('{!! $image_col !!}')" @endif>
+          <!-- Work in progress, pretty jank if you try to mix video and image in slider. Works great when individual -->
+          @if($video_mp4)
+          <video class="hero__video" preload="auto" autoplay loop muted playsinline>
+            <source src="{!! $video_mp4 !!}" type="video/mp4"/>
+            <source src="{!! $video_webm !!}" type="video/webm"/>
+          </video>
+          @endif
           <!-- image -->
         </div>
         @endwhile
@@ -78,6 +87,5 @@
   :root {
     --rv-hero-col-desk: {{ get_field('height_col_rv') }}px;
     --rv-hero-col-mob: {{ get_field('height_mobile_col') }}px;
-    --rv-color--hero: {{ get_field('content_clr_col') }};
   }
   </style>

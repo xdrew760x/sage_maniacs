@@ -17,7 +17,7 @@
     $('.testimonial-slider').slick({
       accessibility: true,
       autoplay: true,
-      autoplaySpeed: 15000,
+      autoplaySpeed: 4000,
       fade: false,
       speed: 1000,
       slidesToShow: 1,

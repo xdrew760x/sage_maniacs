@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="container py-12">
-  <h1>{!! the_title() !!}</h1>
+  <small>{!! the_title() !!}</small>
 
   <p>Accessibility Statement for <a href="{{ get_bloginfo('url', 'display') }}">{{ preg_replace('/^https?:\/\//', '', get_bloginfo('url', 'display')) }}</a></p>
   <p><strong>{{ get_bloginfo('name', 'display') }}</strong> is committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone and applying the relevant accessibility standards.</p>

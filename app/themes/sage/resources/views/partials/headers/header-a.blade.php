@@ -13,6 +13,7 @@ $nav_fonturl = $nav_font['url'];
 $meta_font = $header['meta_font_fam'];
 $meta_fontformat = pathinfo( $meta_font['filename'], PATHINFO_EXTENSION);
 $meta_fonturl = $meta_font['url'];
+
 @endphp
 
 <style>
@@ -49,13 +50,13 @@ $meta_fonturl = $meta_font['url'];
 
       <div class="flex justify-start items-center">
         @if( $meta['street_address'] )
-        <a href="https://www.google.com/maps/dir/?api=1&destination={{ $meta['street_address'] }}+{{ $meta['city_name'] }}+{{ $meta['state'] }}+{{ $meta['zipcode'] }}"><i class="fas fa-map-marker-alt mr-2"></i> <span class="hidden lg:inline-block">Get Directions</span></a>
+        <a href="https://www.google.com/maps/dir/?api=1&destination={{ $meta['street_address'] }}+{{ $meta['city_name'] }}+{{ $meta['state'] }}+{{ $meta['zipcode'] }}"><i class="fas fa-map-marker-alt mr-2" style="color:{{ $top_icon_color }}"></i> <span class="hidden lg:inline-block">Get Directions</span></a>
         @endif
         @if( $meta['phone_number'] )
-        <a href="tel:{{ preg_replace('/[^0-9]/', '', $meta['phone_number']) }}" class="ml-4"><i class="fas fa-phone mr-2"></i>  <span class="hidden lg:inline-block">{{ $meta['phone_number'] }}</span></a>
+        <a href="tel:{{ preg_replace('/[^0-9]/', '', $meta['phone_number']) }}" class="ml-4"><i class="fas fa-phone mr-2" style="color:{{ $top_icon_color }}"></i>  <span class="hidden lg:inline-block">{{ $meta['phone_number'] }}</span></a>
         @endif
-        @if( $meta['reservation_url'] )
-        <a href="{!! $meta['reservation_url'] !!}" class="ml-4 button button--primary hidden lg:inline-block">Book Now</a>
+        @if( $header['header_button_text'] )
+        <a href="{!! $header['header_button_url'] !!}" class="ml-4 custom-button button bg-{!! $header['button_primary_color'] !!} hidden md:inline-block">{!! $header['header_button_text'] !!}</a>
         @endif
       </div>
     </div>
@@ -81,13 +82,13 @@ $meta_fonturl = $meta_font['url'];
         @endif
         <div class="flex flex-col justify-start lg:hidden mt-3">
           @if( $meta['phone_number'] )
-          <a href="tel:{{ preg_replace('/[^0-9]/', '', $meta['phone_number']) }}" class="text-white mt-1"><i class="fas fa-phone mr-2"></i> {{ $meta['phone_number'] }}</a>
+          <a href="tel:{{ preg_replace('/[^0-9]/', '', $meta['phone_number']) }}" class="text-white mt-1"><i class="fas fa-phone mr-2" style="color:{{ $top_icon_color }}"></i> {{ $meta['phone_number'] }}</a>
           @endif
           @if($meta['street_address'])
-          <a href="https://www.google.com/maps/dir/?api=1&destination={{ $meta['street_address'] }}+{{ $meta['city_name'] }}+{{ $meta['state'] }}+{{ $meta['zipcode'] }}" class="text-white mt-5 uppercase"><i class="fas fa-map-marker-alt mr-2"></i> Get Directions</a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination={{ $meta['street_address'] }}+{{ $meta['city_name'] }}+{{ $meta['state'] }}+{{ $meta['zipcode'] }}" class="text-white mt-5 uppercase"><i class="fas fa-map-marker-alt mr-2" style="color:{{ $top_icon_color }}"></i> Get Directions</a>
           @endif
-          @if( $meta['reservation_url'] )
-          <a href="{!! $meta['reservation_url'] !!}" class="button button--secondary mt-4 desktop-none">Book Now</a>
+          @if( $header['header_button_text'] )
+          <a href="{!! $header['header_button_url'] !!}" class="ml-4 button bg-{!! $header['button_primary_color'] !!} hidden lg:inline-block">{!! $header['header_button_text'] !!}</a>
           @endif
         </div>
       </nav>

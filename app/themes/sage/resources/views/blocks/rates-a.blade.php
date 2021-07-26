@@ -31,32 +31,14 @@
         @while( have_rows('card_spawn') ) @php the_row() @endphp
         @php
         $rate = get_sub_field('rate_value');
-        $rate_title = get_sub_field('rate_title');
-        $rate_length = get_sub_field('rate_length');
         $rate_meta = get_sub_field('rate_meta');
         $card_bg_clr = get_sub_field('card_bg_color');
         $booking = get_sub_field('booking_link');
         @endphp
         <div class="p-2 w-full md:w-1/2 lg:w-1/3 card-{!! $i++ !!}">
-          <div class="bg-white rounded-lg shadow-lg">
-            <div class="px-4 py-8 text-center">
-              @if($rate_title)
-              <p>{!! $rate_title !!}</p>
-              @endif
-              <p class="mb-0"><h2 class="inline-block mb-0">${!! $rate !!}</h2> / {!! $rate_length !!}</p>            </div>
-
-              <div class="p-6 flex flex-wrap items-center flex-col" style="background-color: {!! $card_bg_clr !!}">
-                @if( have_rows('rate_meta') )
-                <ul>
-                  @while( have_rows('rate_meta') ) @php the_row() @endphp
-                  @php
-                  $meta_value = get_sub_field('meta_value_rate');
-                  @endphp
-                  {!! $meta_value !!}
-                  @endwhile
-                </ul>
-                @endif
-                <a href="{!! $booking !!}" class="button button--primary mt-4 block mx-auto">Book Now</a>
+          <div class="bg-white h-full rounded-lg shadow-lg">
+              <div class="p-6 h-full flex flex-wrap items-center justify-between flex-col" style="background-color: {!! $card_bg_clr !!}">
+                {!!$rate_meta!!}
               </div>
             </div>
           </div>

@@ -15,6 +15,7 @@
   $content_full = get_field('content_full');
   $text_white = get_field('font_white');
   $list_amount = get_field('amount_of_homes_to_display');
+  $header = get_field('component_type', 'options');
 
 
   //// Post Query and Args
@@ -47,7 +48,7 @@
         <div class="home-item w-full lg:w-1/3 px-2 mb-4">
           <div class="home-meta text-center py-6 px-4">
             <a href="{!! get_permalink() !!}">
-              <div class="home-image mb-4 bg-white" style="background-image: url('{!! $feat_img_url ?: '/app/uploads/2021/05/logo.svg' !!}')" aria-label="{!! the_title() !!} Featured Image">
+              <div class="home-image mb-4 bg-white" style="background-image: url('{!! $feat_img_url ?: $header['branding_logo']['url'] !!}')" aria-label="{!! the_title() !!} Featured Image">
                 <!-- Home Image -->
               </div>
             </a>

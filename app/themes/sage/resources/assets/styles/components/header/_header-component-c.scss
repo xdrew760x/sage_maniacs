@@ -9,11 +9,12 @@
     .nav-is-open & {
       @apply w-full;
 
-      position: absolute;
-      top: 0;
+      position: fixed;
+      top: 2.5rem;
       background-color: var(--mobile-menu);
-      height: 100vh;
+      height: 100%;
       overflow-y: scroll;
+      padding-bottom: 20vh;
 
       a {
         font-size: var(--mobile-menu-font);

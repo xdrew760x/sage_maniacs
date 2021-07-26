@@ -62,18 +62,17 @@ h3 {
   }
 }
 
-h4,
-.woocommerce-loop-product__title {
+h4 {
   @apply font-heading-four;
 
-  font-size: var(--h4-mobile) !important;
-  color: var(--h4-color) !important;
-  text-transform: var(--h4-transform) !important;
-  line-height: var(--h4-line-height) !important;
-  letter-spacing: var(--h4-letter-spacing) !important;
+  font-size: var(--h4-mobile);
+  color: var(--h4-color);
+  text-transform: var(--h4-transform);
+  line-height: var(--h4-line-height);
+  letter-spacing: var(--h4-letter-spacing);
 
   @media (min-width: 1024px) {
-    font-size: var(--h4-desk) !important;
+    font-size: var(--h4-desk);
   }
 }
 
@@ -107,9 +106,30 @@ h6 {
 
 p,
 ul:not([class]),
+span {
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+ul:not([class]) {
+  list-style: disc;
+}
+
+ol:not([class]) {
+  list-style: decimal;
+}
+
+ol:not([class]),
+ul:not([class]) {
+  padding-left: 2.5rem;
+  margin-bottom: 15px;
+}
+
+p,
+ul:not([class]),
 span,
 body {
-  @apply font-body leading-tight mb-2;
+  @apply font-body;
 
   font-size: var(--p-mobile);
   color: var(--p-color);

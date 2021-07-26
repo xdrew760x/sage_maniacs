@@ -4,7 +4,7 @@
 @php
 $header_fixed = get_field('fixed_position','options');
 $tag_manager = get_field('google_tag_manager_code');
-
+$hero_count = 0;
 function is_blog() {
 	global  $post;
 	$posttype = get_post_type($post );
@@ -25,7 +25,7 @@ function is_blog() {
 	<main role="document" aria-label="Content">
 		@if(App\display_layout())
 
-		@if(is_blog() || is_archive() || is_shop() || is_woocommerce() || is_product() || is_cart() || is_checkout())
+		@if(is_blog())
 		@include('partials.blog.hero')
 		<section class="section--blog py-12" role="region" aria-label="Default Content">
 			<div class="container">

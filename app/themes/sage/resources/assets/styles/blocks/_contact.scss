@@ -1,10 +1,64 @@
-.section-contact-a {
+.section-contact {
   .contact-info {
+    @media (max-width: 1023px) {
+      @apply pb-30;
+    }
+
     p,
     span,
+    a:not(.button),
     .tel-num,
     .email-add {
       @apply font-contact-font;
     }
+
+    a svg {
+      height: 30px;
+      width: 30px;
+      padding: 5px;
+      border-radius: 50%;
+      margin-right: 15px;
+      fill: var(--social_media_svg_colors);
+      background-color: var(--social_media_svg_background_color);
+    }
+  }
+
+  input,
+  textarea {
+    color: var(--p-color);
+  }
+
+  .gform_button {
+    @apply text-white font-button;
+  }
+
+  .contact_area_main_content {
+    @media (max-width: 1023px) {
+      @apply px-0;
+    }
+  }
+
+  .contact_google_map {
+    height: 450px;
+    width: 100%;
+    max-width: 700px;
+
+    @media (max-width: 1023px) {
+      width: 100%;
+    }
+  }
+
+  .contact-meta-info {
+    align-items: baseline;
+
+    * {
+      text-transform: var(--meta_info_text_transform);
+      font-size: var(--font_size_contact);
+    }
+  }
+
+  .extra_contact_area *:not([class]) {
+    text-transform: var(--meta_info_text_transform);
+    font-size: var(--font_size_contact);
   }
 }

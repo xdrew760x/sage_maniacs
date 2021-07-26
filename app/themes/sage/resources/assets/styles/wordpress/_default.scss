@@ -174,29 +174,29 @@ div.gallery-columns-7 {
 }
 
 ///
-.col-2,
-ul:not([class]) {
-  @apply my-4;
-
-  padding-left: var(--ul-pad);
-
-  li {
-    @apply relative mb-5;
-
-    &::before {
-      @apply absolute bg-black;
-
-      content: '';
-      left: -30px;
-      top: 10px;
-      width: 10px;
-      height: 10px;
-      border-radius: 100%;
-      background-image: var(--ul-img);
-      background-size: cover;
-    }
-  }
-}
+// .col-2,
+// ul:not([class]) {
+//   @apply my-4;
+//
+//   padding-left: var(--ul-pad);
+//
+//   li {
+//     @apply relative mb-5;
+//
+//     &::before {
+//       @apply absolute bg-black;
+//
+//       content: '';
+//       left: -30px;
+//       top: 10px;
+//       width: 10px;
+//       height: 10px;
+//       border-radius: 100%;
+//       background-image: var(--ul-img);
+//       background-size: cover;
+//     }
+//   }
+// }
 
 .col-2 {
   @media (min-width: 1024px) {

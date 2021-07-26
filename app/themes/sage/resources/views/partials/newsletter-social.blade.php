@@ -10,7 +10,7 @@ $type = get_field('newsletter_type', 'options')
 @case('newsletter-a')
 @include('partials.newsletter.newsletter-a')
 @break
-@case('newsletter-B')
+@case('newsletter-b')
 @include('partials.newsletter.newsletter-b')
 @break
 @endswitch

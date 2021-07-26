@@ -13,11 +13,14 @@
   </div>
 
   @php
-  $pad_y = get_field('col_padding_y');
+  $pad_top = get_field('two_col_padding_top');
+  $pad_bottom = get_field('two_col_padding_bottom');
+  $image_y_padding = get_field('image_y_padding');
   $contain = get_field('add_container');
   $master_bg = get_field('master_bg_color');
   $margin_bottom = get_field('margin_bottom');
   $margin_top = get_field('margin_top');
+  $pad_y = get_field('col_padding_y');
 
 
   // Column one  -
@@ -102,23 +105,23 @@
   </script>
   @endif
 
-  <section class="preview-none section-col-split {!! $master_bg !!}" style="margin-bottom: {!! $margin_bottom !!}px; margin-top: {!! $margin_top !!}px">
+  <section class="preview-none section-col-split {!! $master_bg !!}" style="margin-bottom: {!! $margin_bottom !!}px; margin-top: {!! $margin_top !!}px; padding: {!! $pad_top !!}px 0 {!! $pad_bottom !!}px 0;">
     <div class="{!! $contain !!} flex flex-row flex-wrap relative @if($enable_image_float) lg:justify-end @else lg:justify-between @endif ">
       <!-- Column one  -->
       @if($slide_one)
       <div class="{!! $slide_one !!} column-one w-full lg:w-1/2 py-4 lg:py-0 @if($col_image) bg-image @endif {!! $enable_image_float !!}-l-col">
         @if($col_image)
-        <div class="column w-full h-full mx-2 lg:mx-0 bg-cover {!! $text_white !!}" style="background-image: url('{!! $col_image !!}'); padding: {!! $pad_y !!}px 0;"></div>
+        <div class="column w-full h-full mx-2 lg:mx-0 bg-cover {!! $text_white !!}" style="background-image: url('{!! $col_image !!}'); padding: {!! $image_y_padding !!}px 0;"></div>
         @endif
         @foreach( $img_left as $image_left )
-        <div class="column w-full h-full mx-2 lg:mx-0 bg-cover {!! $text_white !!}" style="background-image: url('{!! $image_left !!}'); padding: {!! $pad_y !!}px 0;">
+        <div class="column w-full h-full mx-2 lg:mx-0 bg-cover {!! $text_white !!}" style="background-image: url('{!! $image_left !!}'); padding:{!! $image_y_padding !!}px 0;">
           <!-- Image  -->
         </div>
         @endforeach
       </div>
       @else
-      <div class="column column-one w-full lg:w-1/2 bg-cover {!! $text_white !!} @if($col_image) bg-image @endif @if($col_bg_clr) bg-color @endif flex justify-center items-start {!! $enable_image_float !!}-l-col {!! $col_bg_clr !!} {!! $bleed_left !!} {!! $bleed_color_left !!}" style="background-image: url('{!! $col_image !!}'); padding: {!! $pad_y !!}px 0;">
-        <div class="@if(!$contain) inner px-5 @endif @if($contain) lg:pr-5 @endif">
+      <div class="column column-one w-full lg:w-1/2 bg-cover {!! $text_white !!} @if($col_image) bg-image @endif @if($col_bg_clr) bg-color @endif flex justify-center items-start {!! $enable_image_float !!}-l-col {!! $col_bg_clr !!} {!! $bleed_left !!} {!! $bleed_color_left !!}" style="background-image: url('{!! $col_image !!}'); padding: {!! $image_y_padding !!}px 0;">
+        <div class="@if(!$contain) inner px-5 @endif @if($contain) inner lg:pr-30 @endif @if($col_content) has-inner-content @endif">
           {!! $col_content !!}
         </div>
       </div>
@@ -136,8 +139,8 @@
         @endforeach
       </div>
       @else
-      <div class="column column-two w-full lg:w-1/2 bg-cover {!! $text_white_two !!} @if($col_image_two) bg-image @endif @if($col_bg_clr_two) bg-color @endif {!! $enable_image_float_two !!}-r-col {!! $col_bg_clr_two !!} {!! $bleed_right !!} {!! $bleed_color_right !!}" style="background-image: url('{!! $col_image_two !!}');padding: {!! $pad_y !!}px 0;">
-        <div class="@if(!$contain) inner px-5 @endif @if($contain) lg:pl-5 @endif">
+      <div class="column column-two w-full lg:w-1/2 bg-cover {!! $text_white_two !!} @if($col_image_two) bg-image @endif @if($col_bg_clr_two) bg-color @endif {!! $enable_image_float_two !!}-r-col {!! $col_bg_clr_two !!} {!! $bleed_right !!} {!! $bleed_color_right !!}" style="background-image: url('{!! $col_image_two !!}');padding: {!! $image_y_padding !!}px 0;">
+        <div class="@if(!$contain) inner px-5 @endif @if($contain) inner lg:pl-30 @endif @if($col_content_two) has-inner-content @endif">
           {!! $col_content_two !!}
         </div>
       </div>

@@ -90,8 +90,8 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     screens: {
-      sm: '640px',
-      md: '768px',
+      sm: '0px',
+      md: '640px',
       lg: '1024px',
       xl: '1280px',
       '2xl': '1536px',
@@ -151,6 +151,12 @@ module.exports = {
       72: '18rem',
       80: '20rem',
       96: '24rem',
+      15: '15px',
+      30: '30px',
+      45: '45px',
+      60: '60px',
+      75: '75px',
+      90: '90px',
     },
     animation: {
       none: 'none',
@@ -473,6 +479,14 @@ module.exports = {
 
       'footer-font': [
         'footer-font',
+        'Helvetica Neue',
+        'Helvetica',
+        'Arial',
+        'serif',
+      ],
+
+      'copyright-font': [
+        'copyright-font',
         'Helvetica Neue',
         'Helvetica',
         'Arial',

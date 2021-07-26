@@ -16,11 +16,12 @@
   $contain = get_field('add_container');
   $master_bg_clr = get_field('master_bg_color');
   $master_bg_img = get_field('master_bg_image');
-  $pad_y_col = get_field('padding_y_column');
+  $pad_y_top = get_field('padding_y_top');
+  $pad_y_bottom = get_field('padding_y_bottom');
   @endphp
 
-  <section class="preview-none section-col-spawn {!! $master_bg_clr !!}" style="background-image: url('{!! $master_bg_img !!}'); padding: {!! $pad_y_col !!}px 0;">
-    <div class="{!! $contain !!} flex flex-row flex-wrap lg:justify-start relative px-0">
+  <section class="preview-none section-col-spawn {!! $master_bg_clr !!}" style="background-image: url('{!! $master_bg_img !!}'); padding: {!! $pad_y_top !!}px 0 {!! $pad_y_bottom !!}px 0;">
+    <div class="{!! $contain !!} flex flex-row flex-wrap justify-center relative px-0">
       <!-- Column one  -->
       @if( have_rows('column_options') )
       @while( have_rows('column_options') )  @php the_row() @endphp

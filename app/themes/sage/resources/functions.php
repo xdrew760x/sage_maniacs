@@ -247,3 +247,81 @@ function properties_custom_column ( $column, $post_id ) {
   }
 }
 add_action ( 'manage_homes-for-sale_posts_custom_column', 'properties_custom_column', 10, 2 );
+
+//Allows for Dynamic Logo population for admin
+function ea_login_logo() {
+
+  $xpress = get_field('xpress', 'options');
+  $header = get_field('component_type', 'options');
+	$logo = $header['branding_logo']['url'] && $xpress === false ? $header['branding_logo']['url'] : '/app/themes/sage/resources/assets/images/bigrigxpress.svg';
+  $body_color = $xpress === true ? '#333' : get_field('login_background_color', 'options');
+  $form_color = $xpress === true ? '#f6921e' : get_field('login_panel_background_color', 'options');
+  $login_panel_font_color = $xpress === true ? '#fff' : get_field('login_panel_font_color', 'options');
+  $login_font_color = $xpress === true ? '#f6921e' : get_field('login_font_color', 'options');
+  $login_logo_height = $xpress === true ? '100' : get_field('login_logo_height', 'options');
+  $login_logo_width = $xpress === true ? '320' : get_field('login_logo_width', 'options');
+  $login_button_color = $xpress === true ? '#333' : get_field('login_button_color', 'options');
+
+    ?>
+    <style type="text/css">
+    .login h1 a {
+        background-image: url(<?php echo $logo;?>);
+        background-repeat: no-repeat;
+		    background-position: center center;
+        background-size: contain;
+        display: block;
+        overflow: hidden;
+        text-indent: -9999em;
+        width: <?php echo $login_logo_width;?>px;
+        height: <?php echo $login_logo_height;?>px;
+        padding-bottom: 30px;
+    }
+
+    body {
+      color: white;
+      background-color: <?php echo $body_color;?>;
+    }
+
+    .login form {
+      background-color: <?php echo $form_color;?>;
+      margin-top: 5px;
+      border: 0px;
+    }
+
+    .login label {
+      color: <?php echo $login_panel_font_color;?>;
+    }
+
+    .login #nav a,
+    .login #backtoblog a,
+    .privacy-policy-link {
+      font-size: 14px;
+      color: <?php echo $login_font_color;?>;
+    }
+
+    .login #nav a:hover,
+    .login #backtoblog a:hover,
+    .privacy-policy-link:hover {
+      color: white;
+    }
+
+    .message {
+      color:<?php echo $login_font_color;?>;
+    }
+
+    .reg_passmail {
+      color: white;
+    }
+
+    .privacy-policy-link {
+      text-decoration: none;
+    }
+
+    .wp-core-ui .button-primary {
+      background-color:<?php echo $login_button_color;?>;
+      border-color: <?php echo $login_button_color;?>;
+    }
+    </style>
+    <?php
+}
+add_action( 'login_head', 'ea_login_logo' );

@@ -8,6 +8,11 @@
   Align: full
   --}}
 
+  @php
+    $dot_nav = get_field('dot_navigation');
+    $arrow_nav = get_field('arrow_nav');
+  @endphp
+
   <div class="block_preview hidden w-full">
     <img src="/app/themes/sage/resources/assets/images/block-previews/hero.png" class="w-full" alt="{{ $block['keywords'][0] }}">
   </div>
@@ -20,14 +25,15 @@
   jQuery(document).ready( function($){
     $('.hero-slider').slick({
       accessibility: true,
+      infinite : false,
       autoplay: true,
-      autoplaySpeed: 15000,
+      autoplaySpeed: 4000,
       fade: false,
       speed: 1000,
       slidesToShow: 1,
       slidesToScroll: 1,
-      dots: false,
-      arrows: true,
+      dots: {{ $dot_nav }},
+      arrows: {{ $arrow_nav }},
       nextArrow: '<div class="next"><i class="fal fa-chevron-right"></i></div>',
       prevArrow: '<div class="prev"><i class="fal fa-chevron-left"></i></div>',
 
@@ -52,11 +58,11 @@
   $video_mp4 = get_field('video_file_mp4');
   $video_webm = get_field('video_file_webm');
   $video_position = get_field('video_position');
-
+  $remove_hero_nav = get_field('remove_hero_nav');
   @endphp
 
 
-  <section class="preview-none section-brm--hero relative">
+  <section id="{!! wp_unique_id('hero-') !!}" class="preview-none section-brm--hero relative {!! $remove_hero_nav !!}" style="">
     @if($video)
     <video class="hero__video {!! $video_position ?: 'absolute' !!}" preload="auto" autoplay loop muted playsinline>
       <source src="{!! $video_mp4 !!}" type="video/mp4"/>
@@ -71,13 +77,13 @@
       $hero_bg = get_sub_field('image_hero');
 
       // Set hero background
-      $hero_mobile = get_sub_field('image_hero')['sizes']['w960x800'];
-      $hero_desktop = get_sub_field('image_hero')['sizes']['w1920x800'];
+      $hero_mobile = get_sub_field('image_hero');
+      $hero_desktop = get_sub_field('image_hero');
 
       @endphp
-      <div class="hero-item bg-cover bg-top @if(!$video) bg-gray @endif text-white" style="background: -webkit-image-set( url({!! $hero_desktop !!}) 1x, url({!! $hero_mobile !!}) 2x );">
+      <div class="hero-item bg-cover bg-top @if(!$video) bg-gray @endif text-white" style="background-image: url({{ $hero_desktop }});" data-mobile="{{ $hero_mobile}}" data-desktop="{{$hero_desktop}}">
         <div class="container flex justify-center items-center">
-          <div class="hero_content mx-auto block {!! $c_width !!} {!! $c_pos !!} p-12">
+          <div class="hero_content mx-auto block sm:w-full lg:{!! $c_width !!} {!! $c_pos !!} py-12">
             {!! $content !!}
           </div>
         </div>
@@ -88,9 +94,9 @@
   </section>
 
   <style>
-  :root {
-    --hero-height-desk: {{ get_field('height_desktop') }}px;
-    --hero-height-mob: {{ get_field('height_mobile') }}px;
-    --hero-clr: {{ get_field('hero_content_clr') }};
-  }
+    :root {
+      --hero-height-desk: {{ get_field('height_desktop') }}px;
+      --hero-height-mob: {{ get_field('height_mobile') }}px;
+      --hero-clr: {{ get_field('hero_content_clr') }};
+    }
   </style>

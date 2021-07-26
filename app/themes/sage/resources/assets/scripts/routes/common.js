@@ -34,13 +34,11 @@ export default {
     });
 
     // Handle hamburger toggle
-    if (window.matchMedia('(max-width: 1023px)').matches) {
       if (hamburger) {
         hamburger.addEventListener('click', () => {
           document.body.classList.toggle('nav-is-open')
         })
       }
-    }
 
     // Handle dropdowns visibility state
     $(function () {
