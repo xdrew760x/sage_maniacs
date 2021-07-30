@@ -1,4 +1,5 @@
 import { isExternal, isEmpty } from '../util/helpers'
+import * as Cookies from 'js-cookie'
 
 export default {
   init() {
@@ -7,6 +8,7 @@ export default {
     const paragraphs = document.querySelectorAll('p')
     const hamburger = document.querySelector('.nav-control')
     const galleryThumbs = document.querySelectorAll('.gallery-icon')
+    const jsPopup = document.querySelector('.js-popup')
 
 
     // Handle external urls
