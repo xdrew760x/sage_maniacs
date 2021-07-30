@@ -46,6 +46,7 @@ function is_blog() {
 	@include('partials.newsletter-social')
 	@include('partials.contact')
 	@include('partials.social')
+	@include('partials.popup')
 	@php do_action('get_footer') @endphp
 	@include('partials.footer')
 	@php wp_footer() @endphp

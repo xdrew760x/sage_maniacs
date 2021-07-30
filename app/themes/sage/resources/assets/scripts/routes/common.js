@@ -74,6 +74,17 @@ export default {
       }
     });
 
+    if (jsPopup && !Cookies.get('popup')) {
+      setTimeout(() => {
+        $.fancybox.open({
+          autoFocus: false,
+          src: '.js-popup',
+          type: 'inline',
+        })
+
+        Cookies.set('popup', 'true', { expires: 7 })
+      }, 5000)
+    }
 
     // Slick Homes for sale gallery
     if ($('.js-carousel-gallery').length) {
