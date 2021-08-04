@@ -16,7 +16,7 @@
       overflow-y: scroll;
       padding-bottom: 20vh;
 
-      a {
+      a:not(.button) {
         font-size: var(--mobile-menu-font);
         color: var(--menu-font-color-mobile);
       }

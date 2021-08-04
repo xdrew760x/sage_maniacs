@@ -17,7 +17,7 @@
   }
 
   .header__bottom {
-    @apply py-8 bg-white;
+    @apply bg-white;
 
     transition: all ease 0.5s;
 
@@ -81,7 +81,7 @@
         @apply font-nav-font;
       }
 
-      a:not(.button),
+      a,
       i,
       svg {
         font-size: var(--mobile-menu-font);

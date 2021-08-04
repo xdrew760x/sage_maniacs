@@ -8,6 +8,10 @@ body.nav-is-open {
   }
 }
 
+.header__bottom {
+  padding: var(--top-header-padding) 0 var(--bottom-header-padding) 0;
+}
+
 .menu-item a {
   text-transform: var(--nav-text-transform);
 }
@@ -28,13 +32,9 @@ body.nav-is-open {
 .nav_left {
   @apply justify-start;
 
-  .menu-item {
-    @apply mr-3;
-  }
-
   @media (min-width: 1024px) {
     .menu-item + .menu-item {
-      margin-left: clamp(15px, 1vw, 30px);
+      margin-left: clamp(calc(var(--left-nav-margin-half) / 2), 1vw, var(--left-nav-margin));
     }
   }
 
@@ -46,13 +46,9 @@ body.nav-is-open {
 .nav_right {
   @apply justify-end;
 
-  .menu-item {
-    @apply ml-3;
-  }
-
   @media (min-width: 1024px) {
     .menu-item:not(:last-child) {
-      margin-right: clamp(15px, 1vw, 30px);
+      margin-right: clamp(calc(var(--right-nav-margin-half) / 2), 1vw, var(--right-nav-margin));
     }
   }
 
