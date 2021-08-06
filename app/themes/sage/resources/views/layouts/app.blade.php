@@ -21,7 +21,6 @@ function is_blog() {
 	<!-- End Google Tag Manager (noscript) -->
 	@endif
 
-	@include('partials.head-controls')
 	@php do_action('get_header') @endphp
 	@if($banner_alert['alert_message'])
 		@include('partials.banner-alert')
