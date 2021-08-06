@@ -4,6 +4,7 @@
 @php
 $header_fixed = get_field('fixed_position','options');
 $tag_manager = get_field('google_tag_manager_code');
+$banner_alert = get_field('banner_alert', 'options');
 $hero_count = 0;
 function is_blog() {
 	global  $post;
@@ -20,7 +21,11 @@ function is_blog() {
 	<!-- End Google Tag Manager (noscript) -->
 	@endif
 
+	@include('partials.head-controls')
 	@php do_action('get_header') @endphp
+	@if($banner_alert['alert_message'])
+		@include('partials.banner-alert')
+	@endif
 	@include('partials.header')
 	<main role="document" aria-label="Content">
 		@if(App\display_layout())
@@ -50,6 +55,5 @@ function is_blog() {
 	@php do_action('get_footer') @endphp
 	@include('partials.footer')
 	@php wp_footer() @endphp
-	@include('partials.head-controls')
 </body>
 </html>
