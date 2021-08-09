@@ -34,7 +34,7 @@ body.nav-is-open {
 
   @media (min-width: 1024px) {
     .menu-item + .menu-item {
-      margin-left: clamp(calc(var(--left-nav-margin-half) / 2), 1vw, var(--left-nav-margin));
+      margin-left: clamp(var(--left-nav-margin-half), 1vw, var(--left-nav-margin));
     }
   }
 
@@ -48,7 +48,7 @@ body.nav-is-open {
 
   @media (min-width: 1024px) {
     .menu-item:not(:last-child) {
-      margin-right: clamp(calc(var(--right-nav-margin-half) / 2), 1vw, var(--right-nav-margin));
+      margin-right: clamp(var(--right-nav-margin-half), 1vw, var(--right-nav-margin));
     }
   }
 

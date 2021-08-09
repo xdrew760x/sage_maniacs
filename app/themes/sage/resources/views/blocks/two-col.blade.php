@@ -121,7 +121,7 @@
       </div>
       @else
       <div class="column column-one w-full lg:w-1/2 bg-cover {!! $text_white !!} @if($col_image) bg-image @endif @if($col_bg_clr) bg-color @endif flex justify-center items-start {!! $enable_image_float !!}-l-col {!! $col_bg_clr !!} {!! $bleed_left !!} {!! $bleed_color_left !!}" style="background-image: url('{!! $col_image !!}'); padding: {!! $image_y_padding !!}px 0;">
-        <div class="@if(!$contain) inner px-5 @endif @if($contain) inner lg:pr-30 @endif @if($col_content) has-inner-content @endif">
+        <div class="@if(!$contain) inner px-5 @endif @if($contain) inner lg:pr-30 @endif py-30 @if($col_content) has-inner-content @endif">
           {!! $col_content !!}
         </div>
       </div>
@@ -140,7 +140,7 @@
       </div>
       @else
       <div class="column column-two w-full lg:w-1/2 bg-cover {!! $text_white_two !!} @if($col_image_two) bg-image @endif @if($col_bg_clr_two) bg-color @endif {!! $enable_image_float_two !!}-r-col {!! $col_bg_clr_two !!} {!! $bleed_right !!} {!! $bleed_color_right !!}" style="background-image: url('{!! $col_image_two !!}');padding: {!! $image_y_padding !!}px 0;">
-        <div class="@if(!$contain) inner px-5 @endif @if($contain) inner lg:pl-30 @endif @if($col_content_two) has-inner-content @endif">
+        <div class="@if(!$contain) inner px-5 @endif @if($contain) inner lg:pl-30 @endif py-30 @if($col_content_two) has-inner-content @endif">
           {!! $col_content_two !!}
         </div>
       </div>

@@ -198,8 +198,7 @@
                 "bg-primary1": "Primary-1",
                 "bg-primary2": "Primary-2",
                 "bg-primary3": "Primary-3",
-                "bg-primary4": "Primary-4",
-                "bg-white": "White"
+                "bg-primary4": "Primary-4"
             },
             "default_value": false,
             "allow_null": 1,
@@ -514,8 +513,7 @@
                 "bg-primary1": "Primary-1",
                 "bg-primary2": "Primary-2",
                 "bg-primary3": "Primary-3",
-                "bg-primary4": "Primary-4",
-                "bg-white": "White"
+                "bg-primary4": "Primary-4"
             },
             "default_value": false,
             "allow_null": 1,
@@ -818,5 +816,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1628274149
+    "modified": 1628544397
 }
