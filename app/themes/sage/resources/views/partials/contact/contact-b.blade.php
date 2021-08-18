@@ -2,6 +2,7 @@
 $meta = get_field('meta_fields', 'options');
 $contact_bg = get_field('background_color_contact', 'options');
 $font_white = get_field('font_white_contact', 'options');
+$make_white = $font_white ? "color: white;" : null;
 
 // contact
 $contact_font = get_field('font_control', 'options');
@@ -59,9 +60,9 @@ $social_media_bar_title = get_field('social_media_bar_title', 'options');
             <div class=" contact-meta-info flex justify-start mb-30">
               <i class="fas fa-phone"></i>
               <div class="pl-4">
-                <a itemprop="telephone" class="mb-2 inline-block text-white tel-num" href="tel:{{ preg_replace('/[^0-9]/', '', $meta['phone_number']) }}" aria-label="Call us today at {!! $phone !!}">{!! $meta['phone_number'] !!}</a><br>
+                <a itemprop="telephone" class="mb-2 inline-block text-white tel-num" href="tel:{{ preg_replace('/[^0-9]/', '', $meta['phone_number']) }}" aria-label="Call us today at {!! $phone !!}" style="{!!$make_white!!}" >{!! $meta['phone_number'] !!}</a><br>
                 @if($meta['phone_number_sec'])
-                <a itemprop="telephone" href="tel:{{ preg_replace('/[^0-9]/', '', $meta['phone_number']) }}" aria-label="Call us today at {!! $meta['phone_number_sec'] !!}" class="tel-num text-white">Sales: {!! $meta['phone_number_sec'] !!}</a><br>
+                <a itemprop="telephone" href="tel:{{ preg_replace('/[^0-9]/', '', $meta['phone_number']) }}" aria-label="Call us today at {!! $meta['phone_number_sec'] !!}" style="{!!$make_white!!}" class="tel-num text-white">Sales: {!! $meta['phone_number_sec'] !!}</a><br>
                 @endif
               </div>
             </div>
@@ -76,7 +77,7 @@ $social_media_bar_title = get_field('social_media_bar_title', 'options');
             <div class="contact-meta-info flex justify-start">
               <i class="fas fa-envelope"></i>
               <div class="pl-4">
-                <a itemprop="telephone" href="mailto:{{ $meta['email_address'] }}" aria-label="Email us today at {!! $meta['email_address'] !!}" class="email-add text-white">{!! $meta['email_address'] !!}</a><br>
+                <a itemprop="telephone" href="mailto:{{ $meta['email_address'] }}" aria-label="Email us today at {!! $meta['email_address'] !!}" style="{!!$make_white!!}" class="email-add text-white">{!! $meta['email_address'] !!}</a><br>
               </div>
             </div>
           @endif

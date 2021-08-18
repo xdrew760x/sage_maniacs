@@ -10,6 +10,7 @@ body.nav-is-open {
 
 .header__bottom {
   padding: var(--top-header-padding) 0 var(--bottom-header-padding) 0;
+  background-color: var(--bottom_navigation_background_color);
 }
 
 .menu-item a {

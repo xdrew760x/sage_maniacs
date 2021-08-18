@@ -129,6 +129,7 @@ $footer_nav_text_transform = get_field('footer_nav_text_transform', 'options');
     --left-nav-margin-half: calc({{$header['right_nav_margin']}}px/2);
     --right-nav-margin: {{$header['right_nav_margin']}}px;
     --right-nav-margin-half: calc({{$header['right_nav_margin']}}px/2);
+    --bottom_navigation_background_color: {{$bottom_navigation_background_color}};
 
     /* Footer */
 

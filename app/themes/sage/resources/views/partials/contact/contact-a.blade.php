@@ -2,6 +2,7 @@
 $meta = get_field('meta_fields', 'options');
 $contact_bg = get_field('background_color_contact', 'options');
 $font_white = get_field('font_white_contact', 'options');
+$make_white = $font_white ? "color: white;" : null;
 
 // contact
 $contact_font = get_field('font_control', 'options');
@@ -64,9 +65,9 @@ $contact_area_main_content_title = get_field('contact_area_main_content_title', 
           {!!$phone_title!!}
         </div>
         @endif
-        <a itemprop="telephone" href="tel:{{ preg_replace('/[^0-9]/', '', $meta['phone_number']) }}" class="contact-meta-info" aria-label="Call us today at {!! $phone !!}">{!! $meta['phone_number'] !!}</a><br>
+        <a itemprop="telephone" href="tel:{{ preg_replace('/[^0-9]/', '', $meta['phone_number']) }}" class="contact-meta-info" style="{!!$make_white!!}" aria-label="Call us today at {!! $phone !!}">{!! $meta['phone_number'] !!}</a><br>
         @if($meta['phone_number_sec'])
-        <a itemprop="telephone" href="tel:{{ preg_replace('/[^0-9]/', '', $meta['phone_number']) }}" class="contact-meta-info" aria-label="Call us today at {!! $meta['phone_number_sec'] !!}">{!! $meta['phone_number_sec'] !!}</a><br>
+        <a itemprop="telephone" href="tel:{{ preg_replace('/[^0-9]/', '', $meta['phone_number']) }}" class="contact-meta-info" style="{!!$make_white!!}" aria-label="Call us today at {!! $meta['phone_number_sec'] !!}">{!! $meta['phone_number_sec'] !!}</a><br>
         @endif
       </p>
       @endif
@@ -78,7 +79,7 @@ $contact_area_main_content_title = get_field('contact_area_main_content_title', 
           {!!$email_title!!}
         </div>
         @endif
-        <a href="mailto:{!! $meta['email_address']!!}" itemprop="email"  aria-label="Email us by clicking here" class="contact-meta-info">{!! $meta['email_address']!!}</a>
+        <a href="mailto:{!! $meta['email_address']!!}" itemprop="email"  aria-label="Email us by clicking here" style="{!!$make_white!!}" class="contact-meta-info">{!! $meta['email_address']!!}</a>
         </p>
       </div>
       @endif
