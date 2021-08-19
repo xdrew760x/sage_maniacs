@@ -27,7 +27,7 @@
       </div>
 
       @if( have_rows('card_spawn') )
-      <div class="mt-12 lg:mt-24 flex justify-center flex-wrap flex-row">
+      <div class="flex justify-center flex-wrap flex-row">
         @while( have_rows('card_spawn') ) @php the_row() @endphp
         @php
         $rate = get_sub_field('rate_value');
@@ -37,7 +37,7 @@
         @endphp
         <div class="p-2 w-full md:w-1/2 lg:w-1/3 card-{!! $i++ !!}">
           <div class="bg-white h-full rounded-lg shadow-lg">
-              <div class="p-6 h-full flex flex-wrap items-center justify-between flex-col" style="background-color: {!! $card_bg_clr !!}">
+              <div class="p-6 h-full flex flex-wrap items-center flex-col" style="background-color: {!! $card_bg_clr !!}">
                 {!!$rate_meta!!}
               </div>
             </div>
