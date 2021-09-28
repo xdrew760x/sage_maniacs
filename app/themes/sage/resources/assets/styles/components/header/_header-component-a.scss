@@ -93,6 +93,8 @@
         @apply hidden;
 
         @media (min-width: 1024px) {
+          @apply p-4;
+
           background-color: var(--sub-bg-color-mobile);
 
           * {

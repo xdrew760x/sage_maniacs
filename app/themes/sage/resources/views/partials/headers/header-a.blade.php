@@ -50,13 +50,19 @@ $meta_fonturl = $meta_font['url'];
 
       <div class="flex justify-start items-center">
         @if( $meta['street_address'] )
-        <a href="https://www.google.com/maps/dir/?api=1&destination={{ $meta['street_address'] }}+{{ $meta['city_name'] }}+{{ $meta['state'] }}+{{ $meta['zipcode'] }}"><i class="fas fa-map-marker-alt mr-2" style="color:{{ $top_icon_color }}"></i> <span class="hidden lg:inline-block">Get Directions</span></a>
+        <a href="https://www.google.com/maps/dir/?api=1&destination={{ $meta['street_address'] }}+{{ $meta['city_name'] }}+{{ $meta['state'] }}+{{ $meta['zipcode'] }}"><i class="fas fa-map-marker-alt mr-2" style="color:{{ $header['top_icon_color'] }}"></i> <span class="hidden lg:inline-block">Get Directions</span></a>
         @endif
         @if( $meta['phone_number'] )
-        <a href="tel:{{ preg_replace('/[^0-9]/', '', $meta['phone_number']) }}" class="ml-4"><i class="fas fa-phone mr-2" style="color:{{ $top_icon_color }}"></i>  <span class="hidden lg:inline-block">{{ $meta['phone_number'] }}</span></a>
+        <a href="tel:{{ preg_replace('/[^0-9]/', '', $meta['phone_number']) }}" class="ml-4"><i class="fas fa-phone mr-2" style="color:{{ $header['top_icon_color'] }}"></i>  <span class="hidden lg:inline-block">{{ $meta['phone_number'] }}</span></a>
+        @endif
+        @if( $header['woocommerce_cart_link'] )
+        <a href="" onclick="mooShowCart(event)" class="ml-4"><i class="fas fa-shopping-cart mr-2" style="color:{{ $header['top_icon_color'] }}"></i>  <span class="hidden lg:inline-block">Cart</span></a>
+        @endif
+        @if( $header['woocommerce_checkout_link'] )
+        <a href="{{ $header['woocommerce_checkout_link'] }}" class="ml-4"><i class="fas fa-shopping-bag mr-2" style="color:{{ $header['top_icon_color'] }}"></i>  <span class="hidden lg:inline-block">Checkout</span></a>
         @endif
         @if( $header['header_button_text'] )
-        <a href="{!! $header['header_button_url'] !!}" class="ml-4 custom-button button bg-{!! $header['button_primary_color'] !!} hidden md:inline-block">{!! $header['header_button_text'] !!}</a>
+        <a href="{!! $header['header_button_url'] !!}" class="ml-4 custom-button button {!! $header['button_primary_color'] !!} hidden md:inline-block">{!! $header['header_button_text'] !!}</a>
         @endif
       </div>
     </div>
@@ -82,13 +88,13 @@ $meta_fonturl = $meta_font['url'];
         @endif
         <div class="flex flex-col justify-start lg:hidden mt-3">
           @if( $meta['phone_number'] )
-          <a href="tel:{{ preg_replace('/[^0-9]/', '', $meta['phone_number']) }}" class="text-white mt-1"><i class="fas fa-phone mr-2" style="color:{{ $top_icon_color }}"></i> {{ $meta['phone_number'] }}</a>
+          <a href="tel:{{ preg_replace('/[^0-9]/', '', $meta['phone_number']) }}" class="text-white mt-1"><i class="fas fa-phone mr-2" style="color:{{ $header['top_icon_color'] }}"></i> {{ $meta['phone_number'] }}</a>
           @endif
           @if($meta['street_address'])
-          <a href="https://www.google.com/maps/dir/?api=1&destination={{ $meta['street_address'] }}+{{ $meta['city_name'] }}+{{ $meta['state'] }}+{{ $meta['zipcode'] }}" class="text-white mt-5 uppercase"><i class="fas fa-map-marker-alt mr-2" style="color:{{ $top_icon_color }}"></i> Get Directions</a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination={{ $meta['street_address'] }}+{{ $meta['city_name'] }}+{{ $meta['state'] }}+{{ $meta['zipcode'] }}" class="text-white mt-5 uppercase"><i class="fas fa-map-marker-alt mr-2" style="color:{{ $header['top_icon_color'] }}"></i> Get Directions</a>
           @endif
           @if( $header['header_button_text'] )
-          <a href="{!! $header['header_button_url'] !!}" class="ml-4 button bg-{!! $header['button_primary_color'] !!} hidden lg:inline-block">{!! $header['header_button_text'] !!}</a>
+          <a href="{!! $header['header_button_url'] !!}" class="ml-4 button {!! $header['button_primary_color'] !!} hidden lg:inline-block">{!! $header['header_button_text'] !!}</a>
           @endif
         </div>
       </nav>
