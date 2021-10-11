@@ -22,8 +22,15 @@
   $section_has_bg = $background_image ? 'section-has-bg' : '';
   @endphp
 
-  <section id="{!! wp_unique_id('full-col-') !!}" class="preview-none section-col-full {!! $text_white !!} relative z-40 {!! $color_bg !!} {!! $section_has_bg !!}" style="padding: {!! $padding_top_full !!}px 0 {!! $padding_bottom_full !!}px 0; background-image: url('{!! $background_image !!}')">
+  <section id="{{ $block['id'] }}" class="preview-none section-col-full {!! $text_white !!} relative z-40 {!! $color_bg !!} {!! $section_has_bg !!}">
     <div class="container">
       {!! $content_full !!}
     </div>
   </section>
+
+  <style>
+    #{{ $block['id'] }} {
+        padding: {!! $padding_top_full !!}px 0 {!! $padding_bottom_full !!}px 0;
+        background-image: url('{!! $background_image !!}');
+    }
+  </style>
