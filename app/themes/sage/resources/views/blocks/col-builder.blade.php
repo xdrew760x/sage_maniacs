@@ -18,9 +18,10 @@
   $master_bg_img = get_field('master_bg_image');
   $pad_y_top = get_field('padding_y_top');
   $pad_y_bottom = get_field('padding_y_bottom');
+  $colid = 1;
   @endphp
 
-  <section class="preview-none section-col-spawn {!! $master_bg_clr !!}" style="background-image: url('{!! $master_bg_img !!}'); padding: {!! $pad_y_top !!}px 0 {!! $pad_y_bottom !!}px 0;">
+  <section id="{{ $block['id'] }}" class="preview-none section-col-spawn {!! $master_bg_clr !!}">
     <div class="{!! $contain !!} flex flex-row flex-wrap justify-center relative px-0">
       <!-- Column one  -->
       @if( have_rows('column_options') )
@@ -36,12 +37,36 @@
       $pad_x = get_sub_field('padding_x_spawn');
       $text_white = get_sub_field('font_white_columns');
       @endphp
-      <div class="columns my-4" style="padding: 0 {!! $pad_x !!}px; width: {!! $col_width !!}%;">
-        <div class="inner w-full h-full bg-cover {!! $text_white !!} @if($col_image) bg-image @endif @if($col_bg_clr) bg-color @endif" style="background-color: {!! $col_bg_clr !!}; background-image: url('{!! $col_image !!}'); padding: {!! $pad_y !!}px 15px;">
+      <div class="columns my-4 column-{{ $colid }}">
+        <div class="inner w-full h-full bg-cover {!! $text_white !!} @if($col_image) bg-image @endif @if($col_bg_clr) bg-color @endif">
           {!! $col_content !!}
         </div>
       </div>
+      <style>
+        #{{ $block['id'] }} .column-{{ $colid }} {
+          padding-top: {!! $pad_y !!}px;
+          padding-bottom: {!! $pad_y !!}px;
+          padding-left: {!! $pad_x !!}px;
+          padding-right: {!! $pad_x !!}px;
+          width: {!! $col_width !!}%;
+        }
+
+        #{{ $block['id'] }} .column-{{ $colid }} .inner {
+          background-color: {!! $col_bg_clr !!};
+          background-image: url('{!! $col_image !!}');
+        }
+      </style>
+      @php
+      $colid++;
+      @endphp
       @endwhile
       @endif
     </div>
   </section>
+
+<style>
+  #{{ $block['id'] }} {
+      background-image: url('{!! $master_bg_img !!}');
+      padding: {!! $pad_y_top !!}px 0 {!! $pad_y_bottom !!}px 0;
+  }
+</style>
