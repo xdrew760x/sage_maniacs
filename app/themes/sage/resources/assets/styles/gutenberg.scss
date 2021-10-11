@@ -1,0 +1,62 @@
+/**
+* This injects Tailwind's base styles, which is a combination of
+* Normalize.css and some additional base styles.
+*
+* You can see the styles here:
+* https://github.com/tailwindcss/tailwindcss/blob/master/css/preflight.css
+*
+* If using `postcss-import`, use this import instead:
+*
+* @import "tailwindcss/preflight";
+*/
+@tailwind base;
+
+/** Import everything from autoload */
+@import "./autoload/**/*";
+
+/**
+* Import npm dependencies
+*
+* Prefix your imports with `~` to grab from node_modules/
+* @see https://github.com/webpack-contrib/sass-loader#imports
+*/
+// @import "~some-node-module";
+@import "~@fancyapps/fancybox/dist/jquery.fancybox.css";
+@import "~slick-carousel/slick/slick.scss";
+
+@tailwind components;
+
+//Restrict to preview and WYSIWYG
+.acf-block-preview,
+#tinymce {
+  //Blocks
+  @import "blocks/hero";
+  @import "blocks/columns";
+  @import "blocks/home-listing";
+  @import "blocks/testimonials";
+  @import "blocks/newsletter-social";
+  @import "blocks/contact";
+
+  // Common
+  @import "common/global";
+  @import "common/type";
+
+  //Components
+  @import "components/buttons";
+  @import "components/comments";
+  @import "components/blog";
+  @import "components/forms";
+
+  //Wordpress Default Styling
+  @import "wordpress/default";
+  @import "wordpress/forms";
+  @import "wordpress/woo";
+  @import "wordpress/slick";
+  @import "components/wp-classes";
+}
+
+//Gutenberg overrides.
+@import "wordpress/acf";
+@import "wordpress/blocks";
+
+@tailwind utilities;

@@ -1,6 +1,7 @@
 {
   "entry": {
     "acf": ["./styles/wordpress/acf.scss"],
+    "gutenberg": ["./styles/gutenberg.scss"],
     "main": ["./scripts/main.js", "./styles/main.scss"],
     "customizer": ["./scripts/customizer.js"]
   },
