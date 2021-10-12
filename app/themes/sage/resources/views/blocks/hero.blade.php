@@ -62,7 +62,7 @@
   @endphp
 
 
-  <section id="{!! wp_unique_id('hero-') !!}" class="preview-none section-brm--hero relative {!! $remove_hero_nav !!}" style="">
+  <section id="{{ $block['id'] }}" class="preview-none section-brm--hero relative {!! $remove_hero_nav !!}" style="">
     @if($video)
     <video class="hero__video {!! $video_position ?: 'absolute' !!}" preload="auto" autoplay loop muted playsinline>
       <source src="{!! $video_mp4 !!}" type="video/mp4"/>
@@ -81,7 +81,7 @@
       $hero_desktop = get_sub_field('image_hero');
 
       @endphp
-      <div class="hero-item bg-cover bg-top @if(!$video) bg-gray @endif text-white" style="background-image: url({{ $hero_desktop }});" data-mobile="{{ $hero_mobile}}" data-desktop="{{$hero_desktop}}">
+      <div class="hero-item bg-cover bg-top @if(!$video) bg-gray @endif text-white" data-mobile="{{ $hero_mobile}}" data-desktop="{{$hero_desktop}}">
         <div class="container flex justify-center items-center">
           <div class="hero_content mx-auto block sm:w-full lg:{!! $c_width !!} {!! $c_pos !!} py-12">
             {!! $content !!}
@@ -94,9 +94,13 @@
   </section>
 
   <style>
-    :root {
+    #{{ $block['id'] }} {
       --hero-height-desk: {{ get_field('height_desktop') }}px;
       --hero-height-mob: {{ get_field('height_mobile') }}px;
       --hero-clr: {{ get_field('hero_content_clr') }};
+    }
+
+    #{{ $block['id'] }} .hero-item {
+      background-image: url({{ $hero_desktop }});
     }
   </style>

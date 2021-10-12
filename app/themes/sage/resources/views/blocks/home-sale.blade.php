@@ -31,7 +31,7 @@
   ]);
   @endphp
 
-  <section class="preview-none section-col-full section-home-listing {!! $text_white !!} relative z-40" style="padding: {!! $pad_y !!}px 0; background-color: {!! $color_bg !!}; background-image: url('{!! $background_image !!}')">
+  <section id="{{ $block['id'] }}" class="preview-none section-col-full section-home-listing {!! $text_white !!} relative z-40" style="">
     <div class="container">
       {!! $content_full !!}
     </div>
@@ -84,7 +84,10 @@
   </section>
 
   <style>
-  :root {
-    --card-bg-clr: {{ get_field('home_card_bg_color') }};
-  }
+    #{{ $block['id'] }} {
+      --card-bg-clr: {{ get_field('home_card_bg_color') }};
+      padding: {!! $pad_y !!}px 0;
+      background-color: {!! $color_bg !!};
+      background-image: url('{!! $background_image !!}');
+    }
   </style>
