@@ -15,6 +15,7 @@
   @php
   $padding_top_full = get_field('padding_top_full');
   $padding_bottom_full = get_field('padding_bottom_full');
+  $horizontal_padding = get_field('horizontal_padding');
   $background_image = get_field('background_image');
   $color_bg = get_field('color_back');
   $content_full = get_field('content_full');
@@ -33,4 +34,12 @@
         padding: {!! $padding_top_full !!}px 0 {!! $padding_bottom_full !!}px 0;
         background-image: url('{!! $background_image !!}');
     }
+
+    @media only screen and (min-width: 1024px){
+      #{{ $block['id'] }} > .container {
+        padding: 0 {!! $horizontal_padding !!}px;
+      }
+    }
+
+
   </style>
