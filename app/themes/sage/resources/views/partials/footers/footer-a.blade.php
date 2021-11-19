@@ -1,6 +1,6 @@
 @php
 $footer_logo = get_field('footer_logo', 'options');
-$background_clr = get_field('background_color', 'options');
+$background_clr = get_field('background_color_footer', 'options');
 //font
 $footer_font = get_field('footer_font_family', 'options');
 $footer_fontformat = pathinfo( $footer_font['filename'], PATHINFO_EXTENSION);
