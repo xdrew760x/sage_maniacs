@@ -10,6 +10,8 @@
     .tel-num,
     .email-add {
       @apply font-contact-font;
+
+      font-size: var(--font_size_contact);
     }
 
     a svg {
