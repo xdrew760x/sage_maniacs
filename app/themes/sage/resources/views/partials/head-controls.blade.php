@@ -123,7 +123,7 @@ $footer_nav_text_transform = get_field('footer_nav_text_transform', 'options');
     --menu-font-color-mobile: {{ $header['primary_menu_color_mobile'] }};
     --sub-font-color-mobile: {{ $header['sub_nav_color'] }};
     --sub-bg-color-mobile: {{ $header['sub_menu_bg_color'] }};
-    --nav-text-transform: {{ $header['header_text_transform']}};
+    --nav-text-transform: {{ $header['nav_text_transform']}};
     --top-header-padding: {{$header['top_header_padding']}}px;
     --bottom-header-padding: {{$header['bottom_header_padding']}}px;
     --left-nav-margin: {{$header['left_nav_margin']}}px;
