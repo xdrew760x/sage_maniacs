@@ -3,6 +3,10 @@
 }
 
 .section-brm--hero {
+  .container {
+    @apply flex justify-center items-center;
+  }
+
   .hero-item,
   .container {
     min-height: var(--hero-height-mob);
@@ -104,6 +108,8 @@
 // Rv Hero Block
 .rv-hero {
   .container {
+    @apply flex justify-start items-center;
+
     min-height: var(--rv-height-mob);
 
     @media (min-width: 1024px) {

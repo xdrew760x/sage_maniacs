@@ -141,140 +141,136 @@ add_filter('wp_php_error_message',function( $message, $error ) {return
 
   ; }, 10,2);
 
-//
-///
-///Include Exapnd button for guttenberg backend
-add_action('admin_head', 'gutenberg_menu_expand');
+  //
+  ///
+  ///Include Exapnd button for guttenberg backend
+  add_action('admin_head', 'gutenberg_menu_expand');
 
-function gutenberg_menu_expand() {
-  echo '
-  <a class="open-sidebar button button--primary" onclick="openWin()">Expand Toolbar</a>';
-}
-
-
-//
-///
-//// Remove stock blocks / Add Custom Blocks
-add_filter( 'allowed_block_types', 'misha_allowed_block_types' );
-function misha_allowed_block_types( $allowed_blocks ) {
-  return array(
-    'acf/hero',
-    'acf/rv-hero',
-    'acf/rv-hero-two-col',
-    'acf/full-col',
-    'acf/two-col',
-    'acf/two-col-openlead',
-    'acf/col-builder',
-    'acf/testimonials',
-    'acf/home-sale',
-    'acf/rates-a',
-    'core/block' // add this for reusable block
-  );
-}
-//
-///
-//// Registers Block Category for Gutenberg
-function my_blocks_plugin_block_categories( $categories ) {
-  return array_merge(
-    $categories,
-    array(
-      array(
-        'slug' => 'general_blocks',
-        'title' => __( 'General Blocks', 'brm' ),
-        'icon'  => 'wordpress',
-      ),
-      array(
-        'slug' => 'hero_blocks',
-        'title' => __( 'Hero', 'brm' ),
-        'icon'  => 'wordpress',
-      ),
-      array(
-        'slug' => 'column_blocks',
-        'title' => __( 'Columns', 'brm' ),
-        'icon'  => 'wordpress',
-      ),
-      array(
-        'slug' => 'sale_blocks',
-        'title' => __( 'Home For Sale', 'brm' ),
-        'icon'  => 'wordpress',
-      ),
-      array(
-        'slug' => 'test_blocks',
-        'title' => __( 'Testimonials', 'brm' ),
-        'icon'  => 'wordpress',
-      ),
-      array(
-        'slug' => 'news_social_blocks',
-        'title' => __( 'Newsletter Social', 'brm' ),
-        'icon'  => 'wordpress',
-      ),
-      array(
-        'slug' => 'contact_blocks',
-        'title' => __( 'Openlead Forms', 'brm' ),
-        'icon'  => 'wordpress',
-      ),
-    )
-  );
-}
-add_filter( 'block_categories', 'my_blocks_plugin_block_categories', 10, 2 );
-
-
-//// Includes and moves Property Number on WP Properry listing
-
-add_filter('manage_homes-for-sale_posts_columns' , 'add_properties_columns');
-
-function add_properties_columns($columns) {
-  array_merge ( $columns, array (
-    'listing_number' => __ ( 'Listing Number' )
-  ) );
-  $new = array();
-  foreach($columns as $key => $title) {
-    if ($key=='taxonomy-status') // Put the Thumbnail column before the Author column
-    $new['listing_number'] = 'Listing Number';
-    $new[$key] = $title;
+  function gutenberg_menu_expand() {
+    echo '
+    <a class="open-sidebar button button--primary" onclick="openWin()">Expand Toolbar</a>';
   }
-  return $new;
-}
 
-/*
-* Add columns to Property post list
-*/
-function properties_custom_column ( $column, $post_id ) {
-  switch ( $column ) {
-    case 'listing_number':
-    echo get_post_meta ( $post_id, 'listing_number', true );
-    break;
+
+  //
+  ///
+  //// Remove stock blocks / Add Custom Blocks
+  add_filter( 'allowed_block_types', 'misha_allowed_block_types' );
+  function misha_allowed_block_types( $allowed_blocks ) {
+    return array(
+      'acf/hero',
+      'acf/rv-hero',
+      'acf/rv-hero-two-col',
+      'acf/col-builder',
+      'acf/portals',
+      'acf/testimonials',
+      'acf/home-sale',
+      'acf/rates-a',
+      'core/block' // add this for reusable block
+    );
   }
-}
-add_action ( 'manage_homes-for-sale_posts_custom_column', 'properties_custom_column', 10, 2 );
+  //
+  ///
+  //// Registers Block Category for Gutenberg
+  function my_blocks_plugin_block_categories( $categories ) {
+    return array_merge(
+      $categories,
+      array(
+        array(
+          'slug' => 'general_blocks',
+          'title' => __( 'General Blocks', 'brm' ),
+          'icon'  => 'wordpress',
+        ),
+        array(
+          'slug' => 'hero_blocks',
+          'title' => __( 'Hero', 'brm' ),
+          'icon'  => 'wordpress',
+        ),
+        array(
+          'slug' => 'column_blocks',
+          'title' => __( 'Columns', 'brm' ),
+          'icon'  => 'wordpress',
+        ),
+        array(
+          'slug' => 'sale_blocks',
+          'title' => __( 'Home For Sale', 'brm' ),
+          'icon'  => 'wordpress',
+        ),
+        array(
+          'slug' => 'test_blocks',
+          'title' => __( 'Testimonials', 'brm' ),
+          'icon'  => 'wordpress',
+        ),
+        array(
+          'slug' => 'news_social_blocks',
+          'title' => __( 'Newsletter Social', 'brm' ),
+          'icon'  => 'wordpress',
+        ),
+        array(
+          'slug' => 'contact_blocks',
+          'title' => __( 'Openlead Forms', 'brm' ),
+          'icon'  => 'wordpress',
+        ),
+      )
+    );
+  }
+  add_filter( 'block_categories', 'my_blocks_plugin_block_categories', 10, 2 );
 
-//Allows for Dynamic Logo population for admin
-function ea_login_logo() {
 
-  $xpress = get_field('xpress', 'options');
-  $header = get_field('component_type', 'options');
-	$logo = $header['branding_logo']['url'] && $xpress === false ? $header['branding_logo']['url'] : '/app/themes/sage/resources/assets/images/bigrigxpress.svg';
-  $body_color = $xpress === true ? '#333' : get_field('login_background_color', 'options');
-  $form_color = $xpress === true ? '#f6921e' : get_field('login_panel_background_color', 'options');
-  $login_panel_font_color = $xpress === true ? '#fff' : get_field('login_panel_font_color', 'options');
-  $login_font_color = $xpress === true ? '#f6921e' : get_field('login_font_color', 'options');
-  $login_logo_height = $xpress === true ? '100' : get_field('login_logo_height', 'options');
-  $login_logo_width = $xpress === true ? '320' : get_field('login_logo_width', 'options');
-  $login_button_color = $xpress === true ? '#333' : get_field('login_button_color', 'options');
+  //// Includes and moves Property Number on WP Properry listing
 
+  add_filter('manage_homes-for-sale_posts_columns' , 'add_properties_columns');
+
+  function add_properties_columns($columns) {
+    array_merge ( $columns, array (
+      'listing_number' => __ ( 'Listing Number' )
+    ) );
+    $new = array();
+    foreach($columns as $key => $title) {
+      if ($key=='taxonomy-status') // Put the Thumbnail column before the Author column
+      $new['listing_number'] = 'Listing Number';
+      $new[$key] = $title;
+    }
+    return $new;
+  }
+
+  /*
+  * Add columns to Property post list
+  */
+  function properties_custom_column ( $column, $post_id ) {
+    switch ( $column ) {
+      case 'listing_number':
+      echo get_post_meta ( $post_id, 'listing_number', true );
+      break;
+    }
+  }
+  add_action ( 'manage_homes-for-sale_posts_custom_column', 'properties_custom_column', 10, 2 );
+
+  //Allows for Dynamic Logo population for admin
+  function ea_login_logo() {
+    $xpress = get_field('xpress', 'options');
+    $header = get_field('component_type', 'options');
+    $logo = $header['branding_logo']['url'] && $xpress === false ? $header['branding_logo']['url'] : '/app/themes/sage/resources/assets/images/bigrigxpress.svg';
+    $body_color = $xpress === true ? '#333' : get_field('login_background_color', 'options');
+    $form_color = $xpress === true ? '#f6921e' : get_field('login_panel_background_color', 'options');
+    $login_panel_font_color = $xpress === true ? '#fff' : get_field('login_panel_font_color', 'options');
+    $login_font_color = $xpress === true ? '#f6921e' : get_field('login_font_color', 'options');
+    $login_logo_height = $xpress === true ? '100' : get_field('login_logo_height', 'options');
+    $login_logo_width = $xpress === true ? '320' : get_field('login_logo_width', 'options');
+    $login_button_color = $xpress === true ? '#333' : get_field('login_button_color', 'options');
     ?>
     <style type="text/css">
     .login h1 a {
-        background-image: url(<?php echo $logo;?>);
-        background-repeat: no-repeat;
-		    background-position: center center;
-        background-size: contain;
-        display: block;
-        overflow: hidden;
-        text-indent: -9999em;
-        width: <?php echo $login_logo_width;?>px;
-        height: <?php echo $login_logo_height;?>px;
-        padding-bottom: 30px;
+      background-image: url(<?php echo $logo;?>);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+      display: block;
+      overflow: hidden;
+      text-indent: -9999em;
+      width: <?php echo $login_logo_width;?>px;
+      height: <?php echo $login_logo_height;?>px;
+      padding-bottom: 30px;
     }
 
     body {
@@ -323,5 +319,5 @@ function ea_login_logo() {
     }
     </style>
     <?php
-}
-add_action( 'login_head', 'ea_login_logo' );
+  }
+  add_action( 'login_head', 'ea_login_logo' );

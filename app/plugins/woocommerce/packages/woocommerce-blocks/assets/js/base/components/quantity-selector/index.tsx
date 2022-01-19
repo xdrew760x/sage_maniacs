@@ -11,7 +11,6 @@ import { DOWN, UP } from '@wordpress/keycodes';
  * Internal dependencies
  */
 import './style.scss';
-import { isNumber } from '../../utils/type-guards';
 
 interface QuantitySelectorProps {
 	className?: string;
@@ -84,7 +83,8 @@ const QuantitySelector = ( {
 				onKeyDown={ quantityInputOnKeyDown }
 				onChange={ ( event ) => {
 					let value =
-						! isNumber( event.target.value ) || ! event.target.value
+						Number.isNaN( event.target.value ) ||
+						! event.target.value
 							? 0
 							: parseInt( event.target.value, 10 );
 					if ( hasMaximum ) {

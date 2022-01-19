@@ -6,9 +6,11 @@
 
 namespace The_SEO_Framework\Bridges;
 
+use \The_SEO_Framework\Interpreters\HTML;
+
 /**
  * The SEO Framework plugin
- * Copyright (C) 2019 - 2020 Sybre Waaijer, CyberWire (https://cyberwire.nl/)
+ * Copyright (C) 2019 - 2021 Sybre Waaijer, CyberWire B.V. (https://cyberwire.nl/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 3 as published
@@ -63,9 +65,7 @@ final class ListEdit extends ListTable {
 	 */
 	public function _prepare_edit_box( $screen ) {
 
-		$taxonomy = isset( $screen->taxonomy ) ? $screen->taxonomy : '';
-
-		if ( ! $taxonomy ) {
+		if ( empty( $screen->taxonomy ) ) {
 			// WordPress doesn't support this feature yet for taxonomies.
 			// Exclude it for when the time may come and faulty fields are displayed.
 			// Mind the "2".
@@ -123,7 +123,7 @@ final class ListEdit extends ListTable {
 		if ( $taxonomy ) {
 			// Not yet.
 		} else {
-			\the_seo_framework()->get_view( 'list/bulk-post', get_defined_vars() );
+			\tsf()->get_view( 'list/bulk-post', get_defined_vars() );
 		}
 	}
 
@@ -142,9 +142,9 @@ final class ListEdit extends ListTable {
 		if ( $this->column_name !== $column_name ) return;
 
 		if ( $taxonomy ) {
-			\the_seo_framework()->get_view( 'list/quick-term', get_defined_vars() );
+			\tsf()->get_view( 'list/quick-term', get_defined_vars() );
 		} else {
-			\the_seo_framework()->get_view( 'list/quick-post', get_defined_vars() );
+			\tsf()->get_view( 'list/quick-post', get_defined_vars() );
 		}
 	}
 
@@ -163,15 +163,13 @@ final class ListEdit extends ListTable {
 		if ( $this->column_name !== $column_name )          return;
 		if ( ! \current_user_can( 'edit_post', $post_id ) ) return;
 
-		$tsf = \the_seo_framework();
+		$tsf = \tsf();
 
-		$query = [
-			'id'       => $post_id,
-			'taxonomy' => '',
-		];
+		$query = [ 'id' => $post_id ];
 
-		$r_defaults = $tsf->robots_meta(
+		$r_defaults = $tsf->generate_robots_meta(
 			$query,
+			[ 'noindex', 'nofollow', 'noarchive' ],
 			\The_SEO_Framework\ROBOTS_IGNORE_SETTINGS
 		);
 
@@ -221,7 +219,7 @@ final class ListEdit extends ListTable {
 		 *       @param string $default  Optional. Only works when $isSelect is true. The default value to be set in select index 0.
 		 *    }
 		 * }
-		 * @param array $query The query data. Contains 'id' and 'taxonomy'.
+		 * @param array $query The query data. Contains 'id' or 'taxonomy'.
 		 */
 		$data = \apply_filters_ref_array( 'the_seo_framework_list_table_data', [ $data, $query ] );
 
@@ -230,11 +228,10 @@ final class ListEdit extends ListTable {
 			'<span class=hidden id=%s %s></span>',
 			sprintf( 'tsfLeData[%s]', (int) $post_id ),
 			// phpcs:ignore, WordPress.Security.EscapeOutput -- make_data_attributes escapes.
-			$tsf->make_data_attributes( [ 'le' => $data ] )
+			HTML::make_data_attributes( [ 'le' => $data ] )
 		);
 
 		if ( $tsf->is_static_frontpage( $query['id'] ) ) {
-			// phpcs:disable, WordPress.WhiteSpace.PrecisionAlignment
 			// When the homepage title is set, we can safely get the custom field.
 			$_has_home_title     = (bool) $tsf->escape_title( $tsf->get_option( 'homepage_title' ) );
 			$default_title       = $_has_home_title
@@ -250,7 +247,6 @@ final class ListEdit extends ListTable {
 								 ? $tsf->get_description_from_custom_field( $query )
 								 : $tsf->get_generated_description( $query );
 			$is_desc_ref_locked  = $_has_home_desc;
-			// phpcs:enable, WordPress.WhiteSpace.PrecisionAlignment
 		} else {
 			$default_title       = $tsf->get_filtered_raw_generated_title( $query );
 			$addition            = $tsf->get_blogname();
@@ -261,11 +257,14 @@ final class ListEdit extends ListTable {
 			$is_desc_ref_locked  = false;
 		}
 
+		$post_data  = [
+			'isFront' => $tsf->is_static_frontpage( $query['id'] ),
+		];
 		$title_data = [
 			'refTitleLocked'    => $is_title_ref_locked,
-			'defaultTitle'      => $default_title,
+			'defaultTitle'      => $tsf->s_title( $default_title ),
 			'addAdditions'      => $tsf->use_title_branding( $query ),
-			'additionValue'     => $tsf->s_title_raw( $addition ),
+			'additionValue'     => $tsf->s_title( $addition ),
 			'additionPlacement' => 'left' === $seplocation ? 'before' : 'after',
 		];
 		$desc_data  = [
@@ -274,18 +273,25 @@ final class ListEdit extends ListTable {
 		];
 
 		printf(
+			// '<span class=hidden id=%s data-le-post-data="%s"></span>',
+			'<span class=hidden id=%s %s></span>',
+			sprintf( 'tsfLePostData[%s]', (int) $post_id ),
+			// phpcs:ignore, WordPress.Security.EscapeOutput -- make_data_attributes escapes.
+			HTML::make_data_attributes( [ 'lePostData' => $post_data ] )
+		);
+		printf(
 			// '<span class=hidden id=%s data-le-title="%s"></span>',
 			'<span class=hidden id=%s %s></span>',
 			sprintf( 'tsfLeTitleData[%s]', (int) $post_id ),
 			// phpcs:ignore, WordPress.Security.EscapeOutput -- make_data_attributes escapes.
-			$tsf->make_data_attributes( [ 'leTitle' => $title_data ] )
+			HTML::make_data_attributes( [ 'leTitle' => $title_data ] )
 		);
 		printf(
 			// '<span class=hidden id=%s data-le-description="%s"></span>',
 			'<span class=hidden id=%s %s></span>',
 			sprintf( 'tsfLeDescriptionData[%s]', (int) $post_id ),
 			// phpcs:ignore, WordPress.Security.EscapeOutput -- make_data_attributes escapes.
-			$tsf->make_data_attributes( [ 'leDescription' => $desc_data ] )
+			HTML::make_data_attributes( [ 'leDescription' => $desc_data ] )
 		);
 
 		if ( $this->doing_ajax )
@@ -296,6 +302,7 @@ final class ListEdit extends ListTable {
 	 * Returns the quick edit data for terms.
 	 *
 	 * @since 4.0.0
+	 * @since 4.2.0 Now properly populates use_generated_archive_prefix() with a \WP_Term object.
 	 * @access private
 	 * @abstract
 	 * @NOTE Unlike `_output_column_post_data()`, this is a filter callback.
@@ -312,15 +319,16 @@ final class ListEdit extends ListTable {
 		if ( $this->column_name !== $column_name )          return $string;
 		if ( ! \current_user_can( 'edit_term', $term_id ) ) return $string;
 
-		$tsf = \the_seo_framework();
+		$tsf = \tsf();
 
 		$query = [
 			'id'       => $term_id,
 			'taxonomy' => $this->taxonomy,
 		];
 
-		$r_defaults = $tsf->robots_meta(
+		$r_defaults = $tsf->generate_robots_meta(
 			$query,
+			[ 'noindex', 'nofollow', 'noarchive' ],
 			\The_SEO_Framework\ROBOTS_IGNORE_SETTINGS
 		);
 
@@ -380,18 +388,22 @@ final class ListEdit extends ListTable {
 			'<span class=hidden id=%s %s></span>',
 			sprintf( 'tsfLeData[%s]', (int) $term_id ),
 			// phpcs:ignore, WordPress.Security.EscapeOutput -- make_data_attributes escapes.
-			$tsf->make_data_attributes( [ 'le' => $data ] )
+			HTML::make_data_attributes( [ 'le' => $data ] )
 		);
 
-		$term_prefix = $tsf->use_generated_archive_prefix( \get_taxonomy( $query['taxonomy'] ) )
-			? $tsf->prepend_tax_label_prefix( '', $query['taxonomy'] )
+		$term_prefix = $tsf->use_generated_archive_prefix( \get_term( $query['id'], $query['taxonomy'] ) )
+			? sprintf(
+				/* translators: %s: Taxonomy singular name. */
+				\_x( '%s:', 'taxonomy term archive title prefix', 'default' ),
+				$tsf->get_tax_type_label( $query['taxonomy'] )
+			)
 			: '';
 
 		$title_data = [
 			'refTitleLocked'    => false,
-			'defaultTitle'      => $tsf->get_filtered_raw_generated_title( $query ),
+			'defaultTitle'      => $tsf->s_title( $tsf->get_filtered_raw_generated_title( $query ) ),
 			'addAdditions'      => $tsf->use_title_branding( $query ),
-			'additionValue'     => $tsf->s_title_raw( $tsf->get_blogname() ),
+			'additionValue'     => $tsf->s_title( $tsf->get_blogname() ),
 			'additionPlacement' => 'left' === $tsf->get_title_seplocation() ? 'before' : 'after',
 			'termPrefix'        => $term_prefix,
 		];
@@ -404,18 +416,18 @@ final class ListEdit extends ListTable {
 			'<span class=hidden id=%s %s></span>',
 			sprintf( 'tsfLeTitleData[%s]', (int) $term_id ),
 			// phpcs:ignore, WordPress.Security.EscapeOutput -- make_data_attributes escapes.
-			$tsf->make_data_attributes( [ 'leTitle' => $title_data ] )
+			HTML::make_data_attributes( [ 'leTitle' => $title_data ] )
 		);
 		$container .= sprintf(
 			'<span class=hidden id=%s %s></span>',
 			sprintf( 'tsfLeDescriptionData[%s]', (int) $term_id ),
 			// phpcs:ignore, WordPress.Security.EscapeOutput -- make_data_attributes escapes.
-			$tsf->make_data_attributes( [ 'leDescription' => $desc_data ] )
+			HTML::make_data_attributes( [ 'leDescription' => $desc_data ] )
 		);
 
 		if ( $this->doing_ajax )
 			$container .= $this->get_ajax_dispatch_updated_event();
 
-		return $string . $container;
+		return "$string$container";
 	}
 }

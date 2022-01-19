@@ -2,7 +2,7 @@
 Contributors: tychesoftwares
 Tags: fields, product addons, product input fields, custom fields, woocommerce product fields
 Requires at least: 4.4
-Tested up to: 5.7
+Tested up to: 5.8
 Stable tag: trunk
 Requires PHP: 5.6
 License: GNU General Public License v3.0
@@ -105,6 +105,12 @@ Plugin is limited to adding two input fields to each product - one (global) fiel
 5. Setting local (i.e. on per product basis) product input field options.
 
 == Changelog ==
+
+= 1.3.1 - 21/09/2021 =
+* Fix - Fatal error was coming with PHP 8. This is fixed now.
+* Fix - Product input fields were getting displayed on the frontend even if the plugin setting was kept disabled and shortcode was added. This is fixed now.
+* Fix - Numbers were not coming on the product page when the 'Range' type was selected. This is fixed now.
+* Fix - Duplicate fields were coming on the frontend when the product input fields were shown using the shortcode and the input fields values were not getting passed to the cart. This is fixed now.
 
 = 1.3.0 - 19/03/2021 =
 * Fixed an issue of after clicking on Order again button on My Account page, it shows the error of required fields.

@@ -9,10 +9,14 @@ import isShallowEqual from '@wordpress/is-shallow-equal';
 import {
 	formatStoreApiErrorMessage,
 	pluckAddress,
+	pluckEmail,
 } from '@woocommerce/base-utils';
-import type {
+import {
 	CartResponseBillingAddress,
 	CartResponseShippingAddress,
+	BillingAddressShippingAddress,
+	CartBillingAddress,
+	CartShippingAddress,
 } from '@woocommerce/types';
 
 declare type CustomerData = {
@@ -26,8 +30,16 @@ declare type CustomerData = {
 import { useStoreCart } from './cart/use-store-cart';
 import { useStoreNotices } from './use-store-notices';
 
+function instanceOfCartResponseBillingAddress(
+	address: CartResponseBillingAddress | CartResponseShippingAddress
+): address is CartResponseBillingAddress {
+	return 'email' in address;
+}
+
 /**
- * Does a shallow compare of important address data to determine if the cart needs updating.
+ * Does a shallow compare of important address data to determine if the cart needs updating on the server.
+ *
+ * This takes the current and previous address into account, as well as the billing email field.
  *
  * @param {Object} previousAddress An object containing all previous address information
  * @param {Object} address An object containing all address information
@@ -40,12 +52,20 @@ const shouldUpdateAddressStore = <
 	previousAddress: T,
 	address: T
 ): boolean => {
-	if ( ! address.country ) {
-		return false;
+	if (
+		instanceOfCartResponseBillingAddress( address ) &&
+		pluckEmail( address ) !==
+			pluckEmail( previousAddress as CartResponseBillingAddress )
+	) {
+		return true;
 	}
-	return ! isShallowEqual(
-		pluckAddress( previousAddress ),
-		pluckAddress( address )
+
+	return (
+		!! address.country &&
+		! isShallowEqual(
+			pluckAddress( previousAddress ),
+			pluckAddress( address )
+		)
 	);
 };
 
@@ -56,7 +76,7 @@ export const useCustomerData = (): {
 	billingData: CartResponseBillingAddress;
 	shippingAddress: CartResponseShippingAddress;
 	setBillingData: ( data: CartResponseBillingAddress ) => void;
-	setShippingAddress: ( data: CartResponseBillingAddress ) => void;
+	setShippingAddress: ( data: CartResponseShippingAddress ) => void;
 } => {
 	const { updateCustomerData } = useDispatch( storeKey );
 	const { addErrorNotice, removeNotice } = useStoreNotices();
@@ -74,6 +94,26 @@ export const useCustomerData = (): {
 		billingData: initialBillingAddress,
 		shippingAddress: initialShippingAddress,
 	} );
+
+	// We only want to update the local state once, otherwise the data on the checkout page gets overwritten
+	// with the initial state of the addresses here
+	const [ hasCustomerDataSynced, setHasCustomerDataSynced ] = useState<
+		boolean
+	>( false );
+
+	if (
+		! hasCustomerDataSynced &&
+		shouldUpdateAddressStore(
+			customerData.shippingAddress,
+			initialShippingAddress
+		)
+	) {
+		setCustomerData( {
+			billingData: initialBillingAddress,
+			shippingAddress: initialShippingAddress,
+		} );
+		setHasCustomerDataSynced( true );
+	}
 
 	// Store values last sent to the server in a ref to avoid requests unless important fields are changed.
 	const previousCustomerData = useRef< CustomerData >( customerData );
@@ -95,7 +135,7 @@ export const useCustomerData = (): {
 	/**
 	 * Set billing data.
 	 *
-	 * Contains special handling for email and phone so those fields are not overwritten if simply updating address.
+	 * Contains special handling for email so those fields are not overwritten if simply updating address.
 	 */
 	const setBillingData = useCallback( ( newData ) => {
 		setCustomerData( ( prevState ) => {
@@ -113,10 +153,15 @@ export const useCustomerData = (): {
 	 * Set shipping data.
 	 */
 	const setShippingAddress = useCallback( ( newData ) => {
-		setCustomerData( ( prevState ) => ( {
-			...prevState,
-			shippingAddress: newData,
-		} ) );
+		setCustomerData( ( prevState ) => {
+			return {
+				...prevState,
+				shippingAddress: {
+					...prevState.shippingAddress,
+					...newData,
+				},
+			};
+		} );
 	}, [] );
 
 	/**
@@ -124,23 +169,40 @@ export const useCustomerData = (): {
 	 */
 	useEffect( () => {
 		// Only push updates when enough fields are populated.
-		if (
-			! shouldUpdateAddressStore(
-				previousCustomerData.current.billingData,
-				debouncedCustomerData.billingData
-			) &&
-			! shouldUpdateAddressStore(
-				previousCustomerData.current.shippingAddress,
-				debouncedCustomerData.shippingAddress
-			)
-		) {
+		const shouldUpdateBillingAddress = shouldUpdateAddressStore(
+			previousCustomerData.current.billingData,
+			debouncedCustomerData.billingData
+		);
+
+		const shouldUpdateShippingAddress = shouldUpdateAddressStore(
+			previousCustomerData.current.shippingAddress,
+			debouncedCustomerData.shippingAddress
+		);
+
+		if ( ! shouldUpdateBillingAddress && ! shouldUpdateShippingAddress ) {
 			return;
 		}
+
+		const customerDataToUpdate:
+			| Partial< BillingAddressShippingAddress >
+			| Record<
+					keyof BillingAddressShippingAddress,
+					CartBillingAddress | CartShippingAddress
+			  > = {};
+
+		if ( shouldUpdateBillingAddress ) {
+			customerDataToUpdate.billing_address =
+				debouncedCustomerData.billingData;
+		}
+		if ( shouldUpdateShippingAddress ) {
+			customerDataToUpdate.shipping_address =
+				debouncedCustomerData.shippingAddress;
+		}
+
 		previousCustomerData.current = debouncedCustomerData;
-		updateCustomerData( {
-			billing_address: debouncedCustomerData.billingData,
-			shipping_address: debouncedCustomerData.shippingAddress,
-		} )
+		updateCustomerData(
+			customerDataToUpdate as Partial< BillingAddressShippingAddress >
+		)
 			.then( () => {
 				removeNotice( 'checkout' );
 			} )
