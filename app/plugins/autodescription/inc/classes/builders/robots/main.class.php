@@ -8,7 +8,7 @@ namespace The_SEO_Framework\Builders\Robots;
 
 /**
  * The SEO Framework plugin
- * Copyright (C) 2021 Sybre Waaijer, CyberWire B.V. (https://cyberwire.nl/)
+ * Copyright (C) 2021 - 2022 Sybre Waaijer, CyberWire B.V. (https://cyberwire.nl/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 3 as published
@@ -128,7 +128,9 @@ final class Main {
 		// Remit FETCH_OBJ_R opcode calls every time we'd otherwise use $this->options hereinafter.
 		$options = $this->options;
 
-		$options & \The_SEO_Framework\ROBOTS_ASSERT
+		$assert = $options & \The_SEO_Framework\ROBOTS_ASSERT;
+
+		$assert
 			and $this->reset_assertions();
 
 		$factory   = $this->get_factory();
@@ -150,7 +152,7 @@ final class Main {
 
 				$results[ $g ] = $r;
 
-				$options & \The_SEO_Framework\ROBOTS_ASSERT
+				$assert
 					and $this->store_assertion( $g, $generator->key(), $r );
 				// We could send anything, really. But this is the only method that loops and yields at the same time.
 			} while ( $start !== $generator->send( true ) );

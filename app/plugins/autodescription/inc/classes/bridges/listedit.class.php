@@ -10,7 +10,7 @@ use \The_SEO_Framework\Interpreters\HTML;
 
 /**
  * The SEO Framework plugin
- * Copyright (C) 2019 - 2021 Sybre Waaijer, CyberWire B.V. (https://cyberwire.nl/)
+ * Copyright (C) 2019 - 2022 Sybre Waaijer, CyberWire B.V. (https://cyberwire.nl/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 3 as published
@@ -165,10 +165,10 @@ final class ListEdit extends ListTable {
 
 		$tsf = \tsf();
 
-		$query = [ 'id' => $post_id ];
+		$_generator_args = [ 'id' => $post_id ];
 
 		$r_defaults = $tsf->generate_robots_meta(
-			$query,
+			$_generator_args,
 			[ 'noindex', 'nofollow', 'noarchive' ],
 			\The_SEO_Framework\ROBOTS_IGNORE_SETTINGS
 		);
@@ -185,6 +185,8 @@ final class ListEdit extends ListTable {
 			],
 			'canonical'   => [
 				'value' => $meta['_genesis_canonical_uri'],
+				// TODO figure out how to make it work seamlessly with noindex.
+				// 'placeholder' => $tsf->get_canonical_url( $_generator_args + [ 'get_custom_field' => false ] ),
 			],
 			'noindex'     => [
 				'value'    => $meta['_genesis_noindex'],
@@ -212,16 +214,18 @@ final class ListEdit extends ListTable {
 		 *
 		 * @since 4.0.5
 		 * @since 4.1.0 Now has `doctitle` and `description` indexes in its first parameter.
-		 * @param array $data  The current data : {
+		 * @since 4.2.3 Now supports the `placeholder` index for $data.
+		 * @param array $data            The current data : {
 		 *    string Index => @param array : {
-		 *       @param mixed  $value    The current value.
-		 *       @param bool   $isSelect Optional. Whether the field is a select field.
-		 *       @param string $default  Optional. Only works when $isSelect is true. The default value to be set in select index 0.
+		 *       @param mixed  $value       The current value.
+		 *       @param bool   $isSelect    Optional. Whether the field is a select field.
+		 *       @param string $default     Optional. Only works when $isSelect is true. The default value to be set in select index 0.
+		 *       @param string $placeholder Optional. Only works when $isSelect is false. Sets a placeholder for the input field.
 		 *    }
 		 * }
-		 * @param array $query The query data. Contains 'id' or 'taxonomy'.
+		 * @param array $_generator_args The query data. Contains 'id' or 'taxonomy'.
 		 */
-		$data = \apply_filters_ref_array( 'the_seo_framework_list_table_data', [ $data, $query ] );
+		$data = \apply_filters_ref_array( 'the_seo_framework_list_table_data', [ $data, $_generator_args ] );
 
 		printf(
 			// '<span class=hidden id=%s data-le="%s"></span>',
@@ -231,12 +235,12 @@ final class ListEdit extends ListTable {
 			HTML::make_data_attributes( [ 'le' => $data ] )
 		);
 
-		if ( $tsf->is_static_frontpage( $query['id'] ) ) {
+		if ( $tsf->is_static_frontpage( $_generator_args['id'] ) ) {
 			// When the homepage title is set, we can safely get the custom field.
 			$_has_home_title     = (bool) $tsf->escape_title( $tsf->get_option( 'homepage_title' ) );
 			$default_title       = $_has_home_title
-								 ? $tsf->get_custom_field_title( $query )
-								 : $tsf->get_filtered_raw_generated_title( $query );
+								 ? $tsf->get_custom_field_title( $_generator_args )
+								 : $tsf->get_filtered_raw_generated_title( $_generator_args );
 			$addition            = $tsf->get_home_title_additions();
 			$seplocation         = $tsf->get_home_title_seplocation();
 			$is_title_ref_locked = $_has_home_title;
@@ -244,26 +248,26 @@ final class ListEdit extends ListTable {
 			// When the homepage description is set, we can safely get the custom field.
 			$_has_home_desc      = (bool) $tsf->escape_title( $tsf->get_option( 'homepage_description' ) );
 			$default_description = $_has_home_desc
-								 ? $tsf->get_description_from_custom_field( $query )
-								 : $tsf->get_generated_description( $query );
+								 ? $tsf->get_description_from_custom_field( $_generator_args )
+								 : $tsf->get_generated_description( $_generator_args );
 			$is_desc_ref_locked  = $_has_home_desc;
 		} else {
-			$default_title       = $tsf->get_filtered_raw_generated_title( $query );
+			$default_title       = $tsf->get_filtered_raw_generated_title( $_generator_args );
 			$addition            = $tsf->get_blogname();
 			$seplocation         = $tsf->get_title_seplocation();
 			$is_title_ref_locked = false;
 
-			$default_description = $tsf->get_generated_description( $query );
+			$default_description = $tsf->get_generated_description( $_generator_args );
 			$is_desc_ref_locked  = false;
 		}
 
 		$post_data  = [
-			'isFront' => $tsf->is_static_frontpage( $query['id'] ),
+			'isFront' => $tsf->is_static_frontpage( $_generator_args['id'] ),
 		];
 		$title_data = [
 			'refTitleLocked'    => $is_title_ref_locked,
 			'defaultTitle'      => $tsf->s_title( $default_title ),
-			'addAdditions'      => $tsf->use_title_branding( $query ),
+			'addAdditions'      => $tsf->use_title_branding( $_generator_args ),
 			'additionValue'     => $tsf->s_title( $addition ),
 			'additionPlacement' => 'left' === $seplocation ? 'before' : 'after',
 		];
@@ -321,13 +325,13 @@ final class ListEdit extends ListTable {
 
 		$tsf = \tsf();
 
-		$query = [
+		$_generator_args = [
 			'id'       => $term_id,
 			'taxonomy' => $this->taxonomy,
 		];
 
 		$r_defaults = $tsf->generate_robots_meta(
-			$query,
+			$_generator_args,
 			[ 'noindex', 'nofollow', 'noarchive' ],
 			\The_SEO_Framework\ROBOTS_IGNORE_SETTINGS
 		);
@@ -344,6 +348,8 @@ final class ListEdit extends ListTable {
 			],
 			'canonical'   => [
 				'value' => $meta['canonical'],
+				// TODO figure out how to make it work seamlessly with noindex.
+				// 'placeholder' => $tsf->get_canonical_url( $_generator_args + [ 'get_custom_field' => false ] ),
 			],
 			'noindex'     => [
 				'value'    => $meta['noindex'],
@@ -371,16 +377,18 @@ final class ListEdit extends ListTable {
 		 *
 		 * @since 4.0.5
 		 * @since 4.1.0 Now has `doctitle` and `description` indexes in its first parameter.
-		 * @param array $data  The current data : {
+		 * @since 4.2.3 Now supports the `placeholder` index for $data.
+		 * @param array $data            The current data : {
 		 *    string Index => @param array : {
-		 *       @param mixed  $value    The current value.
-		 *       @param bool   $isSelect Optional. Whether the field is a select field.
-		 *       @param string $default  Optional. Only works when $isSelect is true. The default value to be set in select index 0.
+		 *       @param mixed  $value       The current value.
+		 *       @param bool   $isSelect    Optional. Whether the field is a select field.
+		 *       @param string $default     Optional. Only works when $isSelect is true. The default value to be set in select index 0.
+		 *       @param string $placeholder Optional. Only works when $isSelect is false. Sets a placeholder for the input field.
 		 *    }
 		 * }
-		 * @param array $query The query data. Contains 'id' and 'taxonomy'.
+		 * @param array $_generator_args The query data. Contains 'id' and 'taxonomy'.
 		 */
-		$data = \apply_filters_ref_array( 'the_seo_framework_list_table_data', [ $data, $query ] );
+		$data = \apply_filters_ref_array( 'the_seo_framework_list_table_data', [ $data, $_generator_args ] );
 
 		$container = '';
 
@@ -391,25 +399,25 @@ final class ListEdit extends ListTable {
 			HTML::make_data_attributes( [ 'le' => $data ] )
 		);
 
-		$term_prefix = $tsf->use_generated_archive_prefix( \get_term( $query['id'], $query['taxonomy'] ) )
+		$term_prefix = $tsf->use_generated_archive_prefix( \get_term( $_generator_args['id'], $_generator_args['taxonomy'] ) )
 			? sprintf(
 				/* translators: %s: Taxonomy singular name. */
 				\_x( '%s:', 'taxonomy term archive title prefix', 'default' ),
-				$tsf->get_tax_type_label( $query['taxonomy'] )
+				$tsf->get_tax_type_label( $_generator_args['taxonomy'] )
 			)
 			: '';
 
 		$title_data = [
 			'refTitleLocked'    => false,
-			'defaultTitle'      => $tsf->s_title( $tsf->get_filtered_raw_generated_title( $query ) ),
-			'addAdditions'      => $tsf->use_title_branding( $query ),
+			'defaultTitle'      => $tsf->s_title( $tsf->get_filtered_raw_generated_title( $_generator_args ) ),
+			'addAdditions'      => $tsf->use_title_branding( $_generator_args ),
 			'additionValue'     => $tsf->s_title( $tsf->get_blogname() ),
 			'additionPlacement' => 'left' === $tsf->get_title_seplocation() ? 'before' : 'after',
 			'termPrefix'        => $term_prefix,
 		];
 		$desc_data  = [
 			'refDescriptionLocked' => false,
-			'defaultDescription'   => $tsf->get_generated_description( $query ),
+			'defaultDescription'   => $tsf->get_generated_description( $_generator_args ),
 		];
 
 		$container .= sprintf(

@@ -9,7 +9,7 @@
   --}}
 
   <div class="block_preview hidden w-full">
-    <img src="/app/themes/sage/resources/assets/images/block-previews/hero.jpg" class="w-full" alt="{{ $block['keywords'][0] }}">
+    <img src="/app/themes/sage/resources/assets/images/block-previews/rates.jpg" class="w-full" alt="{{ $block['keywords'][0] }}">
   </div>
 
   @php

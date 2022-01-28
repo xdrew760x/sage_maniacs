@@ -8,7 +8,7 @@ namespace The_SEO_Framework\Builders;
 
 /**
  * The SEO Framework plugin
- * Copyright (C) 2018 - 2021 Sybre Waaijer, CyberWire B.V. (https://cyberwire.nl/)
+ * Copyright (C) 2018 - 2022 Sybre Waaijer, CyberWire B.V. (https://cyberwire.nl/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 3 as published
@@ -191,7 +191,7 @@ final class Scripts {
 	 */
 	public static function footer_enqueue() {
 
-		if ( \The_SEO_Framework\_has_run( __METHOD__ ) ) return;
+		if ( \The_SEO_Framework\has_run( __METHOD__ ) ) return;
 
 		\add_action( 'admin_footer', [ static::class, 'enqueue' ], 998 ); // Magic number: 1 before output_templates.
 	}

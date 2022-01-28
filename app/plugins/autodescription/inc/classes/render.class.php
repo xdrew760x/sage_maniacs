@@ -10,7 +10,7 @@ namespace The_SEO_Framework;
 
 /**
  * The SEO Framework plugin
- * Copyright (C) 2015 - 2021 Sybre Waaijer, CyberWire B.V. (https://cyberwire.nl/)
+ * Copyright (C) 2015 - 2022 Sybre Waaijer, CyberWire B.V. (https://cyberwire.nl/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 3 as published
@@ -952,7 +952,6 @@ class Render extends Admin_Init {
 	 * @return string The LD+json Schema.org scripts.
 	 */
 	public function ld_json() {
-
 		/**
 		 * @since 2.6.0
 		 * @param string $json The JSON output. Must be escaped.
@@ -977,7 +976,6 @@ class Render extends Admin_Init {
 	 * @return string The Google Site Verification code meta tag.
 	 */
 	public function google_site_output() {
-
 		/**
 		 * @since 2.6.0
 		 * @param string $code The Google verification code.
@@ -1005,7 +1003,6 @@ class Render extends Admin_Init {
 	 * @return string The Bing Site Verification Code meta tag.
 	 */
 	public function bing_site_output() {
-
 		/**
 		 * @since 2.6.0
 		 * @param string $code The Bing verification code.
@@ -1033,7 +1030,6 @@ class Render extends Admin_Init {
 	 * @return string The Yandex Site Verification code meta tag.
 	 */
 	public function yandex_site_output() {
-
 		/**
 		 * @since 2.6.0
 		 * @param string $code The Yandex verification code.
@@ -1061,7 +1057,6 @@ class Render extends Admin_Init {
 	 * @return string The Baidu Site Verification code meta tag.
 	 */
 	public function baidu_site_output() {
-
 		/**
 		 * @since 4.0.5
 		 * @param string $code The Baidu verification code.
@@ -1089,7 +1084,6 @@ class Render extends Admin_Init {
 	 * @return string The Pinterest Site Verification code meta tag.
 	 */
 	public function pint_site_output() {
-
 		/**
 		 * @since 2.6.0
 		 * @param string $code The Pinterest verification code.

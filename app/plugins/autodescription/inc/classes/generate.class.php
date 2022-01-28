@@ -10,7 +10,7 @@ namespace The_SEO_Framework;
 
 /**
  * The SEO Framework plugin
- * Copyright (C) 2015 - 2021 Sybre Waaijer, CyberWire B.V. (https://cyberwire.nl/)
+ * Copyright (C) 2015 - 2022 Sybre Waaijer, CyberWire B.V. (https://cyberwire.nl/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 3 as published
@@ -44,6 +44,7 @@ class Generate extends User_Data {
 	 *              2. Removed isset() check -- we now expect incomplete $args, always.
 	 *              3. Improved performance by 60% switching from array_merge to array_union.
 	 * @internal
+	 * @todo Remove support for non-array input. Integers' been silently deprecated since 2018. Announce deprecation first?
 	 *
 	 * @param array|int|null $args The arguments, passed by reference.
 	 */
@@ -376,10 +377,8 @@ class Generate extends User_Data {
 		// phpcs:ignore, WordPress.CodeAnalysis.AssignmentInCondition -- I know.
 		if ( null !== $memo = memo() ) return $memo;
 
-		$id = $this->get_the_real_ID();
-
-		$post              = \get_post( $id );
-		$post_modified_gmt = $post->post_modified_gmt;
+		$id                = $this->get_the_real_ID();
+		$post_modified_gmt = \get_post( $id )->post_modified_gmt;
 
 		return memo(
 			'0000-00-00 00:00:00' === $post_modified_gmt

@@ -8,7 +8,7 @@
 
 /**
  * The SEO Framework plugin
- * Copyright (C) 2019 - 2021 Sybre Waaijer, CyberWire B.V. (https://cyberwire.nl/)
+ * Copyright (C) 2019 - 2022 Sybre Waaijer, CyberWire B.V. (https://cyberwire.nl/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 3 as published
@@ -78,7 +78,8 @@ window.tsfLe = function() {
 		const data = JSON.parse( document.getElementById( `tsfLeData[${id}]` )?.dataset.le || 0 ) || {};
 
 		for ( const option in data ) {
-			let element = document.getElementById( 'autodescription-quick[%s]'.replace( '%s', option ) );
+			const element = document.getElementById( 'autodescription-quick[%s]'.replace( '%s', option ) );
+
 			if ( ! element ) continue;
 
 			if ( data[ option ].isSelect ) {
@@ -90,6 +91,9 @@ window.tsfLe = function() {
 					_default.innerHTML = _default.innerHTML.replace( '%s', tsf.decodeEntities( data[ option ].default ) );
 			} else {
 				element.value = tsf.decodeEntities( data[ option ].value );
+
+				if ( data[ option ].placeholder )
+					element.placeholder = tsf.decodeEntities( data[ option ].placeholder );
 			}
 		}
 	}

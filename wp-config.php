@@ -64,13 +64,13 @@ switch(WP_ENV){
 	// Development
 	case 'development':
 	/** The name of the local database for WordPress */
-	define('DB_NAME', '');
+	define('DB_NAME', 'xpress_db');
 
 	/** MySQL local database username */
-	define('DB_USER', '');
+	define('DB_USER', 'root');
 
 	/** MySQL local database password */
-	define('DB_PASSWORD', '');
+	define('DB_PASSWORD', 'root');
 	break;
 	// Production
 	case 'production':

@@ -10,7 +10,7 @@ namespace The_SEO_Framework;
 
 /**
  * The SEO Framework plugin
- * Copyright (C) 2015 - 2021 Sybre Waaijer, CyberWire B.V. (https://cyberwire.nl/)
+ * Copyright (C) 2015 - 2022 Sybre Waaijer, CyberWire B.V. (https://cyberwire.nl/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 3 as published
@@ -784,7 +784,7 @@ class Generate_Ldjson extends Generate_Image {
 				break;
 
 			case 'create':
-				$url = $this->create_canonical_url( $args );
+				$url = $this->get_canonical_url( $args );
 				break;
 
 			default:

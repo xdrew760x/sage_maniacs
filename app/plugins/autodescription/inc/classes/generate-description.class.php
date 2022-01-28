@@ -10,7 +10,7 @@ namespace The_SEO_Framework;
 
 /**
  * The SEO Framework plugin
- * Copyright (C) 2015 - 2021 Sybre Waaijer, CyberWire B.V. (https://cyberwire.nl/)
+ * Copyright (C) 2015 - 2022 Sybre Waaijer, CyberWire B.V. (https://cyberwire.nl/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 3 as published
@@ -667,7 +667,6 @@ class Generate_Description extends Generate {
 	 * @since 3.1.0
 	 * @since 4.0.0 Now processes HTML tags via s_excerpt_raw() for the author descriptions.
 	 * @since 4.2.0 Now uses post type archive descriptions to prefill meta descriptions.
-	 * @TODO fixme: why don't we parse filters? -> What did I mean when I wrote this?
 	 *
 	 * @param null|\WP_Term|\WP_Post_Type $object The term or post type object.
 	 * @return string

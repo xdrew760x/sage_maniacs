@@ -8,9 +8,12 @@
   Align: full
   --}}
 
+  @if(is_admin())
   <div class="block_preview hidden w-full">
     <img src="/app/themes/sage/resources/assets/images/block-previews/col-build.jpg" class="w-full" alt="{{ $block['keywords'][0] }}">
   </div>
+  @endif
+
 
   @php
   $contain = get_field('add_container');

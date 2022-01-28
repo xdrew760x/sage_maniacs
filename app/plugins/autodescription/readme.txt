@@ -1,11 +1,11 @@
-=== The SEO Framework ===
+=== The SEO Framework – Automated, Effortless, Fast. ===
 Contributors: Cybr
 Donate link: https://github.com/sponsors/sybrew
 Tags: seo, xml sitemap, google search, open graph, schema.org, twitter card, performance, headless
 Requires at least: 5.5.0
-Tested up to: 5.8
+Tested up to: 5.9
 Requires PHP: 7.2.0
-Stable tag: 4.2.2
+Stable tag: 4.2.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -141,7 +141,7 @@ If you wish to learn more, please refer to the [EU commission on copyright](http
 = This plugin requires: =
 
 * PHP 7.2 or higher.
-* WordPress 5.1 or higher.
+* WordPress 5.5 or higher.
 * Any modern browser for administration.
 
 = Installation instructions: =
@@ -246,6 +246,10 @@ The SEO Framework does not provide the display of breadcrumbs. This is theme-ter
 If you wish to display breadcrumbs, then your theme should provide this. Alternatively, there are [other plugins](https://wordpress.org/plugins/search/breadcrumbs/) that help you do this.
 
 == Changelog ==
+
+= 4.2.3 =
+
+This minor update addresses a regression where the singular-archive canonical URLs always [pointed to the first page](https://theseoframework.com/?p=3858).
 
 = 4.2.2 =
 
