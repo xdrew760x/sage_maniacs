@@ -317,6 +317,8 @@ add_filter('wp_php_error_message',function( $message, $error ) {return
       background-color:<?php echo $login_button_color;?>;
       border-color: <?php echo $login_button_color;?>;
     }
+
+
     </style>
     <?php
   }

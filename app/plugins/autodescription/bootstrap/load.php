@@ -9,7 +9,7 @@ namespace The_SEO_Framework;
 
 /**
  * The SEO Framework plugin
- * Copyright (C) 2018 - 2021 Sybre Waaijer, CyberWire B.V. (https://cyberwire.nl/)
+ * Copyright (C) 2018 - 2022 Sybre Waaijer, CyberWire B.V. (https://cyberwire.nl/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 3 as published
@@ -67,9 +67,10 @@ function _init_tsf() {
 		return $tsf;
 
 	/**
-	 * @package The_SEO_Framework
+	 * @since 2.3.7
+	 * @param bool $load
 	 */
-	if ( _can_load() ) {
+	if ( \apply_filters( 'the_seo_framework_load', true ) ) {
 		if ( \is_admin() ) {
 			//! TODO: admin-only loader?
 			$tsf         = new Load();
@@ -185,4 +186,18 @@ function _do_plugin_activation() {
  */
 function _do_plugin_deactivation() {
 	require THE_SEO_FRAMEWORK_BOOTSTRAP_PATH . 'deactivation.php';
+}
+
+/**
+ * Adds and returns-to the memoized bootstrap timer.
+ *
+ * @since 4.0.0
+ * @access private
+ *
+ * @param int $add The time to add.
+ * @return int The accumulated time, roughly.
+ */
+function _bootstrap_timer( $add = 0 ) {
+	static $time  = 0;
+	return $time += $add;
 }

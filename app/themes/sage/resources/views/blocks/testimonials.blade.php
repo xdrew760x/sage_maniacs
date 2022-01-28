@@ -9,8 +9,13 @@
   --}}
 
   @if(is_admin())
+  <div class="block_preview hidden w-full">
+    <img src="/app/themes/sage/resources/assets/images/block-previews/testimonials.jpg" class="w-full" alt="{{ $block['keywords'][0] }}">
+  </div>
+
   <script type="text/javascript" src="/app/themes/sage/resources/assets/scripts/slick.min.js"></script>
   @endif
+
   <script type="text/javascript">
   //// Carousel Hero
   jQuery(document).ready( function($){
@@ -39,11 +44,6 @@
     });
   });
   </script>
-
-
-  <div class="block_preview hidden w-full">
-    <img src="/app/themes/sage/resources/assets/images/block-previews/hero.png" class="w-full" alt="{{ $block['keywords'][0] }}">
-  </div>
 
   @php
   $pad_y = get_field('padding_y');

@@ -11,7 +11,7 @@ namespace The_SEO_Framework;
 
 /**
  * The SEO Framework plugin
- * Copyright (C) 2015 - 2021 Sybre Waaijer, CyberWire B.V. (https://cyberwire.nl/)
+ * Copyright (C) 2015 - 2022 Sybre Waaijer, CyberWire B.V. (https://cyberwire.nl/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 3 as published
@@ -84,7 +84,7 @@ final class Load extends Cache {
 	 */
 	public function __construct() {
 
-		if ( _has_run( __METHOD__ ) ) {
+		if ( has_run( __METHOD__ ) ) {
 			// Don't construct twice, warn developer.
 			$this->_doing_it_wrong( __METHOD__, 'Do not instance this class. Use function <code>tsf()</code> instead.', '3.1.0' );
 			return null;

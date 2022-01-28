@@ -20,11 +20,12 @@
     $remove_hero_nav = get_field('remove_hero_nav');
   @endphp
 
+
+
+  @if(is_admin())
   <div class="block_preview hidden">
     <img src="/app/themes/sage/resources/assets/images/block-previews/hero.jpg" alt="{{ $block['keywords'][0] }}">
   </div>
-
-  @if(is_admin())
   <script type="text/javascript" src="/app/themes/sage/resources/assets/scripts/slick.min.js"></script>
   @endif
 

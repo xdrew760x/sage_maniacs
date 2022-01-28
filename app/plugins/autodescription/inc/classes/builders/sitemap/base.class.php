@@ -8,7 +8,7 @@ namespace The_SEO_Framework\Builders\Sitemap;
 
 /**
  * The SEO Framework plugin
- * Copyright (C) 2019 - 2021 Sybre Waaijer, CyberWire B.V. (https://cyberwire.nl/)
+ * Copyright (C) 2019 - 2022 Sybre Waaijer, CyberWire B.V. (https://cyberwire.nl/)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 3 as published
@@ -475,12 +475,12 @@ class Base extends Main {
 	protected function generate_url_item_values( $post_ids, $args, &$count = 0 ) {
 
 		foreach ( $post_ids as $post_id ) {
-			// Setup post cache, which is also used in is_post_included_in_sitemap() and create_canonical_url().
+			// Setup post cache, which is also used in is_post_included_in_sitemap() and get_canonical_url().
 			$post = \get_post( $post_id );
 
 			if ( $this->is_post_included_in_sitemap( $post_id ) ) {
 				$_values = [
-					'loc' => static::$tsf->create_canonical_url( [ 'id' => $post_id ] ),
+					'loc' => static::$tsf->get_canonical_url( [ 'id' => $post_id ] ),
 				];
 
 				if ( $args['show_modified'] )
